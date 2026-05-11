@@ -11,6 +11,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+import librosa
 
 import argparse
 import random
@@ -21,10 +22,10 @@ import torch.backends.cudnn as cudnn
 
 from utils import *
 from config import Config
-from dist_utils import get_rank, init_distributed_mode
 from models import load_model
 from dataset import SALMONNDataset
 from runner import Runner
+from local_dist_utils import get_rank, init_distributed_mode
 
 
 def parse_args():

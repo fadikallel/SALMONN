@@ -12,6 +12,7 @@ from torch.nn import BCEWithLogitsLoss, CrossEntropyLoss, MSELoss
 from transformers.activations import ACT2FN
 from transformers.modeling_outputs import BaseModelOutputWithPast, CausalLMOutputWithPast, SequenceClassifierOutputWithPast
 from transformers.modeling_utils import PreTrainedModel
+from transformers.generation.utils import GenerationMixin  # ADD THIS IMPORT
 from transformers.utils import add_start_docstrings, add_start_docstrings_to_model_forward, logging, replace_return_docstrings
 from transformers.models.llama.configuration_llama import LlamaConfig
 
@@ -490,6 +491,7 @@ class LlamaModel(LlamaPreTrainedModel):
         elif input_ids is not None:
             batch_size, seq_length = input_ids.shape
         elif inputs_embeds is not None:
+            print(inputs_embeds.shape)
             batch_size, seq_length, _ = inputs_embeds.shape
         else:
             raise ValueError("You have to specify either decoder_input_ids or decoder_inputs_embeds")
@@ -503,9 +505,11 @@ class LlamaModel(LlamaPreTrainedModel):
         seq_length_with_past = seq_length
         past_key_values_length = 0
 
-        if past_key_values is not None:
-            past_key_values_length = past_key_values[0][0].shape[2]
-            seq_length_with_past = seq_length_with_past + past_key_values_length
+        if past_key_values is not None and len(past_key_values) > 0 and past_key_values[0] is not None:
+            if isinstance(past_key_values[0], (tuple, list)) and len(past_key_values[0]) > 0:
+                if past_key_values[0][0] is not None:
+                    past_key_values_length = past_key_values[0][0].shape[2]
+                    seq_length_with_past = seq_length_with_past + past_key_values_length
 
         if position_ids is None:
             device = input_ids.device if input_ids is not None else inputs_embeds.device
@@ -596,7 +600,8 @@ class LlamaModel(LlamaPreTrainedModel):
         )
 
 
-class LlamaForCausalLM(LlamaPreTrainedModel):
+# MODIFIED: Add GenerationMixin to enable generate() method
+class LlamaForCausalLM(LlamaPreTrainedModel, GenerationMixin):
     def __init__(self, config):
         super().__init__(config)
         self.model = LlamaModel(config)
@@ -738,7 +743,7 @@ class LlamaForCausalLM(LlamaPreTrainedModel):
         model_inputs.update(
             {
                 "position_ids": position_ids,
-                "query_embeds": query_embeds,
+                "query_embeds": query_embeds if past_key_values is None else None,
                 "past_key_values": past_key_values,
                 "use_cache": kwargs.get("use_cache"),
                 "attention_mask": attention_mask,

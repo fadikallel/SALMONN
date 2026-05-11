@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from .salmonn import SALMONN
+from .allm import ALLM 
 
 def load_model(config):
-    return SALMONN.from_config(config)
+    return ALLM.from_config(config)

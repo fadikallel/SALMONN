@@ -18,7 +18,7 @@ import torch
 from transformers import WhisperFeatureExtractor
 
 from config import Config
-from models.salmonn import SALMONN
+from models.allm import ALLM
 from utils import prepare_one_sample
 
 
@@ -36,27 +36,21 @@ parser.add_argument(
 args = parser.parse_args()
 cfg = Config(args)
 
-model = SALMONN.from_config(cfg.config.model)
+model = ALLM.from_config(cfg.config.model)
 model.to(args.device)
 model.eval()
 
 wav_processor = WhisperFeatureExtractor.from_pretrained(cfg.config.model.whisper_path)
 
-while True:
-    try:
-        print("=====================================")
-        wav_path = input("Your Wav Path:\n")
-        prompt = input("Your Prompt:\n")
+wav_path = input("Your Wav Path:\n")
+prompt = input("Your Prompt:\n")
 
-        samples = prepare_one_sample(wav_path, wav_processor)
-        prompt = [
-            cfg.config.model.prompt_template.format("<Speech><SpeechHere></Speech> " + prompt.strip())
-        ]
-        print("Output:")
-        # for environment with cuda>=117
-        with torch.cuda.amp.autocast(dtype=torch.float16):
-            print(model.generate(samples, cfg.config.generate, prompts=prompt)[0])
-        # print(model.generate(samples, cfg.config.generate, prompts=prompt)[0])
-    except Exception as e:
-        print(e)
-        import pdb; pdb.set_trace()
+samples = prepare_one_sample(wav_path, wav_processor)
+prompt = [
+    cfg.config.model.prompt_template.format("<Speech><SpeechHere></Speech> " + prompt.strip())
+]
+print("Output:")
+# for environment with cuda>=117
+with torch.cuda.amp.autocast(dtype=torch.float16):
+    print(model.generate(samples, cfg.config.generate, prompts=prompt)[0])
+# print(model.generate(samples, cfg.config.generate, prompts=prompt)[0])

@@ -17,7 +17,7 @@ import json
 import torch
 from torch.utils.data import Dataset
 from torch.nn.utils.rnn import pad_sequence
-import soundfile as sf
+import librosa
 import numpy as np
 from transformers import WhisperFeatureExtractor
 
@@ -60,7 +60,7 @@ class SALMONNDataset(Dataset):
     def __getitem__(self, index):
         ann = self.annotation[index]
 
-        audio, sr = sf.read(ann["path"])
+        audio, sr = librosa.load(ann["path"], sr=16000, mono=False)
         if len(audio.shape) == 2: # stereo to mono
             audio = audio[:, 0]
         if "expand_wav" in ann:

@@ -14,22 +14,12 @@
 
 model:
   # paths
-  llama_path: "path to llama model"
-  whisper_path: "path to whisper model"
-  beats_path: "path to beats model"
+  llama_path: "../vicuna-13b-v1.1/models--lmsys--vicuna-13b-v1.1/snapshots/1acf26f93742fafe91562253ec0e5d94e40a8bea/"
+  whisper_path: "../whisper-large-v2/models--openai--whisper-large-v2/snapshots/ae4642769ce2ad8fc292556ccea8e901f1530655/"
 
-  ckpt: "model ckpt" # model used for decoding
+  ckpt: "outputs/202605110858/checkpoint_best.pth" # if not "", load model from ckpt for training or evaluation
 
   freeze_whisper: True
-  freeze_beats: True
-
-  # window-level Q-Former
-  use_speech_Qformer: True
-  freeze_speech_QFormer: False
-  window_level_Qformer: True
-  num_speech_query_token: 1
-  second_per_window: 0.333333
-  second_stride: 0.333333
 
   speech_llama_proj_model: ""
   freeze_speech_llama_proj: False

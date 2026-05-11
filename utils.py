@@ -17,10 +17,10 @@ import time
 
 import torch
 from torch.utils.data import DataLoader, DistributedSampler
-import soundfile as sf
+import librosa
 import numpy as np
 
-from dist_utils import is_main_process, get_world_size, get_rank
+from local_dist_utils import is_main_process, get_world_size, get_rank
 
 
 def now():
@@ -137,7 +137,7 @@ class IterLoader:
 
 
 def prepare_one_sample(wav_path, wav_processor, cuda_enabled=True):
-    audio, sr = sf.read(wav_path)
+    audio, sr = librosa.load(wav_path, sr=16000, mono=False)
     if len(audio.shape) == 2: # stereo to mono
         audio = audio[:, 0]
     if len(audio) < sr: # pad audio to at least 1s

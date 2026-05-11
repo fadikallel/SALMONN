@@ -163,6 +163,6 @@ cython_debug/
 launch.sh
 
 *.pyc
-/output
+/outputs
 arnold.sh
 /configs_local
