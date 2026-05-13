@@ -6,10 +6,10 @@ import random
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from transformers import Qwen3_5Tokenizer, StoppingCriteriaList
+from transformers import Qwen3_5ForCausalLM,Qwen3_5Tokenizer, StoppingCriteriaList
 from peft import LoraConfig, TaskType, get_peft_model
 
-from .modeling_qwen3_5 import Qwen3_5ForCausalLM
+# from .modeling_qwen3_5 import Qwen3_5ForCausalLM
 from .modeling_whisper import WhisperModel
 from .utils import StoppingCriteriaSub
 
@@ -85,6 +85,7 @@ class ALLM(nn.Module):
 
         if self.lora:
             self.peft_config = LoraConfig(
+                target_modules=["q_proj", "v_proj"],
                 task_type=TaskType.CAUSAL_LM, 
                 inference_mode=False, 
                 r=lora_rank, 
@@ -223,23 +224,16 @@ class ALLM(nn.Module):
         )
         empty_targets = (
             torch.ones(
-                [speech_atts.shape[0], speech_atts.shape[1] + 1],
+                [speech_atts.shape[0], speech_atts.shape[1] ],
                 dtype=torch.long
             ).to(spectrogram.device).fill_(-100)
         )
         targets = torch.cat([empty_targets, targets], dim=1)
 
         batch_size = speech_embeds.shape[0]
-        bos = torch.ones(
-            [batch_size, 1],
-            dtype=to_regress_tokens.input_ids.dtype,
-            device=to_regress_tokens.input_ids.device,
-        ) * self.qwen_tokenizer.bos_token_id
-        bos_embeds = self.qwen_model.model.embed_tokens(bos) if not self.lora else self.qwen_model.model.model.embed_tokens(bos)
-        atts_bos = speech_atts[:, :1]
 
-        inputs_embeds = torch.cat([bos_embeds, speech_embeds, to_regress_embeds], dim=1)
-        attention_mask = torch.cat([atts_bos, speech_atts, to_regress_tokens.attention_mask], dim=1)
+        inputs_embeds = torch.cat([ speech_embeds, to_regress_embeds], dim=1)
+        attention_mask = torch.cat([ speech_atts, to_regress_tokens.attention_mask], dim=1)
 
         # calulate loss
         with self.maybe_autocast():
@@ -276,16 +270,9 @@ class ALLM(nn.Module):
         if prompts is not None:
             speech_embeds, speech_atts = self.prompt_wrap(speech_embeds, speech_atts, prompts, multi_prompt=True)
 
-        bos = torch.ones(
-            [batch_size, 1],
-            dtype=torch.int32,
-            device=speech_embeds.device,
-        ) * self.qwen_tokenizer.bos_token_id
-        bos_embeds = self.qwen_model.model.embed_tokens(bos) if not self.lora else self.qwen_model.model.model.embed_tokens(bos)
-        atts_bos = speech_atts[:, :1]
 
-        embeds = torch.cat([bos_embeds, speech_embeds], dim=1)
-        attns = torch.cat([atts_bos, speech_atts], dim=1)
+        embeds =  speech_embeds
+        attns = speech_atts
 
         stop_words_ids = [torch.tensor([2]).cuda()]  
         stopping_criteria = StoppingCriteriaList([StoppingCriteriaSub(stops=stop_words_ids)])

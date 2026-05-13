@@ -491,7 +491,6 @@ class LlamaModel(LlamaPreTrainedModel):
         elif input_ids is not None:
             batch_size, seq_length = input_ids.shape
         elif inputs_embeds is not None:
-            print(inputs_embeds.shape)
             batch_size, seq_length, _ = inputs_embeds.shape
         else:
             raise ValueError("You have to specify either decoder_input_ids or decoder_inputs_embeds")
@@ -743,7 +742,7 @@ class LlamaForCausalLM(LlamaPreTrainedModel, GenerationMixin):
         model_inputs.update(
             {
                 "position_ids": position_ids,
-                "query_embeds": query_embeds if past_key_values is None else None,
+                "query_embeds": query_embeds,
                 "past_key_values": past_key_values,
                 "use_cache": kwargs.get("use_cache"),
                 "attention_mask": attention_mask,

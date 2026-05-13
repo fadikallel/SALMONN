@@ -303,7 +303,6 @@ class ALLM(nn.Module):
             attention_mask=attns,
         )
         text = self.llama_tokenizer.batch_decode(outputs, add_special_tokens=False)
-
         return text
 
     @classmethod
