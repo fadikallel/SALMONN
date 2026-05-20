@@ -120,7 +120,7 @@ class Runner:
             self.scheduler.step(cur_epoch=epoch, cur_step=i)
 
             with torch.cuda.amp.autocast(enabled=self.use_amp):
-                loss = self.model(samples)["loss"]
+                loss = self.model(samples, verbose=True)["loss"]
 
             if self.use_amp:
                 self.scaler.scale(loss).backward()

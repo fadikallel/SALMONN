@@ -47,7 +47,7 @@ class ALLM(nn.Module):
         prompt_path="",
         prompt_template="",
         max_txt_len=128,
-        end_sym="</s>",
+        end_sym="",
         low_resource=False,  # use 8 bit
         device_8bit=0,  # the device of 8bit model should be set when loading and cannot be changed anymore.
     ):
@@ -63,7 +63,6 @@ class ALLM(nn.Module):
         self.qwen_tokenizer = Qwen3_5Tokenizer.from_pretrained(qwen_path, use_fast=False)
         self.qwen_tokenizer.add_special_tokens({'pad_token': '[PAD]'})
         self.qwen_tokenizer.padding_side = "right"
-
         logging.info('Loading Qwen Model')
         if self.low_resource:
             self.qwen_model = Qwen3_5ForCausalLM.from_pretrained(
@@ -209,7 +208,8 @@ class ALLM(nn.Module):
             speech_embeds, speech_atts = self.prompt_wrap(speech_embeds, speech_atts, prompt, multi_prompt=self.multi_prompt)
 
         # prepare inputs for LLM
-        text = [t + self.end_sym for t in samples["text"]]
+        # text = [t  for t in samples["text"]]
+        text = samples['text']
         to_regress_tokens = self.qwen_tokenizer(
             text,
             return_tensors="pt",
@@ -250,6 +250,7 @@ class ALLM(nn.Module):
             results = outputs.logits[:, empty_targets.size(1) - 1: -1, :].contiguous().view(-1, nvocab).argmax(dim=-1)
             labels = targets[:, empty_targets.size(1):].contiguous().view(-1)
             mask = (labels != -100)
+            # print(self.qwen_tokenizer.batch_decode(results), self.qwen_tokenizer.batch_decode(labels), mask)
             correct = (results[mask] == labels[mask]).float().sum()
             total = len(labels[mask])
 
@@ -310,7 +311,7 @@ class ALLM(nn.Module):
         prompt_path = config.get("prompt_path", "")
         prompt_template = config.get("prompt_template", "")
         max_txt_len = config.get("max_txt_len", 128)
-        end_sym = config.get("end_sym", "</s>")
+        end_sym = config.get("end_sym", "")
         low_resource = config.get("low_resource", False)
         device_8bit = config.get("device_8bit", 0)
 

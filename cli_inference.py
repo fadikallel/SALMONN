@@ -47,7 +47,7 @@ wav_processor = WhisperFeatureExtractor.from_pretrained(cfg.config.model.whisper
 
 # wav_path = input("Your Wav Path:\n")
 # prompt = input("Your Prompt:\n")
-wav_path = "/ds-slt/audio/fkallel/LibriSpeech/train-clean-100/103/1240/103-1240-0000.flac"
+wav_path = "/ds-slt/audio/fkallel/LibriSpeech/train-clean-100/103/1240/103-1240-0001.flac"
 prompt = "Recognize the speech and give me the transcription."
 
 samples = prepare_one_sample(wav_path, wav_processor)
@@ -59,26 +59,29 @@ print("Output:")
 with torch.cuda.amp.autocast(dtype=torch.float16):
     print(model.generate(samples, cfg.config.generate, prompts=prompt)[0])
 # # print(model.generate(samples, cfg.config.generate, prompts=prompt)[0])
-# job_id = now()
+job_id = now()
 
-# # load config
-# cfg = Config(args)
-# run_config = cfg.config.run
-# model_config = cfg.config.model
-# data_config = cfg.config.datasets
-# init_distributed_mode(run_config)
+# load config
+args.cfg_path = "configs/qwen_config.yaml"
 
-# # build model
-# model = load_model(model_config)
+cfg = Config(args)
+run_config = cfg.config.run
+model_config = cfg.config.model
+model_config.ckpt = "outputs/202605190932/checkpoint_best.pth" 
+data_config = cfg.config.datasets
+init_distributed_mode(run_config)
 
-# # build datasets
-# datasets = {
-#     "train": SALMONNDataset(data_config.train_ann_path, data_config.whisper_path),
-#     "valid": SALMONNDataset(data_config.valid_ann_path, data_config.whisper_path),
-#     "test": SALMONNDataset(data_config.test_ann_path, data_config.whisper_path),
-# }
+# build model
+model = load_model(model_config)
 
-# # build runner
-# runner = Runner(cfg, model, datasets, job_id)
+# build datasets
+datasets = {
+    "train": SALMONNDataset(data_config.train_ann_path, data_config.whisper_path),
+    "valid": SALMONNDataset(data_config.valid_ann_path, data_config.whisper_path),
+    "test": SALMONNDataset(data_config.test_ann_path, data_config.whisper_path),
+}
 
-# runner.valid_epoch("0","test",decode=True,save_json=True)
+# build runner
+runner = Runner(cfg, model, datasets, job_id)
+
+runner.valid_epoch("0","valid",decode=True,save_json=True)
