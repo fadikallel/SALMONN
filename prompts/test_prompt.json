@@ -1,4 +1,7 @@
 {
+    "deepfake_detection": [
+        "<Speech><SpeechHere></Speech>Please determine the authenticity of this audio. Output your final answer (\"real\" or \"fake\") in <answer></answer> tags"
+    ],
     "asr": "<Speech><SpeechHere></Speech> Recognize the speech and give me the transcription.",
     "asr_zh": "<Speech><SpeechHere></Speech> 请将语音中的内容写下来。",
     "asr_de": "<Speech><SpeechHere></Speech> Hören Sie sich die Rede an und schreiben Sie ihren Inhalt auf.",

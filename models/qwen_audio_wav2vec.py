@@ -6,11 +6,11 @@ import random
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from transformers import Qwen3_5ForCausalLM,Qwen3_5Tokenizer, StoppingCriteriaList
+from transformers import Qwen3_5ForCausalLM,Qwen3_5Tokenizer, StoppingCriteriaList, Wav2Vec2Model
 from peft import LoraConfig, TaskType, get_peft_model
 
 # from .modeling_qwen3_5 import Qwen3_5ForCausalLM
-from .modeling_whisper import WhisperModel
+# from .modeling_whisper import WhisperModel
 from .utils import StoppingCriteriaSub
 
 
@@ -32,8 +32,8 @@ class ALLM(nn.Module):
     def __init__(
         self,
         qwen_path="",
-        whisper_path="",
-        freeze_whisper=True,
+        wav2vec2_path="",
+        freeze_wav2vec2=True,
         
         speech_qwen_proj_model="",
         freeze_speech_qwen_proj=False,
@@ -95,17 +95,17 @@ class ALLM(nn.Module):
             self.qwen_model.print_trainable_parameters()
             logging.info('LoRA Training')
 
-        assert whisper_path
-        logging.info('Loading Whisper Model')
-        self.speech_encoder = WhisperModel.from_pretrained(whisper_path).encoder
-        self.ln_speech = nn.LayerNorm(self.speech_encoder.config.d_model)
-        if freeze_whisper:
+        assert wav2vec2_path
+        logging.info('Loading Wav2Vec2 Model')
+        self.speech_encoder = Wav2Vec2Model.from_pretrained(wav2vec2_path).encoder
+        self.ln_speech = nn.LayerNorm(self.speech_encoder.config.hidden_size)
+        if freeze_wav2vec2:
             for name, param in self.speech_encoder.named_parameters():
                 param.requires_grad = False
             self.speech_encoder.eval()
-            logging.info("freeze Whisper")
+            logging.info("freeze Wav2Vec2")
         
-        self.speech_qwen_proj_model = nn.Linear(self.speech_encoder.config.d_model, self.qwen_model.config.hidden_size)
+        self.speech_qwen_proj_model = nn.Linear(self.speech_encoder.config.hidden_size, self.qwen_model.config.hidden_size)
         if speech_qwen_proj_model:
             logging.info("Loading speech Qwen proj from {}".format(speech_qwen_proj_model))
             speech_qwen_proj_weight = torch.load(speech_qwen_proj_model, map_location="cpu")
@@ -250,7 +250,7 @@ class ALLM(nn.Module):
             results = outputs.logits[:, empty_targets.size(1) - 1: -1, :].contiguous().view(-1, nvocab).argmax(dim=-1)
             labels = targets[:, empty_targets.size(1):].contiguous().view(-1)
             mask = (labels != -100)
-            # print(self.qwen_tokenizer.batch_decode(results), self.qwen_tokenizer.batch_decode(labels), mask)
+            print(self.qwen_tokenizer.batch_decode(results), self.qwen_tokenizer.batch_decode(labels), mask)
             correct = (results[mask] == labels[mask]).float().sum()
             total = len(labels[mask])
 
@@ -289,8 +289,7 @@ class ALLM(nn.Module):
             repetition_penalty=generate_cfg.get("repetition_penalty", 1.0),
             length_penalty=generate_cfg.get("length_penalty", 1.0),
             attention_mask=attns,
-            pad_token_id=self.qwen_tokenizer.pad_token_id,
-        )  
+        )
         text = self.qwen_tokenizer.batch_decode(outputs, add_special_tokens=False)
 
         return text
@@ -298,8 +297,8 @@ class ALLM(nn.Module):
     @classmethod
     def from_config(cls, config):
         qwen_path = config.get("qwen_path")
-        whisper_path = config.get("whisper_path")
-        freeze_whisper = config.get("freeze_whisper", True)
+        wav2vec2_path = config.get("wav2vec2_path")
+        freeze_wav2vec2 = config.get("freeze_wav2vec2", True)
         speech_qwen_proj_model = config.get("speech_qwen_proj_model", "")
         freeze_speech_qwen_proj = config.get("freeze_speech_qwen_proj", False)
 
@@ -318,8 +317,8 @@ class ALLM(nn.Module):
 
         model = cls(
             qwen_path=qwen_path,
-            whisper_path=whisper_path,
-            freeze_whisper=freeze_whisper,
+            wav2vec2_path=wav2vec2_path,
+            freeze_wav2vec2=freeze_wav2vec2,
             speech_qwen_proj_model=speech_qwen_proj_model,
             freeze_speech_qwen_proj=freeze_speech_qwen_proj,
             lora=lora,

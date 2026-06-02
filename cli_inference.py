@@ -37,37 +37,37 @@ parser.add_argument(
 )
 
 args = parser.parse_args()
-cfg = Config(args)
+# cfg = Config(args)
 
-model = load_model(cfg.config.model)
-model.to(args.device)
-model.eval()
+# model = load_model(cfg.config.model)
+# model.to(args.device)
+# model.eval()
 
-wav_processor = WhisperFeatureExtractor.from_pretrained(cfg.config.model.whisper_path)
+# wav_processor = WhisperFeatureExtractor.from_pretrained(cfg.config.model.whisper_path)
 
-# wav_path = input("Your Wav Path:\n")
-# prompt = input("Your Prompt:\n")
-wav_path = "/ds-slt/audio/fkallel/LibriSpeech/train-clean-100/103/1240/103-1240-0001.flac"
-prompt = "Recognize the speech and give me the transcription."
+# # wav_path = input("Your Wav Path:\n")
+# # prompt = input("Your Prompt:\n")
+# wav_path = "/ds-slt/audio/fkallel/LibriSpeech/train-clean-100/103/1240/103-1240-0001.flac"
+# prompt = "Recognize the speech and give me the transcription."
 
-samples = prepare_one_sample(wav_path, wav_processor)
-prompt = [
-    cfg.config.model.prompt_template.format("<Speech><SpeechHere></Speech> " + prompt.strip())
-]
-print("Output:")
-# for environment with cuda>=117
-with torch.cuda.amp.autocast(dtype=torch.float16):
-    print(model.generate(samples, cfg.config.generate, prompts=prompt)[0])
-# # print(model.generate(samples, cfg.config.generate, prompts=prompt)[0])
+# samples = prepare_one_sample(wav_path, wav_processor)
+# prompt = [
+#     cfg.config.model.prompt_template.format("<Speech><SpeechHere></Speech> " + prompt.strip())
+# ]
+# print("Output:")
+# # for environment with cuda>=117
+# with torch.cuda.amp.autocast(dtype=torch.float16):
+#     print(model.generate(samples, cfg.config.generate, prompts=prompt)[0])
+# # # print(model.generate(samples, cfg.config.generate, prompts=prompt)[0])
 job_id = now()
 
 # load config
-args.cfg_path = "configs/qwen_config.yaml"
+args.cfg_path = "configs/qwen_config_dfd.yaml"
 
 cfg = Config(args)
 run_config = cfg.config.run
 model_config = cfg.config.model
-model_config.ckpt = "outputs/202605190932/checkpoint_best.pth" 
+model_config.ckpt = "outputs/asv19_no_reasoning/checkpoint_best.pth" 
 data_config = cfg.config.datasets
 init_distributed_mode(run_config)
 
@@ -84,4 +84,4 @@ datasets = {
 # build runner
 runner = Runner(cfg, model, datasets, job_id)
 
-runner.valid_epoch("0","valid",decode=True,save_json=True)
+runner.valid_epoch("0","test",decode=True,save_json=True)

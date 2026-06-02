@@ -15,12 +15,12 @@
 model:
   # paths
   qwen_path: "../Qwen3.5-9B/models--Qwen--Qwen3.5-9B/snapshots/c202236235762e1c871ad0ccb60c8ee5ba337b9a/"
-  whisper_path: "../whisper-large-v2/models--openai--whisper-large-v2/snapshots/ae4642769ce2ad8fc292556ccea8e901f1530655/"
+  #whisper_path: "../whisper-large-v2/models--openai--whisper-large-v2/snapshots/ae4642769ce2ad8fc292556ccea8e901f1530655/"
+  wav2vec2_path: "../wav2vec2-xls-r-300m/"
+  ckpt: "" # "outputs/asv19_no_reasoning/checkpoint_best.pth" # if not "", load model from ckpt for training or evaluation
 
-  ckpt: "outputs/202605190932/checkpoint_best.pth" # if not "", load model from ckpt for training or evaluation
-
-  freeze_whisper: True
-
+  # freeze_whisper: True
+  freeze_wav2vec2: True
   speech_qwen_proj_model: ""
   freeze_speech_qwen_proj: False
 
