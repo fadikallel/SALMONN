@@ -6,7 +6,7 @@ import random
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from transformers import Qwen3_5ForCausalLM,Qwen3_5Tokenizer, StoppingCriteriaList, Wav2Vec2Model
+from transformers import Qwen3_5ForCausalLM,Qwen3_5Tokenizer, StoppingCriteriaList, Wav2Vec2Model, Wav2Vec2FeatureExtractor
 from peft import LoraConfig, TaskType, get_peft_model
 
 # from .modeling_qwen3_5 import Qwen3_5ForCausalLM
@@ -97,7 +97,8 @@ class ALLM(nn.Module):
 
         assert wav2vec2_path
         logging.info('Loading Wav2Vec2 Model')
-        self.speech_encoder = Wav2Vec2Model.from_pretrained(wav2vec2_path).encoder
+        self.wav_processor = Wav2Vec2FeatureExtractor.from_pretrained(wav2vec2_path)
+        self.speech_encoder = Wav2Vec2Model.from_pretrained(wav2vec2_path)
         self.ln_speech = nn.LayerNorm(self.speech_encoder.config.hidden_size)
         if freeze_wav2vec2:
             for name, param in self.speech_encoder.named_parameters():
@@ -133,9 +134,35 @@ class ALLM(nn.Module):
 
         return speech_embeds, speech_atts
 
-    def encode_speech(self, spectrogram, raw_wav=None, audio_padding_mask=None):
+    def encode_speech(self, raw_wav, audio_padding_mask=None):
+        # raw_wav is already batched and padded from the collater
+        # Convert to float32 if needed
+        input_values = raw_wav.to(torch.float32)
+        
+        # Move to CPU for feature extraction (processor expects numpy/CPU)
+        if input_values.is_cuda:
+            input_values_cpu = input_values.cpu().numpy()
+        else:
+            input_values_cpu = input_values.numpy()
+        
+        # Process through feature extractor
+        processed = self.wav_processor(
+            input_values_cpu,
+            sampling_rate=16000,
+            return_tensors="pt",
+            padding=True,
+            return_attention_mask=True
+        )
+        
+        input_values = processed["input_values"].to(self.device)
+        attention_mask = processed.get("attention_mask").to(self.device) if processed.get("attention_mask") is not None else None
+        
         with self.maybe_autocast():
-            speech_embeds = self.speech_encoder(spectrogram, return_dict=True).last_hidden_state
+            speech_embeds = self.speech_encoder(
+                input_values,
+                attention_mask=attention_mask,
+                return_dict=True
+            ).last_hidden_state
 
         return self._encode_auditory_feature(speech_embeds)
 
@@ -197,11 +224,10 @@ class ALLM(nn.Module):
                 prompt = random.choice(self.prompt_dict[samples["task"][0]])
 
         # use speech/audio encoder to encode speech/audio
-        spectrogram = samples["spectrogram"]
-        raw_wav = samples.get("raw_wav", None)
+        raw_wav = samples["raw_wav"]
         audio_padding_mask = samples.get("padding_mask", None)
 
-        speech_embeds, speech_atts = self.encode_speech(spectrogram, raw_wav=raw_wav, audio_padding_mask=audio_padding_mask)
+        speech_embeds, speech_atts = self.encode_speech(raw_wav, audio_padding_mask=audio_padding_mask)
 
         # wrap speech_embeds with prompts
         if self.prompt_dict:
@@ -217,7 +243,7 @@ class ALLM(nn.Module):
             truncation=True,
             max_length=self.max_txt_len,
             add_special_tokens=False
-        ).to(spectrogram.device)
+        ).to(speech_embeds.device)
         to_regress_embeds = self.qwen_model.model.embed_tokens(to_regress_tokens.input_ids) if not self.lora else self.qwen_model.model.model.embed_tokens(to_regress_tokens.input_ids)
         targets = to_regress_tokens.input_ids.masked_fill(
             to_regress_tokens.input_ids == self.qwen_tokenizer.pad_token_id, -100
@@ -226,7 +252,7 @@ class ALLM(nn.Module):
             torch.ones(
                 [speech_atts.shape[0], speech_atts.shape[1] ],
                 dtype=torch.long
-            ).to(spectrogram.device).fill_(-100)
+            ).to(speech_embeds.device).fill_(-100)
         )
         targets = torch.cat([empty_targets, targets], dim=1)
 
@@ -250,7 +276,7 @@ class ALLM(nn.Module):
             results = outputs.logits[:, empty_targets.size(1) - 1: -1, :].contiguous().view(-1, nvocab).argmax(dim=-1)
             labels = targets[:, empty_targets.size(1):].contiguous().view(-1)
             mask = (labels != -100)
-            print(self.qwen_tokenizer.batch_decode(results), self.qwen_tokenizer.batch_decode(labels), mask)
+            # print(self.qwen_tokenizer.batch_decode(results), self.qwen_tokenizer.batch_decode(labels), mask)
             correct = (results[mask] == labels[mask]).float().sum()
             total = len(labels[mask])
 
@@ -260,13 +286,10 @@ class ALLM(nn.Module):
         return {"loss": loss}
 
     def generate(self, samples, generate_cfg, prompts=None):
-        batch_size = samples["spectrogram"].shape[0]
-
-        spectrogram = samples["spectrogram"]
         raw_wav = samples.get("raw_wav", None)
         audio_padding_mask = samples.get("padding_mask", None)
 
-        speech_embeds, speech_atts = self.encode_speech(spectrogram, raw_wav=raw_wav, audio_padding_mask=audio_padding_mask)
+        speech_embeds, speech_atts = self.encode_speech(raw_wav, audio_padding_mask=audio_padding_mask)
 
         if prompts is not None:
             speech_embeds, speech_atts = self.prompt_wrap(speech_embeds, speech_atts, prompts, multi_prompt=True)
@@ -275,7 +298,7 @@ class ALLM(nn.Module):
         embeds =  speech_embeds
         attns = speech_atts
 
-        stop_words_ids = [torch.tensor([2]).cuda()]  
+        stop_words_ids = [torch.tensor([2]).to(self.device)]  
         stopping_criteria = StoppingCriteriaList([StoppingCriteriaSub(stops=stop_words_ids)])
         outputs = self.qwen_model.generate(
             inputs_embeds=embeds,
@@ -289,6 +312,7 @@ class ALLM(nn.Module):
             repetition_penalty=generate_cfg.get("repetition_penalty", 1.0),
             length_penalty=generate_cfg.get("length_penalty", 1.0),
             attention_mask=attns,
+            pad_token_id=self.qwen_tokenizer.pad_token_id,
         )
         text = self.qwen_tokenizer.batch_decode(outputs, add_special_tokens=False)
 
