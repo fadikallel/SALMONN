@@ -11,14 +11,13 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 model:
   # paths
-  llama_path: "path to llama model"
-  whisper_path: "path to whisper model"
-  beats_path: "path to beats model"
+  llama_path: "../vicuna-13b-v1.1/models--lmsys--vicuna-13b-v1.1/snapshots/1acf26f93742fafe91562253ec0e5d94e40a8bea/"
+  whisper_path: "../whisper-large-v2/models--openai--whisper-large-v2/snapshots/ae4642769ce2ad8fc292556ccea8e901f1530655/"
+  beats_path: "../BEATs_iter3_plus_AS2M_finetuned_on_AS2M_cpt2.pt"
 
-  ckpt: "model ckpt" # if not "", load model from ckpt for training or evaluation
+  ckpt: "" # if not "", load model from ckpt for training or evaluation
 
   freeze_whisper: True
   freeze_beats: True
@@ -44,27 +43,28 @@ model:
   prompt_template: "USER: {}\nASSISTANT:"
   prompt_path: "prompts/train_prompt.json"
   test_prompt_path: "prompts/test_prompt.json"
-  max_txt_len: 300
+  max_txt_len: 4
   end_sym: "</s>"
 
-datasets:
-  train_ann_path: "path to train data"
-  valid_ann_path: "path to valid data"
-  test_ann_path: "path to test data"
 
-  whisper_path: "path to whisper model"
+datasets:
+  train_ann_path: "/netscratch/fkallel/dfd_llm/datasets/asvspoof19_train.json"
+  valid_ann_path: "/netscratch/fkallel/dfd_llm/datasets/asvspoof19_dev.json"
+  test_ann_path: "/netscratch/fkallel/dfd_llm/datasets/asvspoof19_eval.json"
+
+  whisper_path: "openai/whisper-large-v2"
 
 run:
   # log & settings
   seed: 42
-  output_dir: "output directory"
+  output_dir: "outputs"
   evaluate: False # if True, only evaluate model on test data
 
   log_freq: 5
   epoch_based: False
-  iters_per_epoch: 3000
+  iters_per_epoch: 6000
   accum_grad_iters: 1
-  batch_size_train: 8
+  batch_size_train: 4
   batch_size_eval: 8
   num_workers: 8
 

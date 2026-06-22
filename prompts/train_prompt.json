@@ -1,4 +1,10 @@
 {
+    "deepfake_detection": [
+        "<Speech><SpeechHere></Speech>Assess whether the audio sample contains genuine human speech or synthesized artificial speech. Answer with only one word (\"bonafide\" or \"spoof\")"
+    ],
+    "deepfake_detection_with_reasoning": [
+        "<Speech><SpeechHere></Speech>You are an expert audio forensics analyst specializing in detecting synthetic speech. Assess whether the audio sample contains genuine human speech or synthesized artificial speech.\n\n### Instructions\n- If **bonafide**: Provide a brief explanation (1-2 sentences) confirming authenticity.\n- If **spoof**: Provide a free-form explanation with specific reasons from this list of options: pitch, intonation, jitter, shimmer, spectral features, timbre, pausing, noise, breathing, emotion-content alignment.\n\n### Output Format\n<reasoning>\n[Your explanation here]\n</reasoning>\n\n<answer>bonafide/spoof</answer>\n"
+    ], 
     "asr": [
         "<Speech><SpeechHere></Speech> Can you transcribe the speech into a written format?",
         "<Speech><SpeechHere></Speech> Listen to the speech and write down its content.",

@@ -26,7 +26,7 @@ class SALMONNDataset(Dataset):
     def __init__(self, ann_path, whisper_path):
         super().__init__()
 
-        self.annotation = json.load(open(ann_path, "r"))["annotation"]
+        self.annotation = json.load(open(ann_path, "r"))#["annotation"]
 
         self.wav_processor = WhisperFeatureExtractor.from_pretrained(whisper_path)
 
