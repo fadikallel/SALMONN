@@ -58,7 +58,7 @@ class Runner:
         self._model.to(self.device)
         if self.use_distributed:
             self.model = DDP(
-                self._model, device_ids=[self.config.config.run.gpu]
+                self._model, device_ids=[self.config.config.run.gpu],find_unused_parameters=True
             )
         else:
             self.model = self._model
@@ -157,6 +157,15 @@ class Runner:
         header = "Eval: data epoch: [{}]".format(epoch)
 
         results = []
+        save_freq = self.config.config.run.get("save_result_freq", 100)  # Save every 100 samples by default
+        batch_count = 0
+        
+        # Accumulate metrics incrementally
+        accumulated_loss = 0.0
+        accumulated_correct = 0.0
+        accumulated_n_sample = 0
+        accumulated_n_token = 0
+        
         for samples in metric_logger.log_every(dataloader, self.config.config.run.log_freq, header=header):
             samples = prepare_sample(samples, cuda_enabled=self.cuda_enabled)
 
@@ -190,28 +199,41 @@ class Runner:
                 res["task"] = samples["task"]
 
             results.append(res)
+            batch_count += 1
+            
+            # Accumulate metrics
+            item_loss = res["loss"]
+            item_n_sample = len(res["id"])
+            item_correct = res["acc"] * res["total"]
+            item_n_token = res["total"]
+            
+            accumulated_loss += item_loss * item_n_sample
+            accumulated_n_sample += item_n_sample
+            accumulated_correct += item_correct
+            accumulated_n_token += item_n_token
+            
+            # Save results incrementally to avoid losing all data if process crashes
+            if save_json and batch_count % save_freq == 0:
+                self.save_result_incremental(results, self.output_dir, "eval_{}_epoch_{}_incremental".format(split, epoch), clear_after_save=True)
+                results = []
 
         if is_dist_avail_and_initialized():
             dist.barrier()
 
         if save_json:
-            self.save_result(results, self.output_dir, "eval_{}_epoch_{}".format(split, epoch))
+            # Save remaining results
+            if results:
+                self.save_result_incremental(results, self.output_dir, "eval_{}_epoch_{}_incremental".format(split, epoch), clear_after_save=False)
+            # Merge all incremental results into final JSON
+            self.merge_incremental_results(self.output_dir, "eval_{}_epoch_{}_incremental".format(split, epoch), "eval_{}_epoch_{}".format(split, epoch))
 
+        # Prepare tensors for distributed reduction
         res = {
-            "loss": torch.tensor(0).float().cuda(),
-            "n_sample": torch.tensor(0).float().cuda(),
-            "correct": torch.tensor(0).float().cuda(),
-            "n_token": torch.tensor(0).float().cuda(),
+            "loss": torch.tensor(accumulated_loss).float().cuda(),
+            "n_sample": torch.tensor(accumulated_n_sample).float().cuda(),
+            "correct": torch.tensor(accumulated_correct).float().cuda(),
+            "n_token": torch.tensor(accumulated_n_token).float().cuda(),
         }
-        for item in results:
-            item_loss = item["loss"]
-            item_n_sample = len(item["id"])
-            item_correct = item["acc"] * item["total"]
-            item_n_token = item["total"]
-            res["loss"] += item_loss * item_n_sample
-            res["n_sample"] += item_n_sample
-            res["correct"] += item_correct
-            res["n_token"] += item_n_token
 
         if is_dist_avail_and_initialized():
             dist.all_reduce(res["loss"])
@@ -220,10 +242,68 @@ class Runner:
             dist.all_reduce(res["n_token"])
 
         ret = {"loss": 0, "agg_metrics": 0}
-        ret["loss"] = (res["loss"] / res["n_sample"]).item()
-        ret["agg_metrics"] = (res["correct"] / res["n_token"]).item()
+        ret["loss"] = (res["loss"] / res["n_sample"]).item() if res["n_sample"].item() > 0 else 0
+        ret["agg_metrics"] = (res["correct"] / res["n_token"]).item() if res["n_token"].item() > 0 else 0
 
         return ret
+
+    def save_result_incremental(self, result, result_dir, filename, clear_after_save=True):
+        """
+        Save results incrementally in JSONL format (one JSON object per line).
+        This prevents data loss if the process crashes during long inference runs.
+        """
+        result_file = os.path.join(
+            result_dir, "%s_rank%d.jsonl" % (filename, get_rank())
+        )
+        
+        # Append results to JSONL file
+        try:
+            with open(result_file, "a", encoding="utf-8") as f:
+                for item in result:
+                    f.write(json.dumps(item, ensure_ascii=False) + "\n")
+            logging.info(f"Incremental save: {len(result)} results appended to {result_file}")
+        except Exception as e:
+            logging.warning(f"Error saving to {result_file}. Error: {e}")
+
+    @main_process
+    def merge_incremental_results(self, result_dir, incremental_filename, final_filename):
+        """
+        Merge incremental JSONL results from all ranks into final JSON file.
+        """
+        final_result_file = os.path.join(result_dir, "%s.json" % final_filename)
+        merged_results = []
+        
+        logging.info("Starting to merge incremental results.")
+        
+        if is_dist_avail_and_initialized():
+            num_ranks = get_world_size()
+        else:
+            num_ranks = 1
+        
+        # Read from all rank-specific JSONL files
+        for rank in range(num_ranks):
+            result_file = os.path.join(
+                result_dir, "%s_rank%d.jsonl" % (incremental_filename, rank)
+            )
+            if os.path.exists(result_file):
+                try:
+                    with open(result_file, "r", encoding="utf-8") as f:
+                        for line in f:
+                            if line.strip():
+                                merged_results.append(json.loads(line))
+                    logging.info(f"Merged {len(merged_results)} results from {result_file}")
+                except Exception as e:
+                    logging.warning(f"Error reading {result_file}. Error: {e}")
+            else:
+                logging.warning(f"Incremental result file not found: {result_file}")
+        
+        # Save final merged result
+        try:
+            with open(final_result_file, "w", encoding="utf-8") as f:
+                json.dump(merged_results, f, ensure_ascii=False, indent=2)
+            logging.info(f"Final result file saved to {final_result_file} with {len(merged_results)} results")
+        except Exception as e:
+            logging.warning(f"Error saving {final_result_file}. Error: {e}")
 
     def save_result(self, result, result_dir, filename):
         result_file = os.path.join(

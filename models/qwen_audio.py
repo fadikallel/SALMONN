@@ -9,7 +9,6 @@ import torch.nn.functional as F
 from transformers import Qwen3_5ForCausalLM,Qwen3_5Tokenizer, StoppingCriteriaList
 from peft import LoraConfig, TaskType, get_peft_model
 
-# from .modeling_qwen3_5 import Qwen3_5ForCausalLM
 from .modeling_whisper import WhisperModel
 from .utils import StoppingCriteriaSub
 

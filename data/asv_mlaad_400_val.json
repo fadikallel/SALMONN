@@ -1,0 +1,192 @@
+[
+  {
+    "path": "/ds-slt/audio/MLAADv8/MLAAD_v10_git/real/en_US/by_book/male/elliot_miller/hunters_space/wavs/hunters_space_15_f000010.wav",
+    "text": "<reasoning>\nThe audio contains natural human speech with authentic vocal characteristics, including subtle variations in pitch, rhythm, and breath control. The presence of realistic breathing sounds, such as the soft inhalation before the phrase \"Needle-nosed things,\" indicates genuine human vocalization rather than synthetic generation.\n</reasoning>\n\n<answer>bonafide</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  },
+  {
+    "path": "/ds-slt/audio/MLAADv8/MLAAD_v10_git/real/en_US/by_book/female/judy_bieber/the_sea_fairies/wavs/the_sea_fairies_12_f000132.wav",
+    "text": "<reasoning>\nThe audio contains natural human speech characteristics, including subtle, organic variations in intonation and the presence of realistic, non-mechanical breathing sounds between phrases. These qualities indicate a genuine human speaker rather than a synthetic voice.\n</reasoning>\n\n<answer>bonafide</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  },
+  {
+    "path": "/ds-slt/audio/MLAADv8/MLAAD_v10_git/real/en_US/by_book/female/mary_ann/northandsouth/wavs/northandsouth_24_f000011.wav",
+    "text": "<reasoning>\nThe audio contains natural human speech characteristics, including subtle, organic breathing sounds and a realistic, non-uniform pausing pattern that reflects human cadence. These elements are inconsistent with the typically uniform and predictable patterns of synthetic speech.\n</reasoning>\n\n<answer>bonafide</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  },
+  {
+    "path": "/ds-slt/audio/MLAADv8/MLAAD_v10_git/real/en_US/by_book/female/judy_bieber/the_sea_fairies/wavs/the_sea_fairies_17_f000083.wav",
+    "text": "<reasoning>\nThe audio contains natural breathing patterns and subtle vocal variations consistent with human speech. The presence of slight jitter in the pitch and the organic flow of the sentence indicate genuine human production rather than synthetic generation.\n</reasoning>\n\n<answer>bonafide</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  },
+  {
+    "path": "/ds-slt/audio/MLAADv8/MLAAD_v10_git/real/en_US/by_book/female/judy_bieber/ozma_of_oz/wavs/ozma_of_oz_13_f000035.wav",
+    "text": "<reasoning>\nThe audio contains natural human speech characteristics, including subtle and realistic breathing patterns between phrases and a natural, organic variation in pitch and rhythm. The presence of slight, human-like jitter in the vocal signal further confirms its authenticity, as these are difficult to replicate perfectly in synthetic speech.\n</reasoning>\n\n<answer>bonafide</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  },
+  {
+    "path": "/ds-slt/audio/MLAADv8/MLAAD_v10_git/real/en_US/by_book/female/judy_bieber/sky_island/wavs/skyisland_29_baum_64kb_f000032.wav",
+    "text": "<reasoning>\nThe audio contains natural human breathing patterns, including subtle inhalations between phrases, and a fluid, expressive intonation that varies organically with the sentence structure. These characteristics are inconsistent with the typically uniform and predictable patterns of synthetic speech.\n</reasoning>\n\n<answer>bonafide</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  },
+  {
+    "path": "/ds-slt/audio/MLAADv8/MLAAD_v10_git/real/en_US/by_book/male/elliot_miller/pink_fairy_book/wavs/pink_fairy_book_08_f000016.wav",
+    "text": "<reasoning>\nThe audio exhibits natural vocal characteristics, including subtle pitch variations and a human-like cadence. The pausing is consistent with conversational speech, and the jitter is within the normal range for a human voice, indicating genuine human speech.\n</reasoning>\n\n<answer>bonafide</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  },
+  {
+    "path": "/ds-slt/audio/MLAADv8/MLAAD_v10_git/real/en_US/by_book/female/mary_ann/midnight_passenger/wavs/midnight_passenger_03_f000086.wav",
+    "text": "<reasoning>\nThe audio contains natural human vocal characteristics, including subtle breaths between phrases and organic pauses that align with the rhythm of speech. The vocal tone, pitch variation, and emotional inflection are consistent with a human narrator, showing no signs of the mechanical uniformity or unnatural cadence typical of synthetic speech.\n</reasoning>\n\n<answer>bonafide</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  },
+  {
+    "path": "/ds-slt/audio/MLAADv8/MLAAD_v10_git/real/en_US/by_book/female/mary_ann/midnight_passenger/wavs/midnight_passenger_02_f000086.wav",
+    "text": "<reasoning>\nThe natural, subtle variations in intonation and the organic rhythm of speech, including a faint but present breath intake before the phrase, are characteristic of genuine human vocalization. These cues indicate a live speaker rather than a synthetic voice.\n</reasoning>\n\n<answer>bonafide</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  },
+  {
+    "path": "/ds-slt/audio/MLAADv8/MLAAD_v10_git/real/en_US/by_book/female/judy_bieber/emerald_city_of_oz/wavs/emerald_city_of_oz_05_f000077.wav",
+    "text": "<reasoning>\nThe audio contains natural-sounding breaths between phrases and a subtle, organic variation in pitch and timing (jitter), which are characteristic of genuine human speech. The vocal delivery has a natural cadence and emotional inflection that is difficult to replicate in synthetic systems.\n</reasoning>\n\n<answer>bonafide</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  },
+  {
+    "path": "/ds-slt/audio/MLAADv8/MLAAD_v10_git/fake/en/tts_models_en_ljspeech_fast_pitch/skyisland_24_baum_64kb_f000046.wav",
+    "text": "<reasoning>\nThe audio exhibits unnatural, robotic intonation with a flat, monotonous pitch and a lack of subtle vocal inflections that would typically accompany human speech. The pauses between phrases are too regular and mechanical, lacking the organic rhythm of a human speaker. These characteristics strongly suggest the audio is synthetic, likely generated by a text-to-speech system.\n</reasoning>\n\n<answer>spoof</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  },
+  {
+    "path": "/ds-slt/audio/MLAADv8/MLAAD_v10_git/fake/en/f5-tts/wives_and_daughters_46_f000162.wav",
+    "text": "<reasoning>\nThe intonation in the audio is highly irregular and lacks the natural flow and subtle pitch variations characteristic of human speech. The delivery is monotonous and robotic, with abrupt transitions between phrases and an unnatural rhythm. These cues strongly suggest the audio is synthetic, likely generated by a text-to-speech system.\n</reasoning>\n\n<answer>spoof</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  },
+  {
+    "path": "/ds-slt/audio/MLAADv8/MLAAD_v10_git/fake/en/tts_models_en_jenny_jenny/silent_bullet_07_f000252.wav",
+    "text": "<reasoning>\nThe audio exhibits a high degree of unnatural fluency and a lack of subtle vocal imperfections. The selected attributes, jitter and shimmer, are both extremely low, indicating a very stable and smooth vocal production that is atypical of human speech. This results in a robotic, monotonous delivery that lacks the natural pitch and amplitude variations of a human speaker. The voice sounds perfectly modulated and lacks any breathiness or micro-tremors, which are hallmarks of synthetic speech generation.\n</reasoning>\n\n<answer>spoof</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  },
+  {
+    "path": "/ds-slt/audio/MLAADv8/MLAAD_v10_git/fake/en/microsoft_speecht5_tts/jane_eyre_02_f000131.wav",
+    "text": "<reasoning>\nThe intonation in the audio is highly unnatural and monotonous, lacking the subtle pitch variations and emotional inflections characteristic of genuine human speech. The delivery is robotic and flat, with an almost mechanical rhythm that suggests it was generated by a text-to-speech system rather than being spoken by a person.\n</reasoning>\n\n<answer>spoof</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  },
+  {
+    "path": "/ds-slt/audio/MLAADv8/MLAAD_v10_git/fake/en/Soprano11/emerald_city_of_oz_14_f000001.wav",
+    "text": "<reasoning>\nThe audio exhibits unnatural, flat intonation with a lack of typical human speech rhythm and prosodic variation. The pitch remains consistently monotonous throughout, lacking the subtle rises and falls associated with natural human speech. Additionally, the voice has a slightly robotic quality, suggesting it is generated by a text-to-speech system rather than being produced by a human speaker.\n</reasoning>\n\n<answer>spoof</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  },
+  {
+    "path": "/ds-slt/audio/MLAADv8/MLAAD_v10_git/fake/en/Microsoft VibeVoice 1.5B/dorothy_and_wizard_oz_14_f000083.wav",
+    "text": "<reasoning>\nThe intonation in the audio is highly uniform and lacks the natural variability in pitch, rhythm, and emphasis that characterizes genuine human speech. The phrase \"Take us too!\" is delivered with a robotic, monotonous quality, and the subsequent line \"cried the nine tiny piglets all in one breath\" is spoken in a flat, emotionless tone that does not reflect the excitement or urgency implied by the content. These cues strongly suggest the audio is synthetic.\n</reasoning>\n\n<answer>spoof</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  },
+  {
+    "path": "/ds-slt/audio/MLAADv8/MLAAD_v10_git/fake/en/ElevenLabs-Turbo-v2.5/wives_and_daughters_08_f000051.wav",
+    "text": "<reasoning>\nThe speech exhibits unnatural, robotic intonation with a flat, monotonous pitch and a lack of subtle vocal inflections that would typically accompany human emotion or emphasis. Additionally, the pauses between phrases are perfectly timed and lack the slight irregularities of natural human speech, suggesting a synthetic origin.\n</reasoning>\n\n<answer>spoof</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  },
+  {
+    "path": "/ds-slt/audio/MLAADv8/MLAAD_v10_git/fake/en/Step-Audio-EditX/rinkitink_baum_18_64kb_f000138.wav",
+    "text": "<reasoning>\nThe speech exhibits unnatural, robotic intonation with a flat, monotonous pitch and a lack of subtle vocal inflections that would typically accompany human emotion or emphasis. The pauses are too regular and perfectly timed, lacking the slight hesitations and micro-pauses characteristic of genuine human speech. These attributes strongly indicate the audio is synthetic.\n</reasoning>\n\n<answer>spoof</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  },
+  {
+    "path": "/ds-slt/audio/MLAADv8/MLAAD_v10_git/fake/en/Kitten-TTS-Nano-0.1/poisoned_pen_11_f000411.wav",
+    "text": "<reasoning>\nThe speech exhibits unnatural intonation patterns, with a flat, monotonous delivery that lacks the typical pitch variations and emotional inflections of human speech. Additionally, the pauses between phrases are too regular and mechanical, suggesting artificial generation rather than spontaneous human articulation. These cues strongly indicate the audio is synthetic.\n</reasoning>\n\n<answer>spoof</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  },
+  {
+    "path": "/ds-slt/audio/ASVSpoof_LA_19/ASVspoof2019_LA_train/flac/LA_T_9513704.flac",
+    "text": "<reasoning>\nThe natural variation in breath timing and the subtle, organic pauses between phrases indicate genuine human speech. The rhythm and intonation are consistent with spontaneous human delivery rather than the often-perfect or repetitive patterns found in synthetic audio.\n</reasoning>\n\n<answer>bonafide</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  },
+  {
+    "path": "/ds-slt/audio/ASVSpoof_LA_19/ASVspoof2019_LA_train/flac/LA_T_6029472.flac",
+    "text": "<reasoning>\nThe audio contains natural-sounding breaths and subtle vocal nuances consistent with genuine human speech, including slight variations in pitch and timing that are characteristic of authentic human vocalization.\n</reasoning>\n\n<answer>bonafide</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  },
+  {
+    "path": "/ds-slt/audio/ASVSpoof_LA_19/ASVspoof2019_LA_train/flac/LA_T_1991708.flac",
+    "text": "<reasoning>\nThe audio contains natural breathing sounds and subtle, human-like pauses that align with normal speech patterns. These organic variations in timing and rhythm indicate genuine human vocalization rather than the often-perfect or repetitive patterns found in synthetic speech.\n</reasoning>\n\n<answer>bonafide</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  },
+  {
+    "path": "/ds-slt/audio/ASVSpoof_LA_19/ASVspoof2019_LA_train/flac/LA_T_4827397.flac",
+    "text": "<reasoning>\nThe audio contains natural breathing patterns and subtle vocal jitter, which are characteristic of genuine human speech. These attributes indicate a real speaker rather than a synthetic voice.\n</reasoning>\n\n<answer>bonafide</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  },
+  {
+    "path": "/ds-slt/audio/ASVSpoof_LA_19/ASVspoof2019_LA_train/flac/LA_T_2520647.flac",
+    "text": "<reasoning>\nThe audio contains natural breathing sounds, including a subtle inhale before the utterance, which is characteristic of genuine human speech. The vocal delivery also exhibits natural prosody and slight variations in pitch and timing, further supporting authenticity.\n</reasoning>\n\n<answer>bonafide</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  },
+  {
+    "path": "/ds-slt/audio/ASVSpoof_LA_19/ASVspoof2019_LA_train/flac/LA_T_6356279.flac",
+    "text": "<reasoning>\nThe natural variation in breath timing and subtle pauses between phrases, along with the organic cadence of speech, indicate genuine human vocalization. These characteristics are inconsistent with the typically uniform and predictable patterns found in synthetic speech.\n</reasoning>\n\n<answer>bonafide</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  },
+  {
+    "path": "/ds-slt/audio/ASVSpoof_LA_19/ASVspoof2019_LA_train/flac/LA_T_2396357.flac",
+    "text": "<reasoning>\nThe audio contains natural breathing sounds, including a subtle inhale before the speaker begins, which is characteristic of genuine human speech. The vocal delivery also exhibits natural prosody and slight variations in pitch and timing, further supporting authenticity.\n</reasoning>\n\n<answer>bonafide</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  },
+  {
+    "path": "/ds-slt/audio/ASVSpoof_LA_19/ASVspoof2019_LA_train/flac/LA_T_4822766.flac",
+    "text": "<reasoning>\nThe audio contains natural breathing sounds preceding the speech, which are consistent with genuine human vocalization. The subtle variations in breath timing and intensity indicate authentic physiological behavior rather than synthetic generation.\n</reasoning>\n\n<answer>bonafide</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  },
+  {
+    "path": "/ds-slt/audio/ASVSpoof_LA_19/ASVspoof2019_LA_train/flac/LA_T_1219386.flac",
+    "text": "<reasoning>\nThe audio contains natural breathing sounds and subtle, human-like pauses between phrases, which are consistent with genuine human speech. The vocal delivery also exhibits slight variations in pitch and timing that are characteristic of spontaneous human utterance rather than the uniformity often found in synthetic speech.\n</reasoning>\n\n<answer>bonafide</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  },
+  {
+    "path": "/ds-slt/audio/ASVSpoof_LA_19/ASVspoof2019_LA_train/flac/LA_T_5715699.flac",
+    "text": "<reasoning>\nThe natural pauses and breath intakes between phrases, such as the slight inhale before \"In addition\" and the subtle breath between \"justice\" and the end of the sentence, indicate genuine human speech. These non-verbal cues are inconsistent with typical synthetic speech patterns, which often lack such organic variations.\n</reasoning>\n\n<answer>bonafide</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  },
+  {
+    "path": "/ds-slt/audio/ASVSpoof_LA_19/ASVspoof2019_LA_train/flac/LA_T_6733793.flac",
+    "text": "<reasoning>\nThe audio exhibits unnatural intonation patterns, with a robotic and monotonous delivery that lacks the subtle pitch variations and emotional inflections typical of human speech. Additionally, the spectral features reveal an overly smooth and synthetic timbre, with an absence of natural vocal artifacts such as breath sounds or micro-vibrato. These characteristics strongly suggest the audio is generated by a text-to-speech system rather than being a genuine human voice.\n</reasoning>\n\n<answer>spoof</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  },
+  {
+    "path": "/ds-slt/audio/ASVSpoof_LA_19/ASVspoof2019_LA_train/flac/LA_T_8206162.flac",
+    "text": "<reasoning>\nThe audio exhibits unnatural intonation patterns, with a flat, monotonous delivery that lacks the typical pitch variations and rhythmic flow of human speech. Additionally, the spectral features reveal an overly smooth and synthetic quality, with an absence of subtle vocal artifacts such as breath sounds or micro-vibrations. These characteristics strongly suggest the speech was generated by a text-to-speech system rather than being produced by a human speaker.\n</reasoning>\n\n<answer>spoof</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  },
+  {
+    "path": "/ds-slt/audio/ASVSpoof_LA_19/ASVspoof2019_LA_train/flac/LA_T_2892086.flac",
+    "text": "<reasoning>\nThe speech exhibits unnatural intonation patterns, with a flat, monotonous delivery that lacks the typical pitch variations and emotional inflections of human speech. Additionally, the pauses between phrases are too regular and mechanical, suggesting artificial generation rather than spontaneous human utterance.\n</reasoning>\n\n<answer>spoof</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  },
+  {
+    "path": "/ds-slt/audio/ASVSpoof_LA_19/ASVspoof2019_LA_train/flac/LA_T_6104355.flac",
+    "text": "<reasoning>\nThe speech exhibits unnatural, flat intonation with minimal pitch variation, lacking the typical prosodic patterns of human speech. Additionally, the pauses between phrases are too regular and mechanically timed, suggesting artificial generation rather than spontaneous human delivery.\n</reasoning>\n\n<answer>spoof</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  },
+  {
+    "path": "/ds-slt/audio/ASVSpoof_LA_19/ASVspoof2019_LA_train/flac/LA_T_3782894.flac",
+    "text": "<reasoning>\nThe audio exhibits unnatural intonation patterns, with a robotic and monotonous delivery that lacks the subtle pitch variations and emotional inflections typical of genuine human speech. Additionally, the spectral features reveal an overly smooth and synthetic texture, with an absence of natural vocal micro-variations such as breathiness or slight tremors. These characteristics strongly suggest the audio is generated by a text-to-speech system rather than being a recording of a real person speaking.\n</reasoning>\n\n<answer>spoof</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  },
+  {
+    "path": "/ds-slt/audio/ASVSpoof_LA_19/ASVspoof2019_LA_train/flac/LA_T_3726186.flac",
+    "text": "<reasoning>\nThe speech exhibits unnatural intonation patterns, with a flat, monotonous delivery that lacks the typical pitch variations and emotional inflections of human speech. Additionally, the pauses between phrases are too regular and mechanical, suggesting a lack of spontaneous human rhythm. These characteristics, combined with a slightly robotic cadence, strongly indicate that the audio is synthetic.\n</reasoning>\n\n<answer>spoof</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  },
+  {
+    "path": "/ds-slt/audio/ASVSpoof_LA_19/ASVspoof2019_LA_train/flac/LA_T_3437696.flac",
+    "text": "<reasoning>\nThe audio exhibits unnatural intonation patterns, with a flat, monotonous delivery that lacks the typical pitch variations and rhythmic flow of human speech. Additionally, the spectral features are overly smooth and lack the micro-variations in timbre and resonance characteristic of genuine human vocalizations. These synthetic qualities strongly suggest the audio is generated by a text-to-speech system rather than being a natural human utterance.\n</reasoning>\n\n<answer>spoof</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  },
+  {
+    "path": "/ds-slt/audio/ASVSpoof_LA_19/ASVspoof2019_LA_train/flac/LA_T_6499098.flac",
+    "text": "<reasoning>\nThe audio exhibits unnatural intonation patterns, with a robotic and monotonous delivery that lacks the subtle pitch variations and emotional inflections typical of human speech. Additionally, the spectral features reveal an overly smooth and synthetic timbre, with an absence of natural vocal artifacts such as breath sounds or micro-pauses. These characteristics strongly indicate that the audio is generated by a text-to-speech system rather than being a genuine human voice.\n</reasoning>\n\n<answer>spoof</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  },
+  {
+    "path": "/ds-slt/audio/ASVSpoof_LA_19/ASVspoof2019_LA_train/flac/LA_T_7660680.flac",
+    "text": "<reasoning>\nThe audio exhibits unnatural intonation patterns, with a flat, monotonous delivery that lacks the typical pitch variations and emotional inflections of human speech. Additionally, the spectral features reveal an overly smooth and synthetic quality, particularly in the formant structure and lack of subtle vocal micro-variations, which are hallmarks of high-quality text-to-speech synthesis. These characteristics strongly suggest the audio is not produced by a human speaker.\n</reasoning>\n\n<answer>spoof</answer>",
+    "task": "deepfake_detection_with_reasoning"
+  }
+]

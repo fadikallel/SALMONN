@@ -62,12 +62,12 @@ args = parser.parse_args()
 job_id = now()
 
 # load config
-args.cfg_path = "configs/qwen_config_dfd.yaml"
+args.cfg_path = "configs/qwen_config_dfd_reasoning.yaml"
 
 cfg = Config(args)
 run_config = cfg.config.run
 model_config = cfg.config.model
-model_config.ckpt = "outputs/wav2vec_qwen_asv19_no_reasoning/checkpoint_best.pth" 
+model_config.ckpt = "outputs/qwen_wav2vec_reasoning_400_new/checkpoint_best.pth" 
 data_config = cfg.config.datasets
 init_distributed_mode(run_config)
 
