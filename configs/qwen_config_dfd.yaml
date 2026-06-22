@@ -31,17 +31,17 @@ model:
   lora_alpha: 32
   lora_dropout: 0.1
 
-  multi_prompt: True
-  prompt_template: "USER: {}\nASSISTANT:"
+  multi_prompt: False
+  prompt_template: "{}"
   prompt_path: "prompts/train_prompt.json"
   test_prompt_path: "prompts/test_prompt.json"
-  max_txt_len: 300
+  max_txt_len: 4
   end_sym: ""
 
 datasets:
-  train_ann_path: "/netscratch/fkallel/dfd_llm/asvspoof19_train.json"
-  valid_ann_path: "/netscratch/fkallel/dfd_llm/asvspoof19_dev.json"
-  test_ann_path: "/netscratch/fkallel/dfd_llm/asvspoof19_eval.json"
+  train_ann_path: "/netscratch/fkallel/dfd_llm/datasets/asvspoof19_train.json"
+  valid_ann_path: "/netscratch/fkallel/dfd_llm/datasets/asvspoof19_dev.json"
+  test_ann_path: "/netscratch/fkallel/dfd_llm/datasets/asvspoof19_eval.json"
 
   whisper_path: "openai/whisper-large-v2"
   wav2vec2_path: "facebook/wav2vec2-xls-r-300m"
@@ -54,10 +54,10 @@ run:
 
   log_freq: 5
   epoch_based: False
-  iters_per_epoch: 3000
-  accum_grad_iters: 1
-  batch_size_train: 1
-  batch_size_eval: 1
+  iters_per_epoch: 6000
+  accum_grad_iters: 8
+  batch_size_train: 4
+  batch_size_eval: 16
   num_workers: 1
 
   device: "cuda"
@@ -68,8 +68,8 @@ run:
 
   # optimizer & scheduler
   optims:
-    max_epoch: 30
-    warmup_steps: 3000
+    max_epoch: 10
+    warmup_steps: 5000
     warmup_start_lr: 1e-6
     init_lr: 3e-5
     min_lr: 1e-5

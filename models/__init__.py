@@ -15,6 +15,7 @@
 # from .allm import ALLM 
 # from .qwen_audio import ALLM
 from .qwen_audio_wav2vec import ALLM
+from .salmonn import SALMONN
 
 def load_model(config):
-    return ALLM.from_config(config)
+    return SALMONN.from_config(config)

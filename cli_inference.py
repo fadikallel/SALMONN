@@ -13,10 +13,6 @@
 # limitations under the License.
 
 import argparse
-
-import torch
-from transformers import WhisperFeatureExtractor
-
 from config import Config
 from models import load_model
 from utils import prepare_one_sample
@@ -35,39 +31,17 @@ parser.add_argument(
     "in xxx=yyy format will be merged into config file (deprecate), "
     "change to --cfg-options instead.",
 )
+parser.add_argument(
+    "--ckpt-path", type=str, help="path to checkpoint file"
+)
 
 args = parser.parse_args()
-# cfg = Config(args)
-
-# model = load_model(cfg.config.model)
-# model.to(args.device)
-# model.eval()
-
-# wav_processor = WhisperFeatureExtractor.from_pretrained(cfg.config.model.whisper_path)
-
-# # wav_path = input("Your Wav Path:\n")
-# # prompt = input("Your Prompt:\n")
-# wav_path = "/ds-slt/audio/fkallel/LibriSpeech/train-clean-100/103/1240/103-1240-0001.flac"
-# prompt = "Recognize the speech and give me the transcription."
-
-# samples = prepare_one_sample(wav_path, wav_processor)
-# prompt = [
-#     cfg.config.model.prompt_template.format("<Speech><SpeechHere></Speech> " + prompt.strip())
-# ]
-# print("Output:")
-# # for environment with cuda>=117
-# with torch.cuda.amp.autocast(dtype=torch.float16):
-#     print(model.generate(samples, cfg.config.generate, prompts=prompt)[0])
-# # # print(model.generate(samples, cfg.config.generate, prompts=prompt)[0])
 job_id = now()
-
-# load config
-args.cfg_path = "configs/qwen_config_dfd_reasoning.yaml"
 
 cfg = Config(args)
 run_config = cfg.config.run
 model_config = cfg.config.model
-model_config.ckpt = "outputs/qwen_wav2vec_reasoning_400_new/checkpoint_best.pth" 
+model_config.ckpt =  args.ckpt_path
 data_config = cfg.config.datasets
 init_distributed_mode(run_config)
 

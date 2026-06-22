@@ -28,7 +28,7 @@ model:
   lora_dropout: 0.1
 
   multi_prompt: True
-  prompt_template: "USER: {}\nASSISTANT:"
+  prompt_template: "{}"
   prompt_path: "prompts/train_prompt.json"
   test_prompt_path: "prompts/test_prompt.json"
   max_txt_len: 300
@@ -50,10 +50,10 @@ run:
 
   log_freq: 5
   epoch_based: False
-  iters_per_epoch: 3000
-  accum_grad_iters: 1
-  batch_size_train: 1
-  batch_size_eval: 1
+  iters_per_epoch: 5000
+  accum_grad_iters: 4
+  batch_size_train: 4
+  batch_size_eval: 8
   num_workers: 1
 
   device: "cuda"

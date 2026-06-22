@@ -170,42 +170,93 @@ class ALLM(nn.Module):
                 p_before = []
                 p_after = []
                 for i, p in enumerate(prompt):
-                    b, a = p.split("<SpeechHere>")
+                    if "<SpeechHere>" in p:
+                        b, a = p.split("<SpeechHere>")
+                    else:
+                        b = ""
+                        a = p
                     p_before.append(b)
                     p_after.append(a)
                 
+                # Tokenize before prompts - don't pad
                 p_before_tokens = self.qwen_tokenizer(
-                    p_before, return_tensors="pt", add_special_tokens=False
+                    p_before, 
+                    return_tensors="pt", 
+                    add_special_tokens=False,
+                    padding=False
                 ).to(embeds.device)
-                p_before_embeds = self.qwen_model.model.embed_tokens(p_before_tokens.input_ids) if not self.lora else self.qwen_model.model.model.embed_tokens(p_before_tokens.input_ids)
-
-                # speech_embeds wrapped with prompts_embeds are padded to the same length here
+                
+                # Tokenize after prompts WITH padding
                 p_after_tokens = self.qwen_tokenizer(
-                    p_after, return_tensors="pt", padding="longest", add_special_tokens=False
+                    p_after, 
+                    return_tensors="pt", 
+                    add_special_tokens=False,
+                    padding=True,
+                    return_attention_mask=True
                 ).to(embeds.device)
-                p_after_embeds = self.qwen_model.model.embed_tokens(p_after_tokens.input_ids) if not self.lora else self.qwen_model.model.model.embed_tokens(p_after_tokens.input_ids)
-
+                
+                # Get embeddings
+                if self.lora:
+                    embed_func = self.qwen_model.model.model.embed_tokens
+                else:
+                    embed_func = self.qwen_model.model.embed_tokens
+                    
+                p_before_embeds = embed_func(p_before_tokens.input_ids)
+                p_after_embeds = embed_func(p_after_tokens.input_ids)
+                
+                batch_size = embeds.shape[0]
+                
+                # Expand if needed to match batch size
+                if p_before_embeds.shape[0] == 1 and batch_size > 1:
+                    p_before_embeds = p_before_embeds.expand(batch_size, -1, -1)
+                    p_before_tokens.attention_mask = p_before_tokens.attention_mask.expand(batch_size, -1)
+                
+                if p_after_embeds.shape[0] == 1 and batch_size > 1:
+                    p_after_embeds = p_after_embeds.expand(batch_size, -1, -1)
+                    p_after_tokens.attention_mask = p_after_tokens.attention_mask.expand(batch_size, -1)
+                
                 wrapped_embeds = torch.cat([p_before_embeds, embeds, p_after_embeds], dim=1)
                 wrapped_atts = torch.cat([p_before_tokens.attention_mask, atts, p_after_tokens.attention_mask], dim=1)
+                
+                return wrapped_embeds, wrapped_atts
             else:
                 batch_size = embeds.shape[0]
-                p_before, p_after = prompt.split("<SpeechHere>")
+                if "<SpeechHere>" in prompt:
+                    p_before, p_after = prompt.split("<SpeechHere>")
+                else:
+                    p_before = ""
+                    p_after = prompt
 
                 p_before_tokens = self.qwen_tokenizer(
-                    p_before, return_tensors="pt", add_special_tokens=False
+                    p_before, 
+                    return_tensors="pt", 
+                    add_special_tokens=False
                 ).to(embeds.device)
+                
                 p_after_tokens = self.qwen_tokenizer(
-                    p_after, return_tensors="pt", add_special_tokens=False
+                    p_after, 
+                    return_tensors="pt", 
+                    add_special_tokens=False
                 ).to(embeds.device)
-                p_before_embeds = self.qwen_model.model.embed_tokens(p_before_tokens.input_ids).expand(batch_size, -1, -1) if not self.lora else self.qwen_model.model.model.embed_tokens(p_before_tokens.input_ids).expand(batch_size, -1, -1)
-                p_after_embeds = self.qwen_model.model.embed_tokens(p_after_tokens.input_ids).expand(batch_size, -1, -1) if not self.lora else self.qwen_model.model.model.embed_tokens(p_after_tokens.input_ids).expand(batch_size, -1, -1)
+                
+                if self.lora:
+                    embed_func = self.qwen_model.model.model.embed_tokens
+                else:
+                    embed_func = self.qwen_model.model.embed_tokens
+                    
+                p_before_embeds = embed_func(p_before_tokens.input_ids).expand(batch_size, -1, -1)
+                p_after_embeds = embed_func(p_after_tokens.input_ids).expand(batch_size, -1, -1)
+                
+                p_before_mask = p_before_tokens.attention_mask.expand(batch_size, -1)
+                p_after_mask = p_after_tokens.attention_mask.expand(batch_size, -1)
 
                 wrapped_embeds = torch.cat([p_before_embeds, embeds, p_after_embeds], dim=1)
-                wrapped_atts = torch.cat([p_before_tokens.attention_mask, atts, p_after_tokens.attention_mask], dim=1)
-            return wrapped_embeds, wrapped_atts
+                wrapped_atts = torch.cat([p_before_mask, atts, p_after_mask], dim=1)
+                
+                return wrapped_embeds, wrapped_atts
         else:
             return embeds, atts
-
+    
     def forward(self, samples, verbose=False):
         # detect whether there are multi tasks in this batch
         task = list(set(samples["task"]))
@@ -296,8 +347,12 @@ class ALLM(nn.Module):
         embeds =  speech_embeds
         attns = speech_atts
 
-        stop_words_ids = [torch.tensor([2]).to(self.device)]  
-        stopping_criteria = StoppingCriteriaList([StoppingCriteriaSub(stops=stop_words_ids)])
+        endoftext_token_id = self.qwen_tokenizer.convert_tokens_to_ids("<|endoftext|>")
+        im_end_token_id = self.qwen_tokenizer.convert_tokens_to_ids("<|im_end|>")
+        
+        stop_words_ids = [endoftext_token_id, im_end_token_id, self.qwen_tokenizer.pad_token_id]
+
+        stopping_criteria = StoppingCriteriaList([StoppingCriteriaSub(stops=stop_words_ids, tokenizer=self.qwen_tokenizer)])
         outputs = self.qwen_model.generate(
             inputs_embeds=embeds,
             max_new_tokens=generate_cfg.get("max_new_tokens", 200),
@@ -311,8 +366,10 @@ class ALLM(nn.Module):
             length_penalty=generate_cfg.get("length_penalty", 1.0),
             attention_mask=attns,
             pad_token_id=self.qwen_tokenizer.pad_token_id,
+            eos_token_id=endoftext_token_id,
         )
         text = self.qwen_tokenizer.batch_decode(outputs, add_special_tokens=False)
+        text = [ t.replace('<|endoftext|>', '').strip() for t in text]
 
         return text
 
