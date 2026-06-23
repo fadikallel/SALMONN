@@ -28,7 +28,7 @@ model:
   lora_dropout: 0.1
 
   multi_prompt: True
-  prompt_template: "USER: {}\nASSISTANT:"
+  prompt_template: "{}"
   prompt_path: "prompts/train_prompt_2.json"
   test_prompt_path: "prompts/test_prompt_2.json"
   max_txt_len: 300

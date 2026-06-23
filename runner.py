@@ -1,5 +1,4 @@
 # This script is based on https://github.com/salesforce/LAVIS/blob/main/lavis/runners/runner_base.py
-import librosa
 
 import os
 import json
@@ -13,7 +12,7 @@ import torch.distributed as dist
 from torch.nn.parallel import DistributedDataParallel as DDP
 from tensorboardX import SummaryWriter
 
-from local_dist_utils import main_process, is_dist_avail_and_initialized, is_main_process, get_rank, get_world_size
+from dist_utils import main_process, is_dist_avail_and_initialized, is_main_process, get_rank, get_world_size
 from logger import MetricLogger, SmoothedValue
 from utils import get_dataloader, prepare_sample
 from optims import get_optimizer, LinearWarmupCosineLRScheduler
@@ -58,7 +57,7 @@ class Runner:
         self._model.to(self.device)
         if self.use_distributed:
             self.model = DDP(
-                self._model, device_ids=[self.config.config.run.gpu],find_unused_parameters=True
+                self._model, device_ids=[self.config.config.run.gpu]
             )
         else:
             self.model = self._model
@@ -120,7 +119,7 @@ class Runner:
             self.scheduler.step(cur_epoch=epoch, cur_step=i)
 
             with torch.cuda.amp.autocast(enabled=self.use_amp):
-                loss = self.model(samples, verbose=True)["loss"]
+                loss = self.model(samples)["loss"]
 
             if self.use_amp:
                 self.scaler.scale(loss).backward()
@@ -160,11 +159,11 @@ class Runner:
         save_freq = self.config.config.run.get("save_result_freq", 100)
         batch_count = 0
 
-        # Metrics for binary classification (only used when decode=True)
-        tp = 0
-        tn = 0
-        fp = 0
-        fn = 0
+        # Metrics for binary classification
+        tp = 0  # True Positives (predicted bonafide, actual bonafide)
+        tn = 0  # True Negatives (predicted spoof, actual spoof)
+        fp = 0  # False Positives (predicted bonafide, actual spoof)
+        fn = 0  # False Negatives (predicted spoof, actual bonafide)
         total_samples = 0
         total_loss = 0.0
         
@@ -181,7 +180,7 @@ class Runner:
             loss = forward_result.get("loss", 0)
             total_loss += loss.item()
             
-            # Get ground truth labels
+            # Get ground truth labels from the text (they contain "bonafide" or "spoof")
             ground_truth_texts = samples["text"]
             
             res = {
@@ -191,7 +190,6 @@ class Runner:
             }
 
             if decode:
-                # Generate predictions
                 if model.prompt_dict:
                     if self.test_prompt_dict is None:
                         prompts = None
@@ -233,6 +231,7 @@ class Runner:
             results.append(res)
             batch_count += 1
             
+            # Save results incrementally to avoid memory issues
             if save_json and batch_count % save_freq == 0:
                 self.save_result_incremental(results, self.output_dir, "eval_{}_epoch_{}_incremental".format(split, epoch), clear_after_save=True)
                 results = []
@@ -279,7 +278,7 @@ class Runner:
                 
                 ret = {
                     "loss": total_loss / len(dataloader) if len(dataloader) > 0 else 0,
-                    "agg_metrics": balanced_accuracy,
+                    "agg_metrics": balanced_accuracy,  # Use balanced accuracy as the main metric
                     "accuracy": accuracy,
                     "balanced_accuracy": balanced_accuracy,
                     "precision": precision,
@@ -325,8 +324,10 @@ class Runner:
         Extract binary label from raw text output.
         Returns 1 for 'bonafide', 0 for 'spoof'.
         """
-        if not text:
+        if '<answer>spoof</answer>' in text:
             return 0
+        elif '<answer>bonafide</answer>' in text:
+            return 1
         
         text_lower = text.lower().strip()
         
@@ -335,8 +336,9 @@ class Runner:
             return 1
         elif 'spoof' in text_lower:
             return 0
-        
-        return 0  # Default to spoof    
+    
+        return 0  # Default to spoof
+    
     def save_result_incremental(self, result, result_dir, filename, clear_after_save=True):
         """
         Save results incrementally in JSONL format (one JSON object per line).
@@ -346,7 +348,6 @@ class Runner:
             result_dir, "%s_rank%d.jsonl" % (filename, get_rank())
         )
         
-        # Append results to JSONL file
         try:
             with open(result_file, "a", encoding="utf-8") as f:
                 for item in result:
@@ -370,7 +371,6 @@ class Runner:
         else:
             num_ranks = 1
         
-        # Read from all rank-specific JSONL files
         for rank in range(num_ranks):
             result_file = os.path.join(
                 result_dir, "%s_rank%d.jsonl" % (incremental_filename, rank)
@@ -387,7 +387,6 @@ class Runner:
             else:
                 logging.warning(f"Incremental result file not found: {result_file}")
         
-        # Save final merged result
         try:
             with open(final_result_file, "w", encoding="utf-8") as f:
                 json.dump(merged_results, f, ensure_ascii=False, indent=2)
@@ -449,7 +448,7 @@ class Runner:
 
             # validating phase
             logging.info("Validating Phase")
-            valid_log = self.valid_epoch(cur_epoch, "valid", decode=True, save_json=False)
+            valid_log = self.valid_epoch(cur_epoch, "valid", decode=True, save_json=True)
             if valid_log is not None:
                 if is_main_process():
                     agg_metrics = valid_log["agg_metrics"]
