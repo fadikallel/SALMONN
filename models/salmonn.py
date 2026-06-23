@@ -434,6 +434,7 @@ class SALMONN(nn.Module):
             attention_mask=attns,
         )
         text = self.llama_tokenizer.batch_decode(outputs, add_special_tokens=False)
+        text = [ t.replace(self.end_sym, '').strip() for t in text]
 
         return text
 
