@@ -156,20 +156,37 @@ class Runner:
         header = "Eval: data epoch: [{}]".format(epoch)
 
         results = []
+        save_freq = self.config.config.run.get("save_result_freq", 100)
+        batch_count = 0
+
+        # Metrics for binary classification
+        tp = 0  # True Positives (predicted bonafide, actual bonafide)
+        tn = 0  # True Negatives (predicted spoof, actual spoof)
+        fp = 0  # False Positives (predicted bonafide, actual spoof)
+        fn = 0  # False Negatives (predicted spoof, actual bonafide)
+        total_samples = 0
+        total_loss = 0.0
+        
+        # For token-level accuracy (when decode=False)
+        total_correct = 0
+        total_tokens = 0
+
         for samples in metric_logger.log_every(dataloader, self.config.config.run.log_freq, header=header):
             samples = prepare_sample(samples, cuda_enabled=self.cuda_enabled)
 
             with torch.cuda.amp.autocast(enabled=self.use_amp):
                 forward_result = model(samples, verbose=True)
+            
             loss = forward_result.get("loss", 0)
-            correct = forward_result.get("correct", 0)
-            total = forward_result.get("total", 1)
+            total_loss += loss.item()
+            
+            # Get ground truth labels from the text (they contain "bonafide" or "spoof")
+            ground_truth_texts = samples["text"]
+            
             res = {
                 "id": samples["id"],
-                "ground_truth": samples["text"],
+                "ground_truth": ground_truth_texts,
                 "loss": loss.item(),
-                "acc": (correct / total).item(),
-                "total": total,
             }
 
             if decode:
@@ -187,42 +204,193 @@ class Runner:
                 res["text"] = text
                 res["prompt"] = prompts
                 res["task"] = samples["task"]
+                
+                # Extract binary labels from predictions and ground truth
+                for i, (pred_text, gt_text) in enumerate(zip(text, ground_truth_texts)):
+                    pred_label = self._extract_label(pred_text)
+                    true_label = self._extract_label(gt_text)
+                    
+                    if pred_label == 1 and true_label == 1:
+                        tp += 1
+                    elif pred_label == 0 and true_label == 0:
+                        tn += 1
+                    elif pred_label == 1 and true_label == 0:
+                        fp += 1
+                    elif pred_label == 0 and true_label == 1:
+                        fn += 1
+                    total_samples += 1
+            else:
+                # When decode=False, use token-level accuracy from forward pass
+                correct = forward_result.get("correct", 0)
+                total = forward_result.get("total", 0)
+                total_correct += correct
+                total_tokens += total
+                res["acc"] = (correct / total).item() if total > 0 else 0
+                res["total"] = total
 
             results.append(res)
+            batch_count += 1
+            
+            # Save results incrementally to avoid memory issues
+            if save_json and batch_count % save_freq == 0:
+                self.save_result_incremental(results, self.output_dir, "eval_{}_epoch_{}_incremental".format(split, epoch), clear_after_save=True)
+                results = []
 
         if is_dist_avail_and_initialized():
             dist.barrier()
 
         if save_json:
-            self.save_result(results, self.output_dir, "eval_{}_epoch_{}".format(split, epoch))
+            if results:
+                self.save_result_incremental(results, self.output_dir, "eval_{}_epoch_{}_incremental".format(split, epoch), clear_after_save=False)
+            self.merge_incremental_results(self.output_dir, "eval_{}_epoch_{}_incremental".format(split, epoch), "eval_{}_epoch_{}".format(split, epoch))
 
-        res = {
-            "loss": torch.tensor(0).float().cuda(),
-            "n_sample": torch.tensor(0).float().cuda(),
-            "correct": torch.tensor(0).float().cuda(),
-            "n_token": torch.tensor(0).float().cuda(),
-        }
-        for item in results:
-            item_loss = item["loss"]
-            item_n_sample = len(item["id"])
-            item_correct = item["acc"] * item["total"]
-            item_n_token = item["total"]
-            res["loss"] += item_loss * item_n_sample
-            res["n_sample"] += item_n_sample
-            res["correct"] += item_correct
-            res["n_token"] += item_n_token
-
-        if is_dist_avail_and_initialized():
-            dist.all_reduce(res["loss"])
-            dist.all_reduce(res["n_sample"])
-            dist.all_reduce(res["correct"])
-            dist.all_reduce(res["n_token"])
-
-        ret = {"loss": 0, "agg_metrics": 0}
-        ret["loss"] = (res["loss"] / res["n_sample"]).item()
-        ret["agg_metrics"] = (res["correct"] / res["n_token"]).item()
+        # Compute metrics based on decode mode
+        if decode:
+            # Binary classification metrics
+            if total_samples > 0:
+                if is_dist_avail_and_initialized():
+                    tp_tensor = torch.tensor(tp).float().cuda()
+                    tn_tensor = torch.tensor(tn).float().cuda()
+                    fp_tensor = torch.tensor(fp).float().cuda()
+                    fn_tensor = torch.tensor(fn).float().cuda()
+                    total_tensor = torch.tensor(total_samples).float().cuda()
+                    loss_tensor = torch.tensor(total_loss).float().cuda()
+                    
+                    dist.all_reduce(tp_tensor)
+                    dist.all_reduce(tn_tensor)
+                    dist.all_reduce(fp_tensor)
+                    dist.all_reduce(fn_tensor)
+                    dist.all_reduce(total_tensor)
+                    dist.all_reduce(loss_tensor)
+                    
+                    tp = int(tp_tensor.item())
+                    tn = int(tn_tensor.item())
+                    fp = int(fp_tensor.item())
+                    fn = int(fn_tensor.item())
+                    total_samples = int(total_tensor.item())
+                    total_loss = loss_tensor.item()
+                
+                accuracy = (tp + tn) / total_samples if total_samples > 0 else 0
+                balanced_accuracy = 0.5 * (tp / (tp + fn) if (tp + fn) > 0 else 0) + 0.5 * (tn / (tn + fp) if (tn + fp) > 0 else 0)
+                precision = tp / (tp + fp) if (tp + fp) > 0 else 0
+                recall = tp / (tp + fn) if (tp + fn) > 0 else 0
+                f1 = 2 * precision * recall / (precision + recall) if (precision + recall) > 0 else 0
+                
+                ret = {
+                    "loss": total_loss / len(dataloader) if len(dataloader) > 0 else 0,
+                    "agg_metrics": balanced_accuracy,  # Use balanced accuracy as the main metric
+                    "accuracy": accuracy,
+                    "balanced_accuracy": balanced_accuracy,
+                    "precision": precision,
+                    "recall": recall,
+                    "f1": f1,
+                    "tp": tp,
+                    "tn": tn,
+                    "fp": fp,
+                    "fn": fn,
+                    "total_samples": total_samples
+                }
+            else:
+                ret = {"loss": total_loss / len(dataloader) if len(dataloader) > 0 else 0, "agg_metrics": 0}
+        else:
+            # Token-level accuracy (when decode=False)
+            if is_dist_avail_and_initialized():
+                correct_tensor = torch.tensor(total_correct).float().cuda()
+                total_tensor = torch.tensor(total_tokens).float().cuda()
+                loss_tensor = torch.tensor(total_loss).float().cuda()
+                
+                dist.all_reduce(correct_tensor)
+                dist.all_reduce(total_tensor)
+                dist.all_reduce(loss_tensor)
+                
+                total_correct = correct_tensor.item()
+                total_tokens = total_tensor.item()
+                total_loss = loss_tensor.item()
+            
+            token_accuracy = total_correct / total_tokens if total_tokens > 0 else 0
+            
+            ret = {
+                "loss": total_loss / len(dataloader) if len(dataloader) > 0 else 0,
+                "agg_metrics": token_accuracy,  # Use token accuracy as agg_metrics when not decoding
+                "token_accuracy": token_accuracy,
+                "correct": int(total_correct),
+                "total": int(total_tokens)
+            }
 
         return ret
+
+    def _extract_label(self, text):
+        """
+        Extract binary label from raw text output.
+        Returns 1 for 'bonafide', 0 for 'spoof'.
+        """
+        if not text:
+            return 0
+        
+        text_lower = text.lower().strip()
+        
+        # Direct word matching
+        if 'bonafide' in text_lower:
+            return 1
+        elif 'spoof' in text_lower:
+            return 0
+    
+        return 0  # Default to spoof
+    
+    def save_result_incremental(self, result, result_dir, filename, clear_after_save=True):
+        """
+        Save results incrementally in JSONL format (one JSON object per line).
+        This prevents data loss if the process crashes during long inference runs.
+        """
+        result_file = os.path.join(
+            result_dir, "%s_rank%d.jsonl" % (filename, get_rank())
+        )
+        
+        try:
+            with open(result_file, "a", encoding="utf-8") as f:
+                for item in result:
+                    f.write(json.dumps(item, ensure_ascii=False) + "\n")
+            logging.info(f"Incremental save: {len(result)} results appended to {result_file}")
+        except Exception as e:
+            logging.warning(f"Error saving to {result_file}. Error: {e}")
+
+    @main_process
+    def merge_incremental_results(self, result_dir, incremental_filename, final_filename):
+        """
+        Merge incremental JSONL results from all ranks into final JSON file.
+        """
+        final_result_file = os.path.join(result_dir, "%s.json" % final_filename)
+        merged_results = []
+        
+        logging.info("Starting to merge incremental results.")
+        
+        if is_dist_avail_and_initialized():
+            num_ranks = get_world_size()
+        else:
+            num_ranks = 1
+        
+        for rank in range(num_ranks):
+            result_file = os.path.join(
+                result_dir, "%s_rank%d.jsonl" % (incremental_filename, rank)
+            )
+            if os.path.exists(result_file):
+                try:
+                    with open(result_file, "r", encoding="utf-8") as f:
+                        for line in f:
+                            if line.strip():
+                                merged_results.append(json.loads(line))
+                    logging.info(f"Merged {len(merged_results)} results from {result_file}")
+                except Exception as e:
+                    logging.warning(f"Error reading {result_file}. Error: {e}")
+            else:
+                logging.warning(f"Incremental result file not found: {result_file}")
+        
+        try:
+            with open(final_result_file, "w", encoding="utf-8") as f:
+                json.dump(merged_results, f, ensure_ascii=False, indent=2)
+            logging.info(f"Final result file saved to {final_result_file} with {len(merged_results)} results")
+        except Exception as e:
+            logging.warning(f"Error saving {final_result_file}. Error: {e}")
 
     def save_result(self, result, result_dir, filename):
         result_file = os.path.join(
@@ -278,7 +446,7 @@ class Runner:
 
             # validating phase
             logging.info("Validating Phase")
-            valid_log = self.valid_epoch(cur_epoch, "valid", decode=False, save_json=False)
+            valid_log = self.valid_epoch(cur_epoch, "valid", decode=True, save_json=True)
             if valid_log is not None:
                 if is_main_process():
                     agg_metrics = valid_log["agg_metrics"]
