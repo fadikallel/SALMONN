@@ -347,10 +347,9 @@ class ALLM(nn.Module):
         embeds =  speech_embeds
         attns = speech_atts
 
-        endoftext_token_id = self.qwen_tokenizer.eos_token
         im_end_token_id = self.qwen_tokenizer.convert_tokens_to_ids("<|im_end|>")
         
-        stop_words_ids = [endoftext_token_id, im_end_token_id, self.qwen_tokenizer.pad_token_id]
+        stop_words_ids = [self.qwen_tokenizer.eos_token_id, im_end_token_id, self.qwen_tokenizer.pad_token_id]
 
         stopping_criteria = StoppingCriteriaList([StoppingCriteriaSub(stops=stop_words_ids, tokenizer=self.qwen_tokenizer)])
         outputs = self.qwen_model.generate(
@@ -366,7 +365,7 @@ class ALLM(nn.Module):
             length_penalty=generate_cfg.get("length_penalty", 1.0),
             attention_mask=attns,
             pad_token_id=self.qwen_tokenizer.pad_token_id,
-            eos_token_id=endoftext_token_id,
+            eos_token_id=self.qwen_tokenizer.eos_token_id,
         )
         text = self.qwen_tokenizer.batch_decode(outputs, add_special_tokens=False)
         text = [ t.replace('<|endoftext|>', '').strip() for t in text]
