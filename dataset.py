@@ -19,16 +19,16 @@ from torch.utils.data import Dataset
 from torch.nn.utils.rnn import pad_sequence
 import librosa
 import numpy as np
-from transformers import Wav2Vec2FeatureExtractor
+# from transformers import Wav2Vec2FeatureExtractor
 
 
 class SALMONNDataset(Dataset):
     def __init__(self, ann_path, wav2vec2_path):
         super().__init__()
 
-        self.annotation = json.load(open(ann_path, "r"))#["annotation"]
+        self.annotation = json.load(open(ann_path, "r"))
 
-        self.wav_processor = Wav2Vec2FeatureExtractor.from_pretrained(wav2vec2_path)
+        # self.wav_processor = Wav2Vec2FeatureExtractor.from_pretrained(wav2vec2_path)
 
     def __len__(self):
         return len(self.annotation)

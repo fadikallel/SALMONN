@@ -257,7 +257,7 @@ class ALLM(nn.Module):
         else:
             return embeds, atts
     
-    def forward(self, samples, verbose=False):
+    def forward(self, samples, verbose=True):
         # detect whether there are multi tasks in this batch
         task = list(set(samples["task"]))
         if len(task) > 1 or "QA" in task:
@@ -283,8 +283,8 @@ class ALLM(nn.Module):
             speech_embeds, speech_atts = self.prompt_wrap(speech_embeds, speech_atts, prompt, multi_prompt=self.multi_prompt)
 
         # prepare inputs for LLM
-        # text = [t  for t in samples["text"]]
-        text = samples['text']
+        text = [t + self.qwen_tokenizer.eos_token for t in samples["text"]]
+        # text = samples['text']
         to_regress_tokens = self.qwen_tokenizer(
             text,
             return_tensors="pt",
@@ -325,7 +325,7 @@ class ALLM(nn.Module):
             results = outputs.logits[:, empty_targets.size(1) - 1: -1, :].contiguous().view(-1, nvocab).argmax(dim=-1)
             labels = targets[:, empty_targets.size(1):].contiguous().view(-1)
             mask = (labels != -100)
-            # print(self.qwen_tokenizer.batch_decode(results), self.qwen_tokenizer.batch_decode(labels), mask)
+            print(self.qwen_tokenizer.batch_decode(results), self.qwen_tokenizer.batch_decode(labels))
             correct = (results[mask] == labels[mask]).float().sum()
             total = len(labels[mask])
 
