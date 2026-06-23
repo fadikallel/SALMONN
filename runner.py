@@ -157,32 +157,41 @@ class Runner:
         header = "Eval: data epoch: [{}]".format(epoch)
 
         results = []
-        save_freq = self.config.config.run.get("save_result_freq", 100)  # Save every 100 samples by default
+        save_freq = self.config.config.run.get("save_result_freq", 100)
         batch_count = 0
+
+        # Metrics for binary classification (only used when decode=True)
+        tp = 0
+        tn = 0
+        fp = 0
+        fn = 0
+        total_samples = 0
+        total_loss = 0.0
         
-        # Accumulate metrics incrementally
-        accumulated_loss = 0.0
-        accumulated_correct = 0.0
-        accumulated_n_sample = 0
-        accumulated_n_token = 0
-        
+        # For token-level accuracy (when decode=False)
+        total_correct = 0
+        total_tokens = 0
+
         for samples in metric_logger.log_every(dataloader, self.config.config.run.log_freq, header=header):
             samples = prepare_sample(samples, cuda_enabled=self.cuda_enabled)
 
             with torch.cuda.amp.autocast(enabled=self.use_amp):
                 forward_result = model(samples, verbose=True)
+            
             loss = forward_result.get("loss", 0)
-            correct = forward_result.get("correct", 0)
-            total = forward_result.get("total", 1)
+            total_loss += loss.item()
+            
+            # Get ground truth labels
+            ground_truth_texts = samples["text"]
+            
             res = {
                 "id": samples["id"],
-                "ground_truth": samples["text"],
+                "ground_truth": ground_truth_texts,
                 "loss": loss.item(),
-                "acc": (correct / total).item(),
-                "total": total,
             }
 
             if decode:
+                # Generate predictions
                 if model.prompt_dict:
                     if self.test_prompt_dict is None:
                         prompts = None
@@ -197,22 +206,33 @@ class Runner:
                 res["text"] = text
                 res["prompt"] = prompts
                 res["task"] = samples["task"]
+                
+                # Extract binary labels from predictions and ground truth
+                for i, (pred_text, gt_text) in enumerate(zip(text, ground_truth_texts)):
+                    pred_label = self._extract_label(pred_text)
+                    true_label = self._extract_label(gt_text)
+                    
+                    if pred_label == 1 and true_label == 1:
+                        tp += 1
+                    elif pred_label == 0 and true_label == 0:
+                        tn += 1
+                    elif pred_label == 1 and true_label == 0:
+                        fp += 1
+                    elif pred_label == 0 and true_label == 1:
+                        fn += 1
+                    total_samples += 1
+            else:
+                # When decode=False, use token-level accuracy from forward pass
+                correct = forward_result.get("correct", 0)
+                total = forward_result.get("total", 0)
+                total_correct += correct
+                total_tokens += total
+                res["acc"] = (correct / total).item() if total > 0 else 0
+                res["total"] = total
 
             results.append(res)
             batch_count += 1
             
-            # Accumulate metrics
-            item_loss = res["loss"]
-            item_n_sample = len(res["id"])
-            item_correct = res["acc"] * res["total"]
-            item_n_token = res["total"]
-            
-            accumulated_loss += item_loss * item_n_sample
-            accumulated_n_sample += item_n_sample
-            accumulated_correct += item_correct
-            accumulated_n_token += item_n_token
-            
-            # Save results incrementally to avoid losing all data if process crashes
             if save_json and batch_count % save_freq == 0:
                 self.save_result_incremental(results, self.output_dir, "eval_{}_epoch_{}_incremental".format(split, epoch), clear_after_save=True)
                 results = []
@@ -221,32 +241,102 @@ class Runner:
             dist.barrier()
 
         if save_json:
-            # Save remaining results
             if results:
                 self.save_result_incremental(results, self.output_dir, "eval_{}_epoch_{}_incremental".format(split, epoch), clear_after_save=False)
-            # Merge all incremental results into final JSON
             self.merge_incremental_results(self.output_dir, "eval_{}_epoch_{}_incremental".format(split, epoch), "eval_{}_epoch_{}".format(split, epoch))
 
-        # Prepare tensors for distributed reduction
-        res = {
-            "loss": torch.tensor(accumulated_loss).float().cuda(),
-            "n_sample": torch.tensor(accumulated_n_sample).float().cuda(),
-            "correct": torch.tensor(accumulated_correct).float().cuda(),
-            "n_token": torch.tensor(accumulated_n_token).float().cuda(),
-        }
-
-        if is_dist_avail_and_initialized():
-            dist.all_reduce(res["loss"])
-            dist.all_reduce(res["n_sample"])
-            dist.all_reduce(res["correct"])
-            dist.all_reduce(res["n_token"])
-
-        ret = {"loss": 0, "agg_metrics": 0}
-        ret["loss"] = (res["loss"] / res["n_sample"]).item() if res["n_sample"].item() > 0 else 0
-        ret["agg_metrics"] = (res["correct"] / res["n_token"]).item() if res["n_token"].item() > 0 else 0
+        # Compute metrics based on decode mode
+        if decode:
+            # Binary classification metrics
+            if total_samples > 0:
+                if is_dist_avail_and_initialized():
+                    tp_tensor = torch.tensor(tp).float().cuda()
+                    tn_tensor = torch.tensor(tn).float().cuda()
+                    fp_tensor = torch.tensor(fp).float().cuda()
+                    fn_tensor = torch.tensor(fn).float().cuda()
+                    total_tensor = torch.tensor(total_samples).float().cuda()
+                    loss_tensor = torch.tensor(total_loss).float().cuda()
+                    
+                    dist.all_reduce(tp_tensor)
+                    dist.all_reduce(tn_tensor)
+                    dist.all_reduce(fp_tensor)
+                    dist.all_reduce(fn_tensor)
+                    dist.all_reduce(total_tensor)
+                    dist.all_reduce(loss_tensor)
+                    
+                    tp = int(tp_tensor.item())
+                    tn = int(tn_tensor.item())
+                    fp = int(fp_tensor.item())
+                    fn = int(fn_tensor.item())
+                    total_samples = int(total_tensor.item())
+                    total_loss = loss_tensor.item()
+                
+                accuracy = (tp + tn) / total_samples if total_samples > 0 else 0
+                balanced_accuracy = 0.5 * (tp / (tp + fn) if (tp + fn) > 0 else 0) + 0.5 * (tn / (tn + fp) if (tn + fp) > 0 else 0)
+                precision = tp / (tp + fp) if (tp + fp) > 0 else 0
+                recall = tp / (tp + fn) if (tp + fn) > 0 else 0
+                f1 = 2 * precision * recall / (precision + recall) if (precision + recall) > 0 else 0
+                
+                ret = {
+                    "loss": total_loss / len(dataloader) if len(dataloader) > 0 else 0,
+                    "agg_metrics": balanced_accuracy,
+                    "accuracy": accuracy,
+                    "balanced_accuracy": balanced_accuracy,
+                    "precision": precision,
+                    "recall": recall,
+                    "f1": f1,
+                    "tp": tp,
+                    "tn": tn,
+                    "fp": fp,
+                    "fn": fn,
+                    "total_samples": total_samples
+                }
+            else:
+                ret = {"loss": total_loss / len(dataloader) if len(dataloader) > 0 else 0, "agg_metrics": 0}
+        else:
+            # Token-level accuracy (when decode=False)
+            if is_dist_avail_and_initialized():
+                correct_tensor = torch.tensor(total_correct).float().cuda()
+                total_tensor = torch.tensor(total_tokens).float().cuda()
+                loss_tensor = torch.tensor(total_loss).float().cuda()
+                
+                dist.all_reduce(correct_tensor)
+                dist.all_reduce(total_tensor)
+                dist.all_reduce(loss_tensor)
+                
+                total_correct = correct_tensor.item()
+                total_tokens = total_tensor.item()
+                total_loss = loss_tensor.item()
+            
+            token_accuracy = total_correct / total_tokens if total_tokens > 0 else 0
+            
+            ret = {
+                "loss": total_loss / len(dataloader) if len(dataloader) > 0 else 0,
+                "agg_metrics": token_accuracy,  # Use token accuracy as agg_metrics when not decoding
+                "token_accuracy": token_accuracy,
+                "correct": int(total_correct),
+                "total": int(total_tokens)
+            }
 
         return ret
 
+    def _extract_label(self, text):
+        """
+        Extract binary label from raw text output.
+        Returns 1 for 'bonafide', 0 for 'spoof'.
+        """
+        if not text:
+            return 0
+        
+        text_lower = text.lower().strip()
+        
+        # Direct word matching
+        if 'bonafide' in text_lower:
+            return 1
+        elif 'spoof' in text_lower:
+            return 0
+        
+        return 0  # Default to spoof    
     def save_result_incremental(self, result, result_dir, filename, clear_after_save=True):
         """
         Save results incrementally in JSONL format (one JSON object per line).
@@ -359,7 +449,7 @@ class Runner:
 
             # validating phase
             logging.info("Validating Phase")
-            valid_log = self.valid_epoch(cur_epoch, "valid", decode=False, save_json=False)
+            valid_log = self.valid_epoch(cur_epoch, "valid", decode=True, save_json=False)
             if valid_log is not None:
                 if is_main_process():
                     agg_metrics = valid_log["agg_metrics"]

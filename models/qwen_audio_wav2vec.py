@@ -347,7 +347,7 @@ class ALLM(nn.Module):
         embeds =  speech_embeds
         attns = speech_atts
 
-        endoftext_token_id = self.qwen_tokenizer.convert_tokens_to_ids("<|endoftext|>")
+        endoftext_token_id = self.qwen_tokenizer.eos_token
         im_end_token_id = self.qwen_tokenizer.convert_tokens_to_ids("<|im_end|>")
         
         stop_words_ids = [endoftext_token_id, im_end_token_id, self.qwen_tokenizer.pad_token_id]
