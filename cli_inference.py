@@ -13,14 +13,13 @@
 # limitations under the License.
 
 import argparse
-
-import torch
-from transformers import WhisperFeatureExtractor
-
 from config import Config
-from models.salmonn import SALMONN
+from models import load_model
 from utils import prepare_one_sample
-
+from dataset import SALMONNDataset
+from runner import Runner
+from utils import now
+from dist_utils import  init_distributed_mode
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--cfg-path", type=str, required=True, help='path to configuration file')
@@ -32,31 +31,31 @@ parser.add_argument(
     "in xxx=yyy format will be merged into config file (deprecate), "
     "change to --cfg-options instead.",
 )
+parser.add_argument(
+    "--ckpt-path", type=str, help="path to checkpoint file"
+)
 
 args = parser.parse_args()
+job_id = now()
+
 cfg = Config(args)
+run_config = cfg.config.run
+model_config = cfg.config.model
+model_config.ckpt =  args.ckpt_path
+data_config = cfg.config.datasets
+init_distributed_mode(run_config)
 
-model = SALMONN.from_config(cfg.config.model)
-model.to(args.device)
-model.eval()
+# build model
+model = load_model(model_config)
 
-wav_processor = WhisperFeatureExtractor.from_pretrained(cfg.config.model.whisper_path)
+# build datasets
+datasets = {
+    "train": SALMONNDataset(data_config.train_ann_path, data_config.whisper_path),
+    "valid": SALMONNDataset(data_config.valid_ann_path, data_config.whisper_path),
+    "test": SALMONNDataset(data_config.test_ann_path, data_config.whisper_path),
+}
 
-while True:
-    try:
-        print("=====================================")
-        wav_path = input("Your Wav Path:\n")
-        prompt = input("Your Prompt:\n")
+# build runner
+runner = Runner(cfg, model, datasets, job_id)
 
-        samples = prepare_one_sample(wav_path, wav_processor)
-        prompt = [
-            cfg.config.model.prompt_template.format("<Speech><SpeechHere></Speech> " + prompt.strip())
-        ]
-        print("Output:")
-        # for environment with cuda>=117
-        with torch.cuda.amp.autocast(dtype=torch.float16):
-            print(model.generate(samples, cfg.config.generate, prompts=prompt)[0])
-        # print(model.generate(samples, cfg.config.generate, prompts=prompt)[0])
-    except Exception as e:
-        print(e)
-        import pdb; pdb.set_trace()
+runner.valid_epoch("0","test",decode=True,save_json=True)
