@@ -1,5 +1,7 @@
 import json
 import pandas as pd
+import numpy as np
+import ast
 from pathlib import Path
 
 def transform_parquet_to_training_format(input_parquet_path, output_json_path, task="deepfake_detection_with_reasoning"):
@@ -15,7 +17,7 @@ def transform_parquet_to_training_format(input_parquet_path, output_json_path, t
     [
       {
         "path": "/ds-slt/audio/fkallel/HIR-SDD/audio_path_from_parquet",
-        "text": "<answer>{bonafide or spoof}</answer><reasoning>{reasoning}</reasoning><reasons>{reasons}</reasons>",
+        "text": "<answer>{bonafide or spoof}</answer><explanation>{reasoning}</explanation><reasons>{reasons}</reasons>",
         "task": "deepfake_detection_with_reasoning"
       }
     ]
@@ -29,8 +31,81 @@ def transform_parquet_to_training_format(input_parquet_path, output_json_path, t
     try:
         df = pd.read_parquet(input_parquet_path)
         print(f"✅ Loaded {len(df)} rows from parquet")
+        print(f"📋 Columns: {df.columns.tolist()}")
+        print(f"📊 Data types:\n{df.dtypes}")
     except Exception as e:
         print(f"Error reading parquet file: {e}")
+        return []
+    
+    # Helper function to parse reasons
+    def parse_reasons(reasons_val):
+        """Parse reasons from various formats to a list of strings"""
+        # Check for None
+        if reasons_val is None:
+            return []
+        
+        # Check for NaN using pandas, but handle numpy arrays carefully
+        try:
+            if isinstance(reasons_val, (np.ndarray, list)):
+                # For arrays/lists, check if it's empty
+                if len(reasons_val) == 0:
+                    return []
+                # If it's a numpy array with a single element that's NaN
+                if isinstance(reasons_val, np.ndarray) and reasons_val.size == 1:
+                    if pd.isna(reasons_val[0]):
+                        return []
+            elif pd.isna(reasons_val):
+                return []
+        except:
+            pass
+        
+        # If it's already a list
+        if isinstance(reasons_val, list):
+            return reasons_val
+        
+        # If it's a numpy array
+        if isinstance(reasons_val, np.ndarray):
+            # Convert to list
+            reasons_list = reasons_val.tolist()
+            
+            # If the list has one element that looks like a string representation of a list
+            if len(reasons_list) == 1 and isinstance(reasons_list[0], str):
+                try:
+                    # Try to parse it as a list
+                    parsed = ast.literal_eval(reasons_list[0])
+                    if isinstance(parsed, list):
+                        return parsed
+                except:
+                    # If it's a comma-separated string
+                    if ',' in reasons_list[0]:
+                        return [item.strip().strip('"\'') for item in reasons_list[0].split(',')]
+                    return [reasons_list[0].strip('"\'')]
+            else:
+                # Convert each element to string
+                return [str(item).strip('"\'') for item in reasons_list if item]
+        
+        # If it's a string, try to parse it as a list
+        if isinstance(reasons_val, str):
+            try:
+                parsed = ast.literal_eval(reasons_val)
+                if isinstance(parsed, list):
+                    return parsed
+            except:
+                # If it's a comma-separated string
+                if ',' in reasons_val:
+                    return [item.strip().strip('"\'') for item in reasons_val.split(',')]
+                return [reasons_val.strip('"\'')]
+        
+        # Try converting to string and parsing
+        try:
+            str_val = str(reasons_val)
+            if str_val.startswith('[') and str_val.endswith(']'):
+                parsed = ast.literal_eval(str_val)
+                if isinstance(parsed, list):
+                    return parsed
+        except:
+            pass
+        
         return []
     
     # Process each row
@@ -43,9 +118,7 @@ def transform_parquet_to_training_format(input_parquet_path, output_json_path, t
                 continue
             
             # Convert to absolute path with base directory
-            # Remove any leading './' or '../' or existing base paths
             audio_path = audio_path.lstrip('./').lstrip('../')
-            # If the path already starts with the base path, use it as is
             absolute_path = base_audio_path + audio_path
             
             # Get bonafide status
@@ -57,20 +130,38 @@ def transform_parquet_to_training_format(input_parquet_path, output_json_path, t
             # Convert bonafide to answer text
             answer = "bonafide" if is_bonafide else "spoof"
             
-            # Get reasoning and reasons
+            # Get reasoning
             reasoning = row.get('reasoning', '')
-            reasons = row.get('reasons', [])
+            if reasoning and not isinstance(reasoning, str):
+                reasoning = str(reasoning)
             
-            # Convert reasons list to string if it's a list
-            reasons_list = reasons.tolist()
-            if len(reasons_list) == 0:
+            # Get and parse reasons
+            reasons_raw = row.get('reasons', [])
+            reasons_list = parse_reasons(reasons_raw)
+            
+            # Debug: print first few to see the format
+            if idx < 5:
+                print(f"\n🔍 Debug Row {idx}:")
+                print(f"   Raw reasons type: {type(reasons_raw)}")
+                print(f"   Raw reasons value: {reasons_raw}")
+                print(f"   Parsed reasons: {reasons_list}")
+            
+            # Build the text with proper formatting
+            if not reasons_list or len(reasons_list) == 0:
                 formatted_text = f"<answer>{answer}</answer><explanation>{reasoning}</explanation>"
             else:
+                # Process each reason: lowercase and replace underscores with spaces
                 processed_reasons = []
                 for reason in reasons_list:
-                    processed = reason.lower().replace('_', ' ')
+                    # Convert to string if needed
+                    reason_str = str(reason)
+                    # Remove any extra quotes
+                    reason_str = reason_str.strip('"\'')
+                    processed = reason_str.lower().replace('_', ' ')
                     processed_reasons.append(processed)
-                reasons_str = ', '.join(processed_reasons) if processed_reasons else ''
+                
+                # Join with commas
+                reasons_str = ', '.join(processed_reasons)
                 formatted_text = f"<answer>{answer}</answer><explanation>{reasoning}</explanation><reasons>{reasons_str}</reasons>"
             
             # Create the training example
@@ -82,8 +173,14 @@ def transform_parquet_to_training_format(input_parquet_path, output_json_path, t
             
             training_data.append(example)
             
+            # Print progress every 10000 rows
+            if (idx + 1) % 10000 == 0:
+                print(f"   Processed {idx + 1} rows...")
+            
         except Exception as e:
             print(f"Error processing row {idx}: {e}")
+            import traceback
+            traceback.print_exc()
             continue
     
     # Save to JSON file
@@ -107,6 +204,13 @@ def transform_parquet_to_training_format(input_parquet_path, output_json_path, t
         print(f"\n📁 Sample absolute paths:")
         for i in range(min(3, len(training_data))):
             print(f"   {training_data[i]['path']}")
+            
+        # Print a sample to verify formatting
+        print(f"\n📝 Sample text formatting:")
+        sample = training_data[0]
+        print(f"   Path: {sample['path']}")
+        print(f"   Text: {sample['text']}")
+        print(f"   Task: {sample['task']}")
     
     return training_data
 

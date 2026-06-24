@@ -17,9 +17,9 @@ import json
 import torch
 from torch.utils.data import Dataset
 from torch.nn.utils.rnn import pad_sequence
-import librosa
+import soundfile as sf
 import numpy as np
-# from transformers import Wav2Vec2FeatureExtractor
+from transformers import Wav2Vec2FeatureExtractor
 
 
 class SALMONNDataset(Dataset):
@@ -27,38 +27,51 @@ class SALMONNDataset(Dataset):
         super().__init__()
 
         self.annotation = json.load(open(ann_path, "r"))
-
-        # self.wav_processor = Wav2Vec2FeatureExtractor.from_pretrained(wav2vec2_path)
+        
+        # Use Wav2Vec2FeatureExtractor instead of WhisperFeatureExtractor
+        self.wav_processor = Wav2Vec2FeatureExtractor.from_pretrained(wav2vec2_path)
 
     def __len__(self):
         return len(self.annotation)
 
     def collater(self, samples):
-        raw_wav = [torch.from_numpy(s["raw_wav"]) for s in samples]
-        raw_wav_length = torch.tensor([len(s["raw_wav"]) for s in samples])
-        raw_wav = pad_sequence(raw_wav, batch_first=True, padding_value=0)
-        padding_mask = torch.arange(raw_wav.size(1)).unsqueeze(0) >= raw_wav_length.unsqueeze(1)
-
+        # Stack input_values (already preprocessed by Wav2Vec2)
+        raw_audios = [s["raw_wav"] for s in samples]
+        
+        # Process ALL audios in one batch
+        # This is more efficient than processing one-by-one
+        processed = self.wav_processor(
+            raw_audios,  # List of numpy arrays
+            sampling_rate=16000,  # Should be same for all
+            padding=True,  # Pad to max length in batch
+            return_tensors="pt",  # Return PyTorch tensors
+            return_attention_mask=True
+        )
+        
+        # Extract text and metadata
         text = [s["text"] for s in samples]
         task = [s["task"] for s in samples]
         Q = [s["Q"] for s in samples]
-        id = [s["id"] for s in samples]
-
+        ids = [s["id"] for s in samples]
+        
         return {
-            "raw_wav": raw_wav,
-            "padding_mask": padding_mask,
+            "input_values": processed["input_values"],  # Already batched and padded
+            "attention_mask": processed["attention_mask"],  # Already batched and padded
             "text": text,
             "task": task,
             "Q": Q,
-            "id": id,
+            "id": ids,
         }
-
+    
     def __getitem__(self, index):
         ann = self.annotation[index]
 
-        audio, sr = librosa.load(ann["path"], sr=16000, mono=False)
-        if len(audio.shape) == 2: # stereo to mono
+        # Load audio
+        audio, sr = sf.read(ann["path"])
+        if len(audio.shape) == 2:  # stereo to mono
             audio = audio[:, 0]
+        
+        # Expand audio if needed
         if "expand_wav" in ann:
             for p in ann["expand_wav"]:
                 expand_audio, _ = sf.read(p)
@@ -66,17 +79,21 @@ class SALMONNDataset(Dataset):
                     expand_audio = expand_audio[:, 0]
                 sil = np.zeros(1600, dtype=float)
                 audio = np.concatenate((audio, sil, expand_audio), axis=0)
-        if len(audio) < sr: # pad audio to at least 1s
+        
+        # Pad audio to at least 1s
+        if len(audio) < sr:
             sil = np.zeros(sr - len(audio), dtype=float)
             audio = np.concatenate((audio, sil), axis=0)
-        audio = audio[: sr * 30] # truncate audio to at most 30s
+        
+        # Truncate audio to at most 30s
+        audio = audio[:sr * 30]
 
         text = ann["text"]
         task = ann.get("task", "asr")
         Q = ann.get("Q", "")
 
         return {
-            "raw_wav": audio,
+            "raw_wav": audio,  # Keep raw audio for potential use
             "text": text,
             "task": task,
             "Q": Q,

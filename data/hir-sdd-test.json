@@ -6,7 +6,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ab/abea9c20c5f4.wav",
-    "text": "<answer>spoof</answer><explanation>metallic unnatural voice</explanation><reasons>['strange intonation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>metallic unnatural voice</explanation><reasons>strange intonation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -21,7 +21,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/1d/1d3eb8066553.wav",
-    "text": "<answer>spoof</answer><explanation>The audio consists of fragments from several recordings. There are no intonations at all.</explanation><reasons>['strange intonation', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The audio consists of fragments from several recordings. There are no intonations at all.</explanation><reasons>strange intonation, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -51,7 +51,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/cf/cfceba10af8f.wav",
-    "text": "<answer>spoof</answer><explanation>/home/sigma.sbrf.ru@22681348/Documents/\u0418\u041d\u0421\u0422\u0420\u0423\u041a\u0426\u0418\u0418 \u0440\u0430\u0437\u043d\u043e\u0435/\u0422\u0417_modern-generators_\u0430\u0443\u0434\u0438\u043e\u0444\u0435\u0439\u043a\u0438 (1).docx</explanation><reasons>['monotony of style', 'strange voice', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>/home/sigma.sbrf.ru@22681348/Documents/\u0418\u041d\u0421\u0422\u0420\u0423\u041a\u0426\u0418\u0418 \u0440\u0430\u0437\u043d\u043e\u0435/\u0422\u0417_modern-generators_\u0430\u0443\u0434\u0438\u043e\u0444\u0435\u0439\u043a\u0438 (1).docx</explanation><reasons>monotony of style, strange voice, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -71,12 +71,12 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/84/84fe4244f867.wav",
-    "text": "<answer>spoof</answer><explanation>The speech sounds unnatural, lacking individual characteristics, emotions, and nuances of expression. While there is a distinction between direct and indirect speech, the intonation remains smooth and doesn't match the context (it's the direct speech that doesn't fit, whereas the indirect speech seems more appropriate).</explanation><reasons>['too long with no pause', 'strange intonation', 'monotony of style']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The speech sounds unnatural, lacking individual characteristics, emotions, and nuances of expression. While there is a distinction between direct and indirect speech, the intonation remains smooth and doesn't match the context (it's the direct speech that doesn't fit, whereas the indirect speech seems more appropriate).</explanation><reasons>too long with no pause, strange intonation, monotony of style</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/8c/8cd2224a0df8.wav",
-    "text": "<answer>spoof</answer><explanation>Robotic voice, unnatural intonation</explanation><reasons>['strange intonation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Robotic voice, unnatural intonation</explanation><reasons>strange intonation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -111,7 +111,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/22/228288132a8e.wav",
-    "text": "<answer>spoof</answer><explanation>robotic voice, intonations, pauses</explanation><reasons>['unnatural pauses', 'strange intonation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>robotic voice, intonations, pauses</explanation><reasons>unnatural pauses, strange intonation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -161,7 +161,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/60/60aa43b2fa37.wav",
-    "text": "<answer>spoof</answer><explanation>A robotic voice with static. The speech is unnaturally staccato, with a uniform tone and unintelligible words throughout the recording (and at the 3-second mark, the voice turns into some demonic growl).</explanation><reasons>['too long with no pause', 'strange voice', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>A robotic voice with static. The speech is unnaturally staccato, with a uniform tone and unintelligible words throughout the recording (and at the 3-second mark, the voice turns into some demonic growl).</explanation><reasons>too long with no pause, strange voice, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -186,7 +186,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/1e/1e08ce744e3f.wav",
-    "text": "<answer>spoof</answer><explanation>The speech is generated, the voice is artificial with a metallic tone, and there is an indecipherable word at the end of the recording.</explanation><reasons>['strange voice', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The speech is generated, the voice is artificial with a metallic tone, and there is an indecipherable word at the end of the recording.</explanation><reasons>strange voice, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -201,12 +201,12 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/81/814bdeee1456.wav",
-    "text": "<answer>spoof</answer><explanation>\"metallic voice,\" stuttering, unclear speech</explanation><reasons>['strange voice', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>\"metallic voice,\" stuttering, unclear speech</explanation><reasons>strange voice, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/2f/2fc836764020.wav",
-    "text": "<answer>spoof</answer><explanation>The pronunciation of the word \"\u0445\u0430\u0440\u0430\u043a\u0442\u0435\u0440\u043d\u044b\u0435,\" unnatural pauses, and intonation</explanation><reasons>['unnatural pauses', 'strange intonation', 'incorrect pronunciation']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The pronunciation of the word \"\u0445\u0430\u0440\u0430\u043a\u0442\u0435\u0440\u043d\u044b\u0435,\" unnatural pauses, and intonation</explanation><reasons>unnatural pauses, strange intonation, incorrect pronunciation</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -221,17 +221,17 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/18/1819233c8923.wav",
-    "text": "<answer>spoof</answer><explanation>The recording is interrupted, indecipherable</explanation><reasons>['strange voice', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The recording is interrupted, indecipherable</explanation><reasons>strange voice, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/7e/7ecd6d899646.wav",
-    "text": "<answer>spoof</answer><explanation>The speech is unbroken and monotonous, with no changes in intonation or expression of emotions. There is a stress error: \"\u0438\u0437\u043c\u0430\u042f\u043b\u0430\u0441\u044c\" instead of \"\u0438\u0437\u043c\u0410\u044f\u043b\u0430\u0441\u044c\".</explanation><reasons>['too long with no pause', 'strange intonation', 'incorrect word stress']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The speech is unbroken and monotonous, with no changes in intonation or expression of emotions. There is a stress error: \"\u0438\u0437\u043c\u0430\u042f\u043b\u0430\u0441\u044c\" instead of \"\u0438\u0437\u043c\u0410\u044f\u043b\u0430\u0441\u044c\".</explanation><reasons>too long with no pause, strange intonation, incorrect word stress</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/6e/6ec892c5b568.wav",
-    "text": "<answer>spoof</answer><explanation>There are no pauses at all, and the voice is overly energetic and cheerful.</explanation><reasons>['too long with no pause', 'unnatural pauses', 'strange intonation']</reasons>",
+    "text": "<answer>spoof</answer><explanation>There are no pauses at all, and the voice is overly energetic and cheerful.</explanation><reasons>too long with no pause, unnatural pauses, strange intonation</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -251,7 +251,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/48/4830c49bc226.wav",
-    "text": "<answer>spoof</answer><explanation>\"metallic voice,\" indistinctly</explanation><reasons>['strange voice', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>\"metallic voice,\" indistinctly</explanation><reasons>strange voice, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -261,7 +261,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/6c/6c132597adee.wav",
-    "text": "<answer>spoof</answer><explanation>Despite sounding like individual vowel and consonant sounds, the overall speech seems generated because it lacks emotions and nuances in expression. The intonation and pauses appear unnatural and don't fit the spoken text (for example, the strange emphasis on the word \"\u0432\u043e\u0435\u043d\u043d\u043e\u0441\u043b\u0443\u0436\u0430\u0449\u0438\u0445\" and the long pause after it).</explanation><reasons>['too long with no pause', 'unnatural pauses', 'strange intonation', 'monotony of style']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Despite sounding like individual vowel and consonant sounds, the overall speech seems generated because it lacks emotions and nuances in expression. The intonation and pauses appear unnatural and don't fit the spoken text (for example, the strange emphasis on the word \"\u0432\u043e\u0435\u043d\u043d\u043e\u0441\u043b\u0443\u0436\u0430\u0449\u0438\u0445\" and the long pause after it).</explanation><reasons>too long with no pause, unnatural pauses, strange intonation, monotony of style</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -281,12 +281,12 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a9/a9e479e1040a.wav",
-    "text": "<answer>spoof</answer><explanation>Some echo or overlapping. Stuttering words, lack of pauses, monotonous speech.</explanation><reasons>['too long with no pause', 'unnatural pauses', 'identical pauses', 'strange intonation', 'strange voice', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Some echo or overlapping. Stuttering words, lack of pauses, monotonous speech.</explanation><reasons>too long with no pause, unnatural pauses, identical pauses, strange intonation, strange voice, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/bb/bb1478af65dd.wav",
-    "text": "<answer>spoof</answer><explanation>The voice has mechanical tones and strange, awkward pauses.</explanation><reasons>['unnatural pauses', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The voice has mechanical tones and strange, awkward pauses.</explanation><reasons>unnatural pauses, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -311,7 +311,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/9e/9e2af5f6423b.wav",
-    "text": "<answer>spoof</answer><explanation>The speech is unnaturally fast, it's difficult for a person to speak this quickly, especially without mistakes and without pauses for breaths.\nThe stress is incorrect: \"\u0449\u0435\u043f\u043a\u0418\" instead of \"\u0449\u0415\u043f\u043a\u0438\".</explanation><reasons>['too long with no pause', 'unnatural pauses', 'incorrect word stress']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The speech is unnaturally fast, it's difficult for a person to speak this quickly, especially without mistakes and without pauses for breaths.\nThe stress is incorrect: \"\u0449\u0435\u043f\u043a\u0418\" instead of \"\u0449\u0415\u043f\u043a\u0438\".</explanation><reasons>too long with no pause, unnatural pauses, incorrect word stress</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -326,7 +326,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/77/77bc8606806d.wav",
-    "text": "<answer>spoof</answer><explanation>There's a metallic echo, and there are no pauses at all.</explanation><reasons>['too long with no pause', 'unnatural pauses', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>There's a metallic echo, and there are no pauses at all.</explanation><reasons>too long with no pause, unnatural pauses, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -351,7 +351,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/60/605bd7947651.wav",
-    "text": "<answer>spoof</answer><explanation>Robotized voice, unnatural intonation, no pauses</explanation><reasons>['too long with no pause', 'strange intonation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Robotized voice, unnatural intonation, no pauses</explanation><reasons>too long with no pause, strange intonation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -361,7 +361,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/d0/d0140308cafe.wav",
-    "text": "<answer>spoof</answer><explanation>Robotized voice. There are no pauses in the clip at all, and the intonation doesn't change. The speech is emotionless and monotonous.</explanation><reasons>['too long with no pause', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Robotized voice. There are no pauses in the clip at all, and the intonation doesn't change. The speech is emotionless and monotonous.</explanation><reasons>too long with no pause, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -371,7 +371,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/19/195de4875feb.wav",
-    "text": "<answer>spoof</answer><explanation>unnatural robotic voice</explanation><reasons>['unnatural pauses', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>unnatural robotic voice</explanation><reasons>unnatural pauses, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -411,7 +411,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/7a/7a710ad3be0b.wav",
-    "text": "<answer>spoof</answer><explanation>Mechanized voice with added static.</explanation><reasons>['strange voice', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Mechanized voice with added static.</explanation><reasons>strange voice, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -426,7 +426,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/48/4804ac4ce8b9.wav",
-    "text": "<answer>spoof</answer><explanation>Generation:\n- mechanical-sounding voice\n- strange intonation jumps: monotone voice for most of the text, and a sudden change at the end\n- unnatural intonations</explanation><reasons>['strange intonation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Generation:\n- mechanical-sounding voice\n- strange intonation jumps: monotone voice for most of the text, and a sudden change at the end\n- unnatural intonations</explanation><reasons>strange intonation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -486,7 +486,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ce/ce404dea6bf0.wav",
-    "text": "<answer>spoof</answer><explanation>I believe it's generated. The speech is monotonous with a metallic tone, and there are regular pauses. Plus, at the end, there's an imitation of key sounds, like a lamp switch being toggled three times.</explanation><reasons>['too long with no pause', 'unnatural pauses', 'strange voice', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>I believe it's generated. The speech is monotonous with a metallic tone, and there are regular pauses. Plus, at the end, there's an imitation of key sounds, like a lamp switch being toggled three times.</explanation><reasons>too long with no pause, unnatural pauses, strange voice, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -506,7 +506,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a7/a7e072830d17.wav",
-    "text": "<answer>spoof</answer><explanation>The speech sounds unnatural, lacking emotions and tonal variations (though the voice does sound distinctly individualized). At the end, there's a sense that the voice has been cut off.</explanation><reasons>['strange intonation', 'monotony of style', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The speech sounds unnatural, lacking emotions and tonal variations (though the voice does sound distinctly individualized). At the end, there's a sense that the voice has been cut off.</explanation><reasons>strange intonation, monotony of style, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -521,7 +521,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/5b/5bb2ef85bca8.wav",
-    "text": "<answer>spoof</answer><explanation>A robotic voice saying something that's unclear</explanation><reasons>['strange voice', 'too fast']</reasons>",
+    "text": "<answer>spoof</answer><explanation>A robotic voice saying something that's unclear</explanation><reasons>strange voice, too fast</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -536,7 +536,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/31/31cbb98c7cea.wav",
-    "text": "<answer>spoof</answer><explanation>At the end of the phrase, there's acceleration and mispronunciation of words, monotony, and an odd voice.</explanation><reasons>['unnatural pauses', 'strange intonation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>At the end of the phrase, there's acceleration and mispronunciation of words, monotony, and an odd voice.</explanation><reasons>unnatural pauses, strange intonation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -546,7 +546,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/64/6413c400d07c.wav",
-    "text": "<answer>spoof</answer><explanation>Robotized voice, unnatural intonation</explanation><reasons>['strange intonation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Robotized voice, unnatural intonation</explanation><reasons>strange intonation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -566,12 +566,12 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/8e/8e365e6f108b.wav",
-    "text": "<answer>spoof</answer><explanation>Robotic voice, unnatural intonation</explanation><reasons>['too long with no pause', 'strange intonation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Robotic voice, unnatural intonation</explanation><reasons>too long with no pause, strange intonation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/37/372d1a22d91a.wav",
-    "text": "<answer>spoof</answer><explanation>Robotized voice, lack of pauses, monotonous speech</explanation><reasons>['too long with no pause', 'strange intonation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Robotized voice, lack of pauses, monotonous speech</explanation><reasons>too long with no pause, strange intonation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -586,7 +586,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/46/46eda0010e06.wav",
-    "text": "<answer>spoof</answer><explanation>The metallic voice sounds unnatural. The incorrect pronunciation of the word \"\u043f\u0440\u043e\u0434\u043e\u043b\u0436\u0430\u0435\u0442\u0441\u044f\" produces a strange sound when spoken.</explanation><reasons>['incorrect pronunciation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The metallic voice sounds unnatural. The incorrect pronunciation of the word \"\u043f\u0440\u043e\u0434\u043e\u043b\u0436\u0430\u0435\u0442\u0441\u044f\" produces a strange sound when spoken.</explanation><reasons>incorrect pronunciation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -596,17 +596,17 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/50/5004f7536640.wav",
-    "text": "<answer>spoof</answer><explanation>Robotic voice, unnatural intonation</explanation><reasons>['unnatural pauses', 'strange intonation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Robotic voice, unnatural intonation</explanation><reasons>unnatural pauses, strange intonation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a6/a6cb7b9b97f5.wav",
-    "text": "<answer>spoof</answer><explanation>very fast speech, sped up</explanation><reasons>['strange voice', 'too fast', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>very fast speech, sped up</explanation><reasons>strange voice, too fast, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/2e/2eecae112cc3.wav",
-    "text": "<answer>spoof</answer><explanation>The voice sounds unnatural, and there are no pauses between words.</explanation><reasons>['too long with no pause', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The voice sounds unnatural, and there are no pauses between words.</explanation><reasons>too long with no pause, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -621,7 +621,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ae/ae222efb5ce5.wav",
-    "text": "<answer>spoof</answer><explanation>Robotized voice, unnatural intonation</explanation><reasons>['strange intonation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Robotized voice, unnatural intonation</explanation><reasons>strange intonation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -646,12 +646,12 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/50/505316e80ec0.wav",
-    "text": "<answer>spoof</answer><explanation>\"metallic voice,\" fast speech, indistinctly spoken</explanation><reasons>['strange voice', 'too fast']</reasons>",
+    "text": "<answer>spoof</answer><explanation>\"metallic voice,\" fast speech, indistinctly spoken</explanation><reasons>strange voice, too fast</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/98/98034416ac1d.wav",
-    "text": "<answer>spoof</answer><explanation>The voice is robotic and metallic, with no pauses for breathing.</explanation><reasons>['too long with no pause', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The voice is robotic and metallic, with no pauses for breathing.</explanation><reasons>too long with no pause, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -676,7 +676,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/12/12c960beb1b6.wav",
-    "text": "<answer>spoof</answer><explanation>Artificial voice, with distortions. The pauses are incorrectly placed.</explanation><reasons>['unnatural pauses', 'strange intonation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Artificial voice, with distortions. The pauses are incorrectly placed.</explanation><reasons>unnatural pauses, strange intonation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -711,7 +711,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/1d/1d6212457a39.wav",
-    "text": "<answer>spoof</answer><explanation>The speech is generated, the voice is artificial and robotic, with incorrect stress on the word \"\u0446\u0435\u043d\u044b.\" At the pause after the word \"\u0446\u0435\u043d\u044b,\" the sound cuts off.</explanation><reasons>['unnatural pauses', 'incorrect word stress', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The speech is generated, the voice is artificial and robotic, with incorrect stress on the word \"\u0446\u0435\u043d\u044b.\" At the pause after the word \"\u0446\u0435\u043d\u044b,\" the sound cuts off.</explanation><reasons>unnatural pauses, incorrect word stress, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -756,7 +756,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/28/28ad694527bc.wav",
-    "text": "<answer>spoof</answer><explanation>The sound at the end of the recording is unnaturally cut off, which may indicate speech generated by a model. The entire recording is filled with artifacts overlaid on top of an odd and unnatural voice.</explanation><reasons>['unnatural pauses', 'strange voice', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The sound at the end of the recording is unnaturally cut off, which may indicate speech generated by a model. The entire recording is filled with artifacts overlaid on top of an odd and unnatural voice.</explanation><reasons>unnatural pauses, strange voice, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -781,7 +781,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/b4/b48afd5f8e0d.wav",
-    "text": "<answer>spoof</answer><explanation>Unnatural pauses and intonation, with no sounds during the pauses.</explanation><reasons>['unnatural pauses', 'strange intonation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Unnatural pauses and intonation, with no sounds during the pauses.</explanation><reasons>unnatural pauses, strange intonation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -791,7 +791,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/64/649353355d53.wav",
-    "text": "<answer>spoof</answer><explanation>There's a long pause before the word \"\u043a\u043e\u0442\u043e\u0440\u0430\u044f.\" At the end, a strange accent begins to come through.</explanation><reasons>['unnatural pauses', 'strange accent', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>There's a long pause before the word \"\u043a\u043e\u0442\u043e\u0440\u0430\u044f.\" At the end, a strange accent begins to come through.</explanation><reasons>unnatural pauses, strange accent, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -801,7 +801,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ca/ca863bce4dc1.wav",
-    "text": "<answer>spoof</answer><explanation>A very strange voice with robotic undertones. The speech sounds unnatural, with a uniform tone lacking individual characteristics, emotions, and expressive nuances. There's no distinction between direct and indirect speech. Additionally, there\u2019s a mispronunciation of \"\u043d\u0435 \u043f\u0440\u0430\u0432\u042b\" at one point. At 11 seconds, there\u2019s a sudden and seemingly unjustified prolonged and loud sound of \"\u0430,\" which also has a mechanical quality to it.</explanation><reasons>['strange intonation', 'monotony of style', 'incorrect word stress', 'strange voice', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>A very strange voice with robotic undertones. The speech sounds unnatural, with a uniform tone lacking individual characteristics, emotions, and expressive nuances. There's no distinction between direct and indirect speech. Additionally, there\u2019s a mispronunciation of \"\u043d\u0435 \u043f\u0440\u0430\u0432\u042b\" at one point. At 11 seconds, there\u2019s a sudden and seemingly unjustified prolonged and loud sound of \"\u0430,\" which also has a mechanical quality to it.</explanation><reasons>strange intonation, monotony of style, incorrect word stress, strange voice, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -846,12 +846,12 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ad/ad326c5e9c7c.wav",
-    "text": "<answer>spoof</answer><explanation>Indistinct, with interference</explanation><reasons>['strange voice', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Indistinct, with interference</explanation><reasons>strange voice, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/91/915b840fe762.wav",
-    "text": "<answer>spoof</answer><explanation>The pauses sounded unnatural, but there were no breathing pauses.</explanation><reasons>['too long with no pause', 'unnatural pauses']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The pauses sounded unnatural, but there were no breathing pauses.</explanation><reasons>too long with no pause, unnatural pauses</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -876,12 +876,12 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/1b/1babb527f0bd.wav",
-    "text": "<answer>spoof</answer><explanation>The speech is generated, the voice is artificial with a metallic tone, and there is incorrect pronunciation of the word \"\u043f\u043b\u0435\u0447\u0443\" and the last word.</explanation><reasons>['incorrect pronunciation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The speech is generated, the voice is artificial with a metallic tone, and there is incorrect pronunciation of the word \"\u043f\u043b\u0435\u0447\u0443\" and the last word.</explanation><reasons>incorrect pronunciation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/cd/cd6a0f6bafe2.wav",
-    "text": "<answer>spoof</answer><explanation>The words \"\u041f\u0435\u0440\u0435\u0433\u043e\u0432\u043e\u0440\u044b\" and \"\u0440\u0443\u043a\u043e\u0432\u043e\u0434\u0441\u0442\u0432\u043e\" are equally emphasized in intonation. The voice is synthetic, like that of a voice assistant.</explanation><reasons>['strange intonation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The words \"\u041f\u0435\u0440\u0435\u0433\u043e\u0432\u043e\u0440\u044b\" and \"\u0440\u0443\u043a\u043e\u0432\u043e\u0434\u0441\u0442\u0432\u043e\" are equally emphasized in intonation. The voice is synthetic, like that of a voice assistant.</explanation><reasons>strange intonation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -916,12 +916,12 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/6e/6eb848a95339.wav",
-    "text": "<answer>spoof</answer><explanation>The narrative style is monotonous, the pauses are too short, and the speech sounds synthetic.</explanation><reasons>['unnatural pauses', 'monotony of style']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The narrative style is monotonous, the pauses are too short, and the speech sounds synthetic.</explanation><reasons>unnatural pauses, monotony of style</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/7d/7deb1f58ede5.wav",
-    "text": "<answer>spoof</answer><explanation>Very fast speech, not understandable upon listening</explanation><reasons>['strange voice', 'too fast']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Very fast speech, not understandable upon listening</explanation><reasons>strange voice, too fast</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -931,7 +931,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/51/51860d477e4b.wav",
-    "text": "<answer>spoof</answer><explanation>The speaker's voice sounds like it was generated. There is a wheezing sound on the recording. The speaker has a slightly odd accent.</explanation><reasons>['monotony of style', 'strange accent', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The speaker's voice sounds like it was generated. There is a wheezing sound on the recording. The speaker has a slightly odd accent.</explanation><reasons>monotony of style, strange accent, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -951,12 +951,12 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/4c/4c34f4d7fb7c.wav",
-    "text": "<answer>spoof</answer><explanation>Too frequent breaths, an odd ending, and unnatural pauses.</explanation><reasons>['unnatural pauses', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Too frequent breaths, an odd ending, and unnatural pauses.</explanation><reasons>unnatural pauses, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/1d/1d50563baf56.wav",
-    "text": "<answer>spoof</answer><explanation>unnatural smooth voice</explanation><reasons>['too long with no pause', 'strange intonation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>unnatural smooth voice</explanation><reasons>too long with no pause, strange intonation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -971,7 +971,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/49/49a746bbe20d.wav",
-    "text": "<answer>spoof</answer><explanation>\"metallic voice,\" monotone, words not separated by intonation</explanation><reasons>['too long with no pause', 'monotony of style', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>\"metallic voice,\" monotone, words not separated by intonation</explanation><reasons>too long with no pause, monotony of style, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -981,7 +981,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/6b/6b5ce40bfb14.wav",
-    "text": "<answer>spoof</answer><explanation>Robot voice, static, unintelligible, and overly fast speech.</explanation><reasons>['strange voice', 'too fast', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Robot voice, static, unintelligible, and overly fast speech.</explanation><reasons>strange voice, too fast, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -991,7 +991,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/b4/b4895d78554e.wav",
-    "text": "<answer>spoof</answer><explanation>Strange hissing sound when pronouncing the letter \"\u0441\". Monotone reading style.</explanation><reasons>['monotony of style', 'strange accent']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Strange hissing sound when pronouncing the letter \"\u0441\". Monotone reading style.</explanation><reasons>monotony of style, strange accent</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -1031,7 +1031,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c5/c504cf096c10.wav",
-    "text": "<answer>spoof</answer><explanation>The voice has an odd rasp, somewhat metallic. It delivers a rather long sentence without pausing, and there are no hesitations. The tone is consistent, with completely neutral intonation.</explanation><reasons>['too long with no pause', 'strange intonation', 'monotony of style', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The voice has an odd rasp, somewhat metallic. It delivers a rather long sentence without pausing, and there are no hesitations. The tone is consistent, with completely neutral intonation.</explanation><reasons>too long with no pause, strange intonation, monotony of style, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -1041,7 +1041,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/5e/5ebe0e5d4701.wav",
-    "text": "<answer>spoof</answer><explanation>There are no pauses, the voice sounds like AI.</explanation><reasons>['strange accent', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>There are no pauses, the voice sounds like AI.</explanation><reasons>strange accent, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -1056,12 +1056,12 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/1e/1ede075f5c6d.flac",
-    "text": "<answer>spoof</answer><explanation>The odd metallic voice, lack of pauses, and crude intonation</explanation><reasons>['unnatural pauses', 'identical pauses', 'strange accent', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The odd metallic voice, lack of pauses, and crude intonation</explanation><reasons>unnatural pauses, identical pauses, strange accent, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/52/521a3701404e.wav",
-    "text": "<answer>spoof</answer><explanation>A very strange mechanical voice delivers the text with an even stranger pronunciation.</explanation><reasons>['strange accent', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>A very strange mechanical voice delivers the text with an even stranger pronunciation.</explanation><reasons>strange accent, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -1141,7 +1141,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/2a/2a2ec212f401.wav",
-    "text": "<answer>spoof</answer><explanation>A robotic voice, a typo in the word \"\u0447\u0435\u0433\u043e,\" no change in intonation, and an odd accent as if the letters are being swallowed.</explanation><reasons>['unnatural pauses', 'strange intonation', 'strange accent', 'strange voice', 'pronunciation of typos']</reasons>",
+    "text": "<answer>spoof</answer><explanation>A robotic voice, a typo in the word \"\u0447\u0435\u0433\u043e,\" no change in intonation, and an odd accent as if the letters are being swallowed.</explanation><reasons>unnatural pauses, strange intonation, strange accent, strange voice, pronunciation of typos</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -1171,7 +1171,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/81/81b1fa58077c.wav",
-    "text": "<answer>spoof</answer><explanation>The mispronunciation of \"\u0432\u0441\u0451 \u0448\u0435\u0441\u0442\u0435\u0440\u043e\" instead of \"\u0432\u0441\u0435 \u0448\u0435\u0441\u0442\u0435\u0440\u043e.\" Additionally, there are no pauses between some pairs of words, causing them to run into each other. On the word \"\u043f\u043b\u044f\u0441\u0430\u043b\u0438,\" you can hear a metallic echo.</explanation><reasons>['too long with no pause', 'unnatural pauses', 'incorrect pronunciation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The mispronunciation of \"\u0432\u0441\u0451 \u0448\u0435\u0441\u0442\u0435\u0440\u043e\" instead of \"\u0432\u0441\u0435 \u0448\u0435\u0441\u0442\u0435\u0440\u043e.\" Additionally, there are no pauses between some pairs of words, causing them to run into each other. On the word \"\u043f\u043b\u044f\u0441\u0430\u043b\u0438,\" you can hear a metallic echo.</explanation><reasons>too long with no pause, unnatural pauses, incorrect pronunciation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -1181,12 +1181,12 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/36/36be3886a46f.wav",
-    "text": "<answer>spoof</answer><explanation>Some echo or overlay. Jerky speech. Either robotized voice or heavy distortion.</explanation><reasons>['strange intonation', 'strange voice', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Some echo or overlay. Jerky speech. Either robotized voice or heavy distortion.</explanation><reasons>strange intonation, strange voice, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c0/c04f6b82b75a.wav",
-    "text": "<answer>spoof</answer><explanation>There are many mistakes in stress placement, an unnatural accent, and an odd intonation.</explanation><reasons>['unnatural pauses', 'strange intonation', 'incorrect word stress', 'incorrect pronunciation', 'strange accent', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>There are many mistakes in stress placement, an unnatural accent, and an odd intonation.</explanation><reasons>unnatural pauses, strange intonation, incorrect word stress, incorrect pronunciation, strange accent, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -1201,7 +1201,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c3/c3100d906ac7.wav",
-    "text": "<answer>spoof</answer><explanation>Robotic speech, abrupt voice interruption before the pause. Equal pauses.</explanation><reasons>['identical pauses', 'strange voice', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Robotic speech, abrupt voice interruption before the pause. Equal pauses.</explanation><reasons>identical pauses, strange voice, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -1211,7 +1211,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a2/a23823365204.wav",
-    "text": "<answer>spoof</answer><explanation>\"The word '\u041a\u0430\u0440\u043c\u0435\u043d' is stressed incorrectly, there are unnatural pauses with silence, the voice has a metallic tone, and the intonation barely changes.\"</explanation><reasons>['unnatural pauses', 'strange intonation', 'monotony of style', 'incorrect word stress', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>\"The word '\u041a\u0430\u0440\u043c\u0435\u043d' is stressed incorrectly, there are unnatural pauses with silence, the voice has a metallic tone, and the intonation barely changes.\"</explanation><reasons>unnatural pauses, strange intonation, monotony of style, incorrect word stress, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -1231,7 +1231,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/7f/7f2370757a1c.wav",
-    "text": "<answer>spoof</answer><explanation>Robotized voice, incorrect stress on words, wrong pronunciation</explanation><reasons>['strange intonation', 'incorrect word stress', 'incorrect pronunciation', 'strange accent', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Robotized voice, incorrect stress on words, wrong pronunciation</explanation><reasons>strange intonation, incorrect word stress, incorrect pronunciation, strange accent, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -1266,7 +1266,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a6/a6c493ba9e6c.wav",
-    "text": "<answer>spoof</answer><explanation>The word \"\u043f\u043e\u0435\u0437\u0434\u0430\" is stressed incorrectly. At the 10-second mark, due to a metallic echo, the voice starts to sound synthetic and tinny.</explanation><reasons>['incorrect word stress', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The word \"\u043f\u043e\u0435\u0437\u0434\u0430\" is stressed incorrectly. At the 10-second mark, due to a metallic echo, the voice starts to sound synthetic and tinny.</explanation><reasons>incorrect word stress, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -1276,7 +1276,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/95/95669fa2decd.wav",
-    "text": "<answer>spoof</answer><explanation>Robotized voice, unnatural intonation</explanation><reasons>['strange intonation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Robotized voice, unnatural intonation</explanation><reasons>strange intonation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -1296,7 +1296,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/6d/6d3d4d1f7b28.wav",
-    "text": "<answer>spoof</answer><explanation>Robot voice, static, gibberish, speech too fast.</explanation><reasons>['strange voice', 'too fast', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Robot voice, static, gibberish, speech too fast.</explanation><reasons>strange voice, too fast, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -1316,7 +1316,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/1f/1f5347831b49.wav",
-    "text": "<answer>spoof</answer><explanation>Strong echo and a metallic tone. The voice sounds slowed down and emotionless.</explanation><reasons>['strange intonation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Strong echo and a metallic tone. The voice sounds slowed down and emotionless.</explanation><reasons>strange intonation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -1411,7 +1411,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/66/6685c0cfd6cc.wav",
-    "text": "<answer>spoof</answer><explanation>\"metallic voice,\" monotonously</explanation><reasons>['too long with no pause', 'monotony of style', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>\"metallic voice,\" monotonously</explanation><reasons>too long with no pause, monotony of style, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -1421,7 +1421,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/99/995688633ee9.wav",
-    "text": "<answer>spoof</answer><explanation>The speech is uninterrupted and monotonous, with no changes in intonation or emotional expression. There are no pauses between words, nor are there pauses separating sentences or meaningful parts.</explanation><reasons>['unnatural pauses', 'too fast']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The speech is uninterrupted and monotonous, with no changes in intonation or emotional expression. There are no pauses between words, nor are there pauses separating sentences or meaningful parts.</explanation><reasons>unnatural pauses, too fast</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -1436,7 +1436,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/74/747e3cf610ae.wav",
-    "text": "<answer>spoof</answer><explanation>The voice lacks natural individual characteristics, emotions, and nuances of expression. The intonation is smooth, with a uniform speaking pace, and there's no logical emphasis on words (\u0447\u0442\u043e-\u0442\u043e \u0438\u043d\u0442\u0435\u0440\u0435\u0441\u0443\u0435\u0442, \u0447\u0442\u043e-\u0442\u043e \u043d\u0435 \u0438\u043d\u0442\u0435\u0440\u0435\u0441\u0443\u0435\u0442, \u043d\u0435\u043f\u043e\u043d\u044f\u0442\u043d\u043e). Pauses throughout the speech seem unnatural.</explanation><reasons>['too long with no pause', 'unnatural pauses', 'strange intonation', 'monotony of style', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The voice lacks natural individual characteristics, emotions, and nuances of expression. The intonation is smooth, with a uniform speaking pace, and there's no logical emphasis on words (\u0447\u0442\u043e-\u0442\u043e \u0438\u043d\u0442\u0435\u0440\u0435\u0441\u0443\u0435\u0442, \u0447\u0442\u043e-\u0442\u043e \u043d\u0435 \u0438\u043d\u0442\u0435\u0440\u0435\u0441\u0443\u0435\u0442, \u043d\u0435\u043f\u043e\u043d\u044f\u0442\u043d\u043e). Pauses throughout the speech seem unnatural.</explanation><reasons>too long with no pause, unnatural pauses, strange intonation, monotony of style, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -1486,12 +1486,12 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/16/16c5ac17b9e9.wav",
-    "text": "<answer>spoof</answer><explanation>Monotone speech. Compilation of several separate audio clips.</explanation><reasons>['monotony of style', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Monotone speech. Compilation of several separate audio clips.</explanation><reasons>monotony of style, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/15/15fce3ffcba7.wav",
-    "text": "<answer>spoof</answer><explanation>The breathing is not audible. There's a faint metallic echo. The intonation is monotone.</explanation><reasons>['monotony of style', 'strange voice', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The breathing is not audible. There's a faint metallic echo. The intonation is monotone.</explanation><reasons>monotony of style, strange voice, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -1511,7 +1511,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/84/84948ea7cccb.wav",
-    "text": "<answer>spoof</answer><explanation>The audio lacks variation, has no pauses for breathing, and the words aren't separated by natural intonation.</explanation><reasons>['too long with no pause', 'monotony of style']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The audio lacks variation, has no pauses for breathing, and the words aren't separated by natural intonation.</explanation><reasons>too long with no pause, monotony of style</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -1586,7 +1586,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/4c/4cb4a1bde14d.wav",
-    "text": "<answer>spoof</answer><explanation>Robotized voice, monotone speech</explanation><reasons>['strange intonation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Robotized voice, monotone speech</explanation><reasons>strange intonation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -1616,17 +1616,17 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/12/12e10c0388fe.wav",
-    "text": "<answer>spoof</answer><explanation>electronic hissing, unnatural pauses</explanation><reasons>['unnatural pauses', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>electronic hissing, unnatural pauses</explanation><reasons>unnatural pauses, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/52/5281acb2702e.wav",
-    "text": "<answer>spoof</answer><explanation>A robotic voice with static. An unnatural, stammering speech with uniform tone and unintelligible words throughout the recording.</explanation><reasons>['strange voice', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>A robotic voice with static. An unnatural, stammering speech with uniform tone and unintelligible words throughout the recording.</explanation><reasons>strange voice, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/47/47371c3b723d.wav",
-    "text": "<answer>spoof</answer><explanation>The recording features extremely fast speech with an odd, otherworldly voice.</explanation><reasons>['strange voice', 'too fast']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The recording features extremely fast speech with an odd, otherworldly voice.</explanation><reasons>strange voice, too fast</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -1641,7 +1641,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/2b/2b154c31f8d4.wav",
-    "text": "<answer>spoof</answer><explanation>Robotic voice, unnatural intonation</explanation><reasons>['strange intonation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Robotic voice, unnatural intonation</explanation><reasons>strange intonation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -1681,7 +1681,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/42/4245edca1ef6.wav",
-    "text": "<answer>spoof</answer><explanation>Robotized voice, monotonous speech</explanation><reasons>['strange intonation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Robotized voice, monotonous speech</explanation><reasons>strange intonation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -1696,12 +1696,12 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/5a/5a9b29c87592.wav",
-    "text": "<answer>spoof</answer><explanation>Some echo or overlap. The words are disjointed, and the speech is heavily distorted.</explanation><reasons>['strange voice', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Some echo or overlap. The words are disjointed, and the speech is heavily distorted.</explanation><reasons>strange voice, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/cc/cca09ec33b73.wav",
-    "text": "<answer>spoof</answer><explanation>distorted robot voice</explanation><reasons>['strange voice', 'too fast', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>distorted robot voice</explanation><reasons>strange voice, too fast, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -1751,7 +1751,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/5f/5fa98a3dc280.wav",
-    "text": "<answer>spoof</answer><explanation>The voice sounds unnatural with a mechanical, toy-like quality, lacking individual characteristics, emotions, and nuanced expression. The intonation is smooth, and the speaking pace is uniform. Pauses throughout the speech appear uniform and artificial.</explanation><reasons>['too long with no pause', 'unnatural pauses', 'identical pauses', 'strange intonation', 'monotony of style', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The voice sounds unnatural with a mechanical, toy-like quality, lacking individual characteristics, emotions, and nuanced expression. The intonation is smooth, and the speaking pace is uniform. Pauses throughout the speech appear uniform and artificial.</explanation><reasons>too long with no pause, unnatural pauses, identical pauses, strange intonation, monotony of style, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -1776,7 +1776,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/6b/6bf027c7d121.wav",
-    "text": "<answer>spoof</answer><explanation>A metallic, robotic voice. There are no pauses in the clip at all, and the intonation doesn't change. The speech is emotionless and monotone.</explanation><reasons>['too long with no pause', 'unnatural pauses', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>A metallic, robotic voice. There are no pauses in the clip at all, and the intonation doesn't change. The speech is emotionless and monotone.</explanation><reasons>too long with no pause, unnatural pauses, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -1806,7 +1806,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/8d/8d7c7ac43fdf.wav",
-    "text": "<answer>spoof</answer><explanation>consistent intonation, no pauses</explanation><reasons>['too long with no pause', 'strange intonation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>consistent intonation, no pauses</explanation><reasons>too long with no pause, strange intonation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -1861,7 +1861,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/12/12d2e39753b7.wav",
-    "text": "<answer>spoof</answer><explanation>There are no emotions at all. The word \"\u043e\u0431\u044b\u0441\u043a\u0430\" is stressed incorrectly. The intonation is monotonous.</explanation><reasons>['strange intonation', 'incorrect word stress', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>There are no emotions at all. The word \"\u043e\u0431\u044b\u0441\u043a\u0430\" is stressed incorrectly. The intonation is monotonous.</explanation><reasons>strange intonation, incorrect word stress, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -1871,7 +1871,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c8/c894e314b564.wav",
-    "text": "<answer>spoof</answer><explanation>The speech is extremely long without any pauses at all. The intonation is monotone. There's an odd pronunciation, almost harsh.</explanation><reasons>['too long with no pause', 'unnatural pauses', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The speech is extremely long without any pauses at all. The intonation is monotone. There's an odd pronunciation, almost harsh.</explanation><reasons>too long with no pause, unnatural pauses, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -1891,7 +1891,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/83/83c7d7ff9cdd.wav",
-    "text": "<answer>spoof</answer><explanation>A robotic voice with static. The speech is unnatural and staccato, with a uniform tone lacking individual characteristics, emotions, and nuanced expression.</explanation><reasons>['too long with no pause', 'monotony of style', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>A robotic voice with static. The speech is unnatural and staccato, with a uniform tone lacking individual characteristics, emotions, and nuanced expression.</explanation><reasons>too long with no pause, monotony of style, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -1921,7 +1921,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/91/91019fb43f1d.wav",
-    "text": "<answer>spoof</answer><explanation>Robotic speech. Strange intonation of the words \"\u0432\u043f\u0435\u0447\u0430\u0442\u043b\u0435\u043d\u0438\u044e\" and \"\u0448\u043b\u044f\u043f\u0443\".</explanation><reasons>['strange intonation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Robotic speech. Strange intonation of the words \"\u0432\u043f\u0435\u0447\u0430\u0442\u043b\u0435\u043d\u0438\u044e\" and \"\u0448\u043b\u044f\u043f\u0443\".</explanation><reasons>strange intonation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -1931,7 +1931,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c4/c4b7086c7c1c.wav",
-    "text": "<answer>spoof</answer><explanation>a strange robotic voice with a monotone intonation</explanation><reasons>['unnatural pauses', 'identical pauses', 'strange intonation', 'strange accent', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>a strange robotic voice with a monotone intonation</explanation><reasons>unnatural pauses, identical pauses, strange intonation, strange accent, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -1996,7 +1996,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/21/21e512a6e8ca.wav",
-    "text": "<answer>spoof</answer><explanation>The stresses are incorrect. And the entire line seems torn apart. There's a metallic echo.</explanation><reasons>['incorrect word stress', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The stresses are incorrect. And the entire line seems torn apart. There's a metallic echo.</explanation><reasons>incorrect word stress, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -2041,7 +2041,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/1a/1aaf62f3421d.wav",
-    "text": "<answer>spoof</answer><explanation>The recording is interrupted, indecipherable</explanation><reasons>['strange voice', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The recording is interrupted, indecipherable</explanation><reasons>strange voice, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -2056,7 +2056,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/84/84284a43cb9a.wav",
-    "text": "<answer>spoof</answer><explanation>The robotic voice has a sound effect layered on top, which makes it difficult to fully analyze the text. There are no pauses in the clip, and the intonation doesn't change. The speech is emotionless and monotonous.</explanation><reasons>['too long with no pause', 'unnatural pauses', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The robotic voice has a sound effect layered on top, which makes it difficult to fully analyze the text. There are no pauses in the clip, and the intonation doesn't change. The speech is emotionless and monotonous.</explanation><reasons>too long with no pause, unnatural pauses, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -2081,7 +2081,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/12/12cd6fd9ef90.wav",
-    "text": "<answer>spoof</answer><explanation>unnatural robotic voice</explanation><reasons>['strange intonation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>unnatural robotic voice</explanation><reasons>strange intonation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -2121,12 +2121,12 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/63/63c51e0a6a84.wav",
-    "text": "<answer>spoof</answer><explanation>Robotized voice. Unnatural speech with a uniform tone and incomprehensible words (especially towards the end of the recording). Lacks individual characteristics, emotions, and expressive nuances.</explanation><reasons>['too long with no pause', 'strange intonation', 'monotony of style', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Robotized voice. Unnatural speech with a uniform tone and incomprehensible words (especially towards the end of the recording). Lacks individual characteristics, emotions, and expressive nuances.</explanation><reasons>too long with no pause, strange intonation, monotony of style, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/78/784bf4c1e37f.wav",
-    "text": "<answer>spoof</answer><explanation>Monotone voice. There are no pauses in the clip at all, and the intonation doesn't change. The speech is emotionless and steady.</explanation><reasons>['too long with no pause', 'unnatural pauses', 'strange intonation', 'strange voice', 'too fast']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Monotone voice. There are no pauses in the clip at all, and the intonation doesn't change. The speech is emotionless and steady.</explanation><reasons>too long with no pause, unnatural pauses, strange intonation, strange voice, too fast</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -2146,17 +2146,17 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c5/c52ad732c1a1.wav",
-    "text": "<answer>spoof</answer><explanation>The mispronunciation of the word \"\u0441\u0440\u0435\u0434\u0441\u0442\u0432\u0430\u043c\u0438\". Although it sounds like the model is deliberately speaking indistinctly and mumbling, there are no hesitations or natural pauses in the message, especially in the central part; they only occur where the commas are placed.</explanation><reasons>['too long with no pause', 'pronunciation of typos']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The mispronunciation of the word \"\u0441\u0440\u0435\u0434\u0441\u0442\u0432\u0430\u043c\u0438\". Although it sounds like the model is deliberately speaking indistinctly and mumbling, there are no hesitations or natural pauses in the message, especially in the central part; they only occur where the commas are placed.</explanation><reasons>too long with no pause, pronunciation of typos</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a6/a6d1f22786cd.wav",
-    "text": "<answer>spoof</answer><explanation>Strange intonation and few pauses</explanation><reasons>['unnatural pauses', 'strange intonation']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Strange intonation and few pauses</explanation><reasons>unnatural pauses, strange intonation</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/6c/6c78d57bc005.wav",
-    "text": "<answer>spoof</answer><explanation>monotony, mispronunciation errors, lack of proper intonation separation between words</explanation><reasons>['monotony of style', 'incorrect word stress']</reasons>",
+    "text": "<answer>spoof</answer><explanation>monotony, mispronunciation errors, lack of proper intonation separation between words</explanation><reasons>monotony of style, incorrect word stress</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -2211,7 +2211,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ae/ae1fc9ea86d9.wav",
-    "text": "<answer>spoof</answer><explanation>Incorrect pronunciation, strange accent</explanation><reasons>['incorrect pronunciation', 'strange accent']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Incorrect pronunciation, strange accent</explanation><reasons>incorrect pronunciation, strange accent</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -2226,7 +2226,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/28/28b82123a12f.wav",
-    "text": "<answer>spoof</answer><explanation>Strange voice, incorrect word stress, unusual pauses between words</explanation><reasons>['unnatural pauses', 'strange intonation', 'monotony of style', 'incorrect pronunciation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Strange voice, incorrect word stress, unusual pauses between words</explanation><reasons>unnatural pauses, strange intonation, monotony of style, incorrect pronunciation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -2261,7 +2261,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a8/a8594feb0780.wav",
-    "text": "<answer>spoof</answer><explanation>Robotized voice, monotonous speech</explanation><reasons>['strange intonation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Robotized voice, monotonous speech</explanation><reasons>strange intonation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -2271,7 +2271,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c4/c405cfe6fafd.wav",
-    "text": "<answer>spoof</answer><explanation>\"\u041d\u0435 \u0442\u0438 \u043f\u0435\u0443\u0432\u044b\u0439\" instead of \"\u043d\u0435 \u0442\u044b \u043f\u0435\u0440\u0432\u044b\u0439\". The speech is accompanied by a pulsating noise, as if the words are overlapping each other. This makes the speech sound shaky.</explanation><reasons>['incorrect pronunciation', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>\"\u041d\u0435 \u0442\u0438 \u043f\u0435\u0443\u0432\u044b\u0439\" instead of \"\u043d\u0435 \u0442\u044b \u043f\u0435\u0440\u0432\u044b\u0439\". The speech is accompanied by a pulsating noise, as if the words are overlapping each other. This makes the speech sound shaky.</explanation><reasons>incorrect pronunciation, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -2281,7 +2281,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/26/263204e67e3b.wav",
-    "text": "<answer>spoof</answer><explanation>Generation:\n- consistent pauses of the same length throughout the audio\n- monotonous speech</explanation><reasons>['identical pauses', 'monotony of style']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Generation:\n- consistent pauses of the same length throughout the audio\n- monotonous speech</explanation><reasons>identical pauses, monotony of style</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -2321,7 +2321,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/51/510663135123.wav",
-    "text": "<answer>spoof</answer><explanation>The voice has a trembling echo. The intonations are awkwardly chosen. The pauses are abrupt and unnaturally prolonged.</explanation><reasons>['unnatural pauses', 'strange intonation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The voice has a trembling echo. The intonations are awkwardly chosen. The pauses are abrupt and unnaturally prolonged.</explanation><reasons>unnatural pauses, strange intonation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -2346,7 +2346,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c4/c4a9f38749c1.wav",
-    "text": "<answer>spoof</answer><explanation>The voice is synthetic, trembling and shaky, overly distorted. There are strange noises on the recording. It seems there's an error in the word \"\u043a\u0430\u0440\u0442\u0430\".</explanation><reasons>['incorrect pronunciation', 'strange voice', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The voice is synthetic, trembling and shaky, overly distorted. There are strange noises on the recording. It seems there's an error in the word \"\u043a\u0430\u0440\u0442\u0430\".</explanation><reasons>incorrect pronunciation, strange voice, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -2356,7 +2356,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/77/77c58668fa3e.wav",
-    "text": "<answer>spoof</answer><explanation>monotone unnatural voice</explanation><reasons>['strange intonation', 'incorrect pronunciation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>monotone unnatural voice</explanation><reasons>strange intonation, incorrect pronunciation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -2376,7 +2376,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/3a/3a96e68023a8.wav",
-    "text": "<answer>spoof</answer><explanation>The strange pause before (even the boss patted him on the back), and the monotone intonation.</explanation><reasons>['unnatural pauses', 'strange intonation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The strange pause before (even the boss patted him on the back), and the monotone intonation.</explanation><reasons>unnatural pauses, strange intonation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -2396,7 +2396,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/6a/6acb5664e1b0.wav",
-    "text": "<answer>spoof</answer><explanation>\"metallic voice,\" stuttering, unclear</explanation><reasons>['strange voice', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>\"metallic voice,\" stuttering, unclear</explanation><reasons>strange voice, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -2456,12 +2456,12 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/57/57399dd18736.wav",
-    "text": "<answer>spoof</answer><explanation>Mechanical voice, heavy static.</explanation><reasons>['strange voice', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Mechanical voice, heavy static.</explanation><reasons>strange voice, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/16/1653bf78dd8f.wav",
-    "text": "<answer>spoof</answer><explanation>distorted roboglass voice</explanation><reasons>['strange voice', 'too fast']</reasons>",
+    "text": "<answer>spoof</answer><explanation>distorted roboglass voice</explanation><reasons>strange voice, too fast</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -2486,7 +2486,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/bc/bcd9b3da65f4.wav",
-    "text": "<answer>spoof</answer><explanation>\"metallic voice,\" fast speech, indistinctly spoken</explanation><reasons>['strange voice', 'too fast']</reasons>",
+    "text": "<answer>spoof</answer><explanation>\"metallic voice,\" fast speech, indistinctly spoken</explanation><reasons>strange voice, too fast</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -2511,12 +2511,12 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/9c/9c12e8935860.wav",
-    "text": "<answer>spoof</answer><explanation>Metallic voice. Possibly misread or misspoken as \"\u043f\u0435\u0440\u0435\u0432\u043e\u0437\u0438\u0442\u0441\u044f.\" After the phrase \"and here we were completely exhausted,\" there's continuous text without pauses.</explanation><reasons>['too long with no pause', 'unnatural pauses', 'incorrect pronunciation', 'strange voice', 'pronunciation of typos']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Metallic voice. Possibly misread or misspoken as \"\u043f\u0435\u0440\u0435\u0432\u043e\u0437\u0438\u0442\u0441\u044f.\" After the phrase \"and here we were completely exhausted,\" there's continuous text without pauses.</explanation><reasons>too long with no pause, unnatural pauses, incorrect pronunciation, strange voice, pronunciation of typos</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/59/59bc9654781f.wav",
-    "text": "<answer>spoof</answer><explanation>\"metallic voice,\" indistinctly</explanation><reasons>['strange voice', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>\"metallic voice,\" indistinctly</explanation><reasons>strange voice, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -2536,7 +2536,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/22/22089496f62f.wav",
-    "text": "<answer>spoof</answer><explanation>distorted robogoice</explanation><reasons>['strange voice', 'too fast']</reasons>",
+    "text": "<answer>spoof</answer><explanation>distorted robogoice</explanation><reasons>strange voice, too fast</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -2566,7 +2566,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/65/65b57e66330f.wav",
-    "text": "<answer>spoof</answer><explanation>Despite the apparent individuality in the pronunciation of consonants and vowels, the speech still sounds generated because the recording features a impersonal voice devoid of emotions and expressive nuances. Pauses throughout the speech seem unnatural and do not match the punctuation intonation (the questioning tone is absent).</explanation><reasons>['too long with no pause', 'unnatural pauses', 'strange intonation', 'monotony of style']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Despite the apparent individuality in the pronunciation of consonants and vowels, the speech still sounds generated because the recording features a impersonal voice devoid of emotions and expressive nuances. Pauses throughout the speech seem unnatural and do not match the punctuation intonation (the questioning tone is absent).</explanation><reasons>too long with no pause, unnatural pauses, strange intonation, monotony of style</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -2651,7 +2651,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/8e/8e0ba743b148.wav",
-    "text": "<answer>spoof</answer><explanation>The speech lacks natural individual characteristics, emotions, and nuances of expression (though it somewhat resembles a semblance of indignation over missing socks, it still falls short of genuine intonation). The speaking pace is fast but uniform. Pauses are virtually nonexistent throughout the speech, making it sound unnatural.</explanation><reasons>['too long with no pause', 'strange intonation', 'monotony of style', 'too fast']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The speech lacks natural individual characteristics, emotions, and nuances of expression (though it somewhat resembles a semblance of indignation over missing socks, it still falls short of genuine intonation). The speaking pace is fast but uniform. Pauses are virtually nonexistent throughout the speech, making it sound unnatural.</explanation><reasons>too long with no pause, strange intonation, monotony of style, too fast</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -2661,7 +2661,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/29/29a3a107d2a5.wav",
-    "text": "<answer>spoof</answer><explanation>In the recording, they say \"\u043a\u043e\u0442\u0415\u043b\u043a\u0435\" instead of \"\u043a\u043e\u0442\u0435\u043b\u043a\u0415\". The speech is machine-generated and has an accent. The intonation at the end of sentences is the same as in the rest of the sentence.</explanation><reasons>['strange intonation', 'incorrect word stress', 'incorrect pronunciation', 'strange accent', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>In the recording, they say \"\u043a\u043e\u0442\u0415\u043b\u043a\u0435\" instead of \"\u043a\u043e\u0442\u0435\u043b\u043a\u0415\". The speech is machine-generated and has an accent. The intonation at the end of sentences is the same as in the rest of the sentence.</explanation><reasons>strange intonation, incorrect word stress, incorrect pronunciation, strange accent, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -2686,12 +2686,12 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/81/812b18d19b72.wav",
-    "text": "<answer>spoof</answer><explanation>The speech is fast, and the audio recording is distorted.</explanation><reasons>['too fast', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The speech is fast, and the audio recording is distorted.</explanation><reasons>too fast, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/8c/8cfc69b0290b.wav",
-    "text": "<answer>spoof</answer><explanation>\"metallic voice,\" error in stress</explanation><reasons>['incorrect word stress', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>\"metallic voice,\" error in stress</explanation><reasons>incorrect word stress, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -2701,7 +2701,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/53/5376e4157850.wav",
-    "text": "<answer>spoof</answer><explanation>Robotized voice, monotonous speech</explanation><reasons>['strange intonation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Robotized voice, monotonous speech</explanation><reasons>strange intonation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -2716,7 +2716,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/cd/cde9e7cfee6c.wav",
-    "text": "<answer>spoof</answer><explanation>Metallic voice. Incorrect stress on \"Karlovna.\" Possible error or typo with \"koknu,\" \"ne it li kto,\" \"past.\" Strange intonation on \"vozmutchena.\"</explanation><reasons>['strange intonation', 'incorrect word stress', 'incorrect pronunciation', 'strange accent', 'strange voice', 'pronunciation of typos']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Metallic voice. Incorrect stress on \"Karlovna.\" Possible error or typo with \"koknu,\" \"ne it li kto,\" \"past.\" Strange intonation on \"vozmutchena.\"</explanation><reasons>strange intonation, incorrect word stress, incorrect pronunciation, strange accent, strange voice, pronunciation of typos</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -2741,17 +2741,17 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/99/99b36eaafafa.wav",
-    "text": "<answer>spoof</answer><explanation>A voice with robotic undertones. Unnatural speech with uniform tone and lacking individual characteristics, emotions, and expressive nuances.</explanation><reasons>['too long with no pause', 'strange intonation', 'monotony of style', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>A voice with robotic undertones. Unnatural speech with uniform tone and lacking individual characteristics, emotions, and expressive nuances.</explanation><reasons>too long with no pause, strange intonation, monotony of style, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a4/a471d881ec2b.wav",
-    "text": "<answer>spoof</answer><explanation>Audio with defects, robotic voice, sounds mechanical with one intonation, monotonous, pauses are uniform.</explanation><reasons>['identical pauses', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Audio with defects, robotic voice, sounds mechanical with one intonation, monotonous, pauses are uniform.</explanation><reasons>identical pauses, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/b9/b93d11d4d9fd.wav",
-    "text": "<answer>spoof</answer><explanation>A voice with robotic tones. The speech sounds unnatural, with a uniform quality lacking individual characteristics, emotions, and nuances of expression. The pauses are unnaturally long, as if slowed down.</explanation><reasons>['unnatural pauses', 'strange intonation', 'monotony of style', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>A voice with robotic tones. The speech sounds unnatural, with a uniform quality lacking individual characteristics, emotions, and nuances of expression. The pauses are unnaturally long, as if slowed down.</explanation><reasons>unnatural pauses, strange intonation, monotony of style, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -2771,7 +2771,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/7d/7d3defdafdd1.wav",
-    "text": "<answer>spoof</answer><explanation>lack of pauses, smooth speech</explanation><reasons>['too long with no pause', 'too fast']</reasons>",
+    "text": "<answer>spoof</answer><explanation>lack of pauses, smooth speech</explanation><reasons>too long with no pause, too fast</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -2781,7 +2781,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/bb/bbee9d3f70cf.wav",
-    "text": "<answer>spoof</answer><explanation>The intonation doesn't change. The voice has a metallic sound.</explanation><reasons>['too long with no pause', 'strange intonation', 'monotony of style', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The intonation doesn't change. The voice has a metallic sound.</explanation><reasons>too long with no pause, strange intonation, monotony of style, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -2796,17 +2796,17 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/3a/3a6cd6b36731.wav",
-    "text": "<answer>spoof</answer><explanation>Artificial robotic voice, monotone intonation</explanation><reasons>['monotony of style', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Artificial robotic voice, monotone intonation</explanation><reasons>monotony of style, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/99/99c2765a8a88.wav",
-    "text": "<answer>spoof</answer><explanation>Some echo or overlap. Jerky words, lack of pauses, monotonous speech.</explanation><reasons>['unnatural pauses', 'strange intonation', 'strange voice', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Some echo or overlap. Jerky words, lack of pauses, monotonous speech.</explanation><reasons>unnatural pauses, strange intonation, strange voice, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/82/8276d1b4e83f.wav",
-    "text": "<answer>spoof</answer><explanation>Strange intonation and incorrect stress on words</explanation><reasons>['strange intonation', 'incorrect word stress', 'strange accent']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Strange intonation and incorrect stress on words</explanation><reasons>strange intonation, incorrect word stress, strange accent</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -2826,7 +2826,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/4d/4d6ea46c437a.wav",
-    "text": "<answer>spoof</answer><explanation>A monotonous voice with an accent. Stress is placed on multiple syllables, for example, the narrator oddly pronounces \"\u0448\u0430\u0433\u043d\u0443\u043b\". There are very long pauses between sentences.</explanation><reasons>['unnatural pauses', 'incorrect word stress', 'incorrect pronunciation', 'strange accent', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>A monotonous voice with an accent. Stress is placed on multiple syllables, for example, the narrator oddly pronounces \"\u0448\u0430\u0433\u043d\u0443\u043b\". There are very long pauses between sentences.</explanation><reasons>unnatural pauses, incorrect word stress, incorrect pronunciation, strange accent, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -2866,17 +2866,17 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a4/a46d03f27843.wav",
-    "text": "<answer>spoof</answer><explanation>unnatural voice, accent, intonation, lack of fluency</explanation><reasons>['too long with no pause', 'strange intonation', 'strange accent', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>unnatural voice, accent, intonation, lack of fluency</explanation><reasons>too long with no pause, strange intonation, strange accent, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c1/c14836e754e0.wav",
-    "text": "<answer>spoof</answer><explanation>A robotic voice with static. An unnatural, stuttering speech pattern with a uniform tone and unintelligible words that sound more like noise.</explanation><reasons>['monotony of style', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>A robotic voice with static. An unnatural, stuttering speech pattern with a uniform tone and unintelligible words that sound more like noise.</explanation><reasons>monotony of style, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/b7/b7285dc1d06b.wav",
-    "text": "<answer>spoof</answer><explanation>A robotic voice with static. An unnatural, stammering speech pattern with uniform tone and lacking individual characteristics, emotions, and nuanced expression.</explanation><reasons>['strange intonation', 'monotony of style', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>A robotic voice with static. An unnatural, stammering speech pattern with uniform tone and lacking individual characteristics, emotions, and nuanced expression.</explanation><reasons>strange intonation, monotony of style, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -2886,7 +2886,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/9e/9e8a4ab46ae9.wav",
-    "text": "<answer>spoof</answer><explanation>The speech is too fast and unclear.</explanation><reasons>['strange voice', 'too fast']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The speech is too fast and unclear.</explanation><reasons>strange voice, too fast</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -2916,7 +2916,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/26/268a1eca0ce9.wav",
-    "text": "<answer>spoof</answer><explanation>The recording features a generated voice. It sounds unnatural, and there's a tremor in it.</explanation><reasons>['strange intonation', 'monotony of style', 'strange accent', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The recording features a generated voice. It sounds unnatural, and there's a tremor in it.</explanation><reasons>strange intonation, monotony of style, strange accent, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -2931,7 +2931,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ac/ac500d8e12a6.wav",
-    "text": "<answer>spoof</answer><explanation>The completely synthetic and robotic voice, along with unnatural pauses, immediately reveals that this is a generation.</explanation><reasons>['unnatural pauses', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The completely synthetic and robotic voice, along with unnatural pauses, immediately reveals that this is a generation.</explanation><reasons>unnatural pauses, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -2956,7 +2956,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/7e/7e6a67cd4527.wav",
-    "text": "<answer>spoof</answer><explanation>\"I was fading,\" \"to fade\" with incorrect stress. There's a metallic echo.</explanation><reasons>['incorrect word stress', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>\"I was fading,\" \"to fade\" with incorrect stress. There's a metallic echo.</explanation><reasons>incorrect word stress, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -2991,12 +2991,12 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a2/a2f5342e085e.wav",
-    "text": "<answer>spoof</answer><explanation>There are no pauses for breathing, the intonations sound unnatural and emotionless, and the voice has a metallic quality.</explanation><reasons>['too long with no pause', 'strange intonation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>There are no pauses for breathing, the intonations sound unnatural and emotionless, and the voice has a metallic quality.</explanation><reasons>too long with no pause, strange intonation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/6f/6fadd7863989.wav",
-    "text": "<answer>spoof</answer><explanation>The voice sounds robotic: the pronunciation is unclear, and the words are hard to distinguish.</explanation><reasons>['strange voice', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The voice sounds robotic: the pronunciation is unclear, and the words are hard to distinguish.</explanation><reasons>strange voice, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -3046,22 +3046,22 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/7c/7c198d422a98.wav",
-    "text": "<answer>spoof</answer><explanation>Strange intonation, monotonous speech</explanation><reasons>['identical pauses', 'strange intonation', 'monotony of style']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Strange intonation, monotonous speech</explanation><reasons>identical pauses, strange intonation, monotony of style</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/d1/d15f911b5ecb.wav",
-    "text": "<answer>spoof</answer><explanation>The voice cut off before the end of the recording. A metallic echo can be heard.</explanation><reasons>['strange voice', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The voice cut off before the end of the recording. A metallic echo can be heard.</explanation><reasons>strange voice, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/45/45f06fc7e208.wav",
-    "text": "<answer>spoof</answer><explanation>Robotized voice. An unnatural monotone combined with rapid speech, featuring uniform tone and incomprehensible words throughout the recording.</explanation><reasons>['too long with no pause', 'strange intonation', 'monotony of style', 'strange voice', 'too fast']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Robotized voice. An unnatural monotone combined with rapid speech, featuring uniform tone and incomprehensible words throughout the recording.</explanation><reasons>too long with no pause, strange intonation, monotony of style, strange voice, too fast</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/52/521823512547.wav",
-    "text": "<answer>spoof</answer><explanation>The voice sounds artificial, and the intonation doesn't always match the line.</explanation><reasons>['strange intonation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The voice sounds artificial, and the intonation doesn't always match the line.</explanation><reasons>strange intonation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -3071,7 +3071,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/b4/b4be48b736cc.wav",
-    "text": "<answer>spoof</answer><explanation>Incorrect stress: \"\u0441\u0443\u0435\u0442\u0443\", monotone and emotionless reading, inappropriate intonations. The voice sounds mechanical.</explanation><reasons>['unnatural pauses', 'strange intonation', 'monotony of style', 'incorrect word stress', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Incorrect stress: \"\u0441\u0443\u0435\u0442\u0443\", monotone and emotionless reading, inappropriate intonations. The voice sounds mechanical.</explanation><reasons>unnatural pauses, strange intonation, monotony of style, incorrect word stress, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -3081,7 +3081,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/77/774401d5dbbe.wav",
-    "text": "<answer>spoof</answer><explanation>monotone robotic voice</explanation><reasons>['unnatural pauses', 'strange intonation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>monotone robotic voice</explanation><reasons>unnatural pauses, strange intonation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -3101,12 +3101,12 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/5e/5e1d517c9a47.wav",
-    "text": "<answer>spoof</answer><explanation>Accelerated machine speech, monotone, with a strange accent noticeable.</explanation><reasons>['monotony of style', 'strange accent', 'strange voice', 'too fast']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Accelerated machine speech, monotone, with a strange accent noticeable.</explanation><reasons>monotony of style, strange accent, strange voice, too fast</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/b4/b408fdead987.wav",
-    "text": "<answer>spoof</answer><explanation>The voice has robotic tones. The speech sounds unnatural with a uniform tone lacking individual characteristics, emotions, and expressive nuances. The word \"\u0431\u043b\u043e\u043d\u0434\u0438\u043d\u043a\u0430\" is repeated several times throughout the recording and sounds identical each time.</explanation><reasons>['strange intonation', 'monotony of style', 'strange voice', 'identical tautology pronunciation']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The voice has robotic tones. The speech sounds unnatural with a uniform tone lacking individual characteristics, emotions, and expressive nuances. The word \"\u0431\u043b\u043e\u043d\u0434\u0438\u043d\u043a\u0430\" is repeated several times throughout the recording and sounds identical each time.</explanation><reasons>strange intonation, monotony of style, strange voice, identical tautology pronunciation</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -3121,7 +3121,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c3/c3a591bc6ddc.wav",
-    "text": "<answer>spoof</answer><explanation>The speech is unbroken and monotone, with no changes in intonation or emotional expressions. A distorting filter has been applied on top, which hinders a full analysis of the pronunciation.</explanation><reasons>['too long with no pause', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The speech is unbroken and monotone, with no changes in intonation or emotional expressions. A distorting filter has been applied on top, which hinders a full analysis of the pronunciation.</explanation><reasons>too long with no pause, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -3131,17 +3131,17 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/66/66afda1250dc.wav",
-    "text": "<answer>spoof</answer><explanation>The man's voice sounds monotonous. His intonation and storytelling style don't change. I think the voice is generated, but I'm not entirely sure.</explanation><reasons>['monotony of style', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The man's voice sounds monotonous. His intonation and storytelling style don't change. I think the voice is generated, but I'm not entirely sure.</explanation><reasons>monotony of style, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/65/65b0b9af1ab6.wav",
-    "text": "<answer>spoof</answer><explanation>The intonation lacks emotional coloring. There's a pause of less than a second during which no inhalation is heard.</explanation><reasons>['unnatural pauses', 'strange intonation']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The intonation lacks emotional coloring. There's a pause of less than a second during which no inhalation is heard.</explanation><reasons>unnatural pauses, strange intonation</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/3e/3e32d9174f00.wav",
-    "text": "<answer>spoof</answer><explanation>After the word \"\u043a\u043e\u0440\u043e\u0447\u043a\u043e\u0439,\" there is an unnatural pause with a complete absence of sound, though the rest of the recording has background noise. The narrative style is monotonous throughout the entire recording.</explanation><reasons>['unnatural pauses', 'monotony of style']</reasons>",
+    "text": "<answer>spoof</answer><explanation>After the word \"\u043a\u043e\u0440\u043e\u0447\u043a\u043e\u0439,\" there is an unnatural pause with a complete absence of sound, though the rest of the recording has background noise. The narrative style is monotonous throughout the entire recording.</explanation><reasons>unnatural pauses, monotony of style</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -3176,7 +3176,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/56/5632bceb7533.wav",
-    "text": "<answer>spoof</answer><explanation>The audio lacks variation, has no pauses for breaths, and the words aren't separated by natural intonation.</explanation><reasons>['too long with no pause', 'monotony of style']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The audio lacks variation, has no pauses for breaths, and the words aren't separated by natural intonation.</explanation><reasons>too long with no pause, monotony of style</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -3206,22 +3206,22 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/bc/bce9eabea2a4.wav",
-    "text": "<answer>spoof</answer><explanation>A monotonous robotic voice. The narrator reads the sentence with equal pauses between all words.</explanation><reasons>['identical pauses', 'strange accent', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>A monotonous robotic voice. The narrator reads the sentence with equal pauses between all words.</explanation><reasons>identical pauses, strange accent, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/5d/5d303a259e6b.wav",
-    "text": "<answer>spoof</answer><explanation>The voice sounds artificial, and the speech is staccato.</explanation><reasons>['strange voice', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The voice sounds artificial, and the speech is staccato.</explanation><reasons>strange voice, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/3d/3d9b397428b1.wav",
-    "text": "<answer>spoof</answer><explanation>The robotic voice, monotone speech, and elongated letters in the word *\u043d\u0435 \u043f\u0440\u0438\u0445\u043e\u0434\u044f\u0449\u0435\u0435* indicate that this audio clip is fake.</explanation><reasons>['strange intonation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The robotic voice, monotone speech, and elongated letters in the word *\u043d\u0435 \u043f\u0440\u0438\u0445\u043e\u0434\u044f\u0449\u0435\u0435* indicate that this audio clip is fake.</explanation><reasons>strange intonation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/41/4186de790ce9.wav",
-    "text": "<answer>spoof</answer><explanation>unnatural robot voice</explanation><reasons>['strange intonation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>unnatural robot voice</explanation><reasons>strange intonation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -3236,17 +3236,17 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/86/86e462413f9b.wav",
-    "text": "<answer>spoof</answer><explanation>strange choice of intonation, almost no pauses in speech</explanation><reasons>['too long with no pause', 'strange intonation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>strange choice of intonation, almost no pauses in speech</explanation><reasons>too long with no pause, strange intonation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ce/ce22bde50c96.wav",
-    "text": "<answer>spoof</answer><explanation>A robotic voice with static. An unnatural, stammering speech with uniform-sounding words that are hard to understand (because the uniformity refers to the noise the words turn into eventually).</explanation><reasons>['monotony of style', 'strange voice', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>A robotic voice with static. An unnatural, stammering speech with uniform-sounding words that are hard to understand (because the uniformity refers to the noise the words turn into eventually).</explanation><reasons>monotony of style, strange voice, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/79/796ad300070a.wav",
-    "text": "<answer>spoof</answer><explanation>The voice has robotic tones and background noises. The speech sounds unnatural, with a uniform tone lacking individual characteristics, emotions, and expressive nuances.</explanation><reasons>['too long with no pause', 'strange intonation', 'monotony of style', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The voice has robotic tones and background noises. The speech sounds unnatural, with a uniform tone lacking individual characteristics, emotions, and expressive nuances.</explanation><reasons>too long with no pause, strange intonation, monotony of style, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -3261,7 +3261,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/29/29016225e12d.wav",
-    "text": "<answer>spoof</answer><explanation>Robotized voice, monotonous speech</explanation><reasons>['strange intonation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Robotized voice, monotonous speech</explanation><reasons>strange intonation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -3281,12 +3281,12 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/9d/9da0ba390747.wav",
-    "text": "<answer>spoof</answer><explanation>The metallic voice sounds unnatural. The text is read in a monotone. Incorrect pronunciation of the word \"\u0433\u0430\u043b\u0435\u0440\u0435\u044f\".</explanation><reasons>['monotony of style', 'incorrect pronunciation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The metallic voice sounds unnatural. The text is read in a monotone. Incorrect pronunciation of the word \"\u0433\u0430\u043b\u0435\u0440\u0435\u044f\".</explanation><reasons>monotony of style, incorrect pronunciation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c5/c5ff82f389d2.wav",
-    "text": "<answer>spoof</answer><explanation>The speech is unbroken and monotone, with no changes in intonation or emotional expression. A distorting filter has been applied on top, which hinders a full analysis of the pronunciation.</explanation><reasons>['too long with no pause', 'unnatural pauses', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The speech is unbroken and monotone, with no changes in intonation or emotional expression. A distorting filter has been applied on top, which hinders a full analysis of the pronunciation.</explanation><reasons>too long with no pause, unnatural pauses, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -3301,7 +3301,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/53/531f641e918a.wav",
-    "text": "<answer>spoof</answer><explanation>It sounds like a bot is speaking: there are excessively long pauses between parts of the sentence. There's a splice of clips before \"\u041e\u043d \u0441\u043b\u0443\u0448\u0430\u043b \u041b\u0435\u043d\u0441\u043a\u043e\u0433\u043e\".</explanation><reasons>['unnatural pauses', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>It sounds like a bot is speaking: there are excessively long pauses between parts of the sentence. There's a splice of clips before \"\u041e\u043d \u0441\u043b\u0443\u0448\u0430\u043b \u041b\u0435\u043d\u0441\u043a\u043e\u0433\u043e\".</explanation><reasons>unnatural pauses, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -3311,7 +3311,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/b1/b1d6b7620922.wav",
-    "text": "<answer>spoof</answer><explanation>The speech is too fast and completely incomprehensible, and the fully robotic voice makes it clear that the audio was generated.</explanation><reasons>['strange voice', 'too fast']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The speech is too fast and completely incomprehensible, and the fully robotic voice makes it clear that the audio was generated.</explanation><reasons>strange voice, too fast</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -3326,7 +3326,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/1c/1c6a0355b4ab.wav",
-    "text": "<answer>spoof</answer><explanation>The UK was pronounced strangely, in a monotone.</explanation><reasons>['incorrect pronunciation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The UK was pronounced strangely, in a monotone.</explanation><reasons>incorrect pronunciation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -3351,7 +3351,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/8c/8c90cfd6ebb2.wav",
-    "text": "<answer>spoof</answer><explanation>The odd slightly synthetic-sounding voice, as well as the incorrect pronunciation of words.</explanation><reasons>['incorrect pronunciation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The odd slightly synthetic-sounding voice, as well as the incorrect pronunciation of words.</explanation><reasons>incorrect pronunciation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -3386,7 +3386,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/d0/d0df1fb0c809.wav",
-    "text": "<answer>spoof</answer><explanation>Incorrect stress on the word \"\u043d\u043e\u0441\u043a\u0438,\" robotic and metallic voice</explanation><reasons>['incorrect word stress', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Incorrect stress on the word \"\u043d\u043e\u0441\u043a\u0438,\" robotic and metallic voice</explanation><reasons>incorrect word stress, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -3401,12 +3401,12 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/cd/cd58f1abbe81.wav",
-    "text": "<answer>spoof</answer><explanation>Strange pronunciation of words, such as \"\u0432\u043e\u043b\u0448\u0435\u0431\u043d\u0438\u0446\u0430,\" where the stress is on the last syllable. Monotonous robotic speech.</explanation><reasons>['strange intonation', 'monotony of style', 'incorrect word stress', 'incorrect pronunciation']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Strange pronunciation of words, such as \"\u0432\u043e\u043b\u0448\u0435\u0431\u043d\u0438\u0446\u0430,\" where the stress is on the last syllable. Monotonous robotic speech.</explanation><reasons>strange intonation, monotony of style, incorrect word stress, incorrect pronunciation</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/87/877ea7346a3f.wav",
-    "text": "<answer>spoof</answer><explanation>The unnaturally fast speech\u2014people can't talk like that, especially without any mistakes in such words and without pauses for breaths. All of this points to it being generated.</explanation><reasons>['unnatural pauses', 'too fast']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The unnaturally fast speech\u2014people can't talk like that, especially without any mistakes in such words and without pauses for breaths. All of this points to it being generated.</explanation><reasons>unnatural pauses, too fast</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -3421,7 +3421,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/9c/9cbc16320639.wav",
-    "text": "<answer>spoof</answer><explanation>Numerous generation artifacts over the voice. A sound cutoff at the end of the recording.</explanation><reasons>['strange voice', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Numerous generation artifacts over the voice. A sound cutoff at the end of the recording.</explanation><reasons>strange voice, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -3451,7 +3451,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/bf/bfe7bb763036.wav",
-    "text": "<answer>spoof</answer><explanation>Quick recording, recording with interference</explanation><reasons>['strange voice', 'too fast', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Quick recording, recording with interference</explanation><reasons>strange voice, too fast, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -3461,7 +3461,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/25/2509f7e7d3bf.wav",
-    "text": "<answer>spoof</answer><explanation>The strange energetic tone. A metallic echo and the complete lack of pauses.</explanation><reasons>['too long with no pause', 'unnatural pauses', 'strange intonation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The strange energetic tone. A metallic echo and the complete lack of pauses.</explanation><reasons>too long with no pause, unnatural pauses, strange intonation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -3476,7 +3476,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/9c/9cc34e653d7a.wav",
-    "text": "<answer>spoof</answer><explanation>Robotized voice. An unnatural monotone combined with rapid speech, consistent tone, and unintelligible words throughout the recording.</explanation><reasons>['too long with no pause', 'monotony of style', 'strange voice', 'too fast']</reasons>",
+    "text": "<answer>spoof</answer><explanation>Robotized voice. An unnatural monotone combined with rapid speech, consistent tone, and unintelligible words throughout the recording.</explanation><reasons>too long with no pause, monotony of style, strange voice, too fast</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -3506,7 +3506,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/20/2079123aedf8.wav",
-    "text": "<answer>spoof</answer><explanation>monotone robotic voice</explanation><reasons>['unnatural pauses', 'strange intonation', 'strange voice']</reasons>",
+    "text": "<answer>spoof</answer><explanation>monotone robotic voice</explanation><reasons>unnatural pauses, strange intonation, strange voice</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {
@@ -3581,7 +3581,7 @@
   },
   {
     "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/13/134f12048ac1.wav",
-    "text": "<answer>spoof</answer><explanation>The speech is generated. The speaking pace is fast, words are unclear, the voice sounds metallic, and the recording is distorted.</explanation><reasons>['strange voice', 'too fast', 'other']</reasons>",
+    "text": "<answer>spoof</answer><explanation>The speech is generated. The speaking pace is fast, words are unclear, the voice sounds metallic, and the recording is distorted.</explanation><reasons>strange voice, too fast, other</reasons>",
     "task": "deepfake_detection_with_reasoning"
   },
   {

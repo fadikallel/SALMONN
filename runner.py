@@ -12,7 +12,7 @@ import torch.distributed as dist
 from torch.nn.parallel import DistributedDataParallel as DDP
 from tensorboardX import SummaryWriter
 
-from dist_utils import main_process, is_dist_avail_and_initialized, is_main_process, get_rank, get_world_size
+from local_dist_utils import main_process, is_dist_avail_and_initialized, is_main_process, get_rank, get_world_size
 from logger import MetricLogger, SmoothedValue
 from utils import get_dataloader, prepare_sample
 from optims import get_optimizer, LinearWarmupCosineLRScheduler

@@ -132,28 +132,14 @@ class ALLM(nn.Module):
 
         return speech_embeds, speech_atts
 
-    def encode_speech(self, raw_wav, audio_padding_mask=None):
-        # raw_wav is already batched and padded from the collater
-        # Convert to float32 if needed
-        input_values = raw_wav.to(torch.float32)
+    def encode_speech(self, input_values, attention_mask=None):
+        """
+        Encode speech using preprocessed Wav2Vec2 inputs
         
-        # Move to CPU for feature extraction (processor expects numpy/CPU)
-        if input_values.is_cuda:
-            input_values_cpu = input_values.cpu().numpy()
-        else:
-            input_values_cpu = input_values.numpy()
-        
-        # Process through feature extractor
-        processed = self.wav_processor(
-            input_values_cpu,
-            sampling_rate=16000,
-            return_tensors="pt",
-            padding=True,
-            return_attention_mask=True
-        )
-        
-        input_values = processed["input_values"].to(self.device)
-        attention_mask = processed.get("attention_mask").to(self.device) if processed.get("attention_mask") is not None else None
+        Args:
+            input_values: Preprocessed Wav2Vec2 input (already on correct device)
+            attention_mask: Preprocessed Wav2Vec2 attention mask
+        """
         
         with self.maybe_autocast():
             speech_embeds = self.speech_encoder(
@@ -161,9 +147,9 @@ class ALLM(nn.Module):
                 attention_mask=attention_mask,
                 return_dict=True
             ).last_hidden_state
-
+        
         return self._encode_auditory_feature(speech_embeds)
-
+    
     def prompt_wrap(self, embeds, atts, prompt, multi_prompt=False):
         if prompt:
             if multi_prompt:
@@ -257,7 +243,7 @@ class ALLM(nn.Module):
         else:
             return embeds, atts
     
-    def forward(self, samples, verbose=True):
+    def forward(self, samples, verbose=False):
         # detect whether there are multi tasks in this batch
         task = list(set(samples["task"]))
         if len(task) > 1 or "QA" in task:
@@ -273,10 +259,10 @@ class ALLM(nn.Module):
                 prompt = random.choice(self.prompt_dict[samples["task"][0]])
 
         # use speech/audio encoder to encode speech/audio
-        raw_wav = samples["raw_wav"]
-        audio_padding_mask = samples.get("padding_mask", None)
+        input_values = samples["input_values"]
+        attention_mask = samples["attention_mask"]
 
-        speech_embeds, speech_atts = self.encode_speech(raw_wav, audio_padding_mask=audio_padding_mask)
+        speech_embeds, speech_atts = self.encode_speech(input_values, attention_mask=attention_mask)
 
         # wrap speech_embeds with prompts
         if self.prompt_dict:
@@ -325,7 +311,6 @@ class ALLM(nn.Module):
             results = outputs.logits[:, empty_targets.size(1) - 1: -1, :].contiguous().view(-1, nvocab).argmax(dim=-1)
             labels = targets[:, empty_targets.size(1):].contiguous().view(-1)
             mask = (labels != -100)
-            print(self.qwen_tokenizer.batch_decode(results), self.qwen_tokenizer.batch_decode(labels))
             correct = (results[mask] == labels[mask]).float().sum()
             total = len(labels[mask])
 
