@@ -15,32 +15,22 @@
 import torch
 from transformers import StoppingCriteria
 
+
 class StoppingCriteriaSub(StoppingCriteria):
-    def __init__(self, stops=[], encounters=1, tokenizer=None):
+
+    def __init__(self, stops=[], encounters=1):
         super().__init__()
         self.stops = stops
-        self.encounters = encounters
-        self.tokenizer = tokenizer
-        self.stop_counter = 0
 
     def __call__(self, input_ids: torch.LongTensor, scores: torch.FloatTensor):
-        last_token = input_ids[0, -1].item()
-        if last_token in self.stops:
-            return True
-
-        
-        # Additional check for text patterns if tokenizer is provided
-        if self.tokenizer is not None and input_ids.shape[1] > 10:
-            text = self.tokenizer.decode(input_ids[0], skip_special_tokens=True)
-                        
-            # Stop at USER/ASSISTANT patterns
-            if "USER:" in text or "ASSISTANT:" in text:
-                return True
-                        
-            # Stop if we see the same pattern repeating (like multiple fake answers)
-            if text.count("<answer>fake</answer>") > 1:
-                return True
-            if text.count("<answer>real</answer>") > 1:
-                return True
-        
-        return False
+        all_stopped = True
+        for i in range(input_ids.shape[0]):
+            sample_stopped = False
+            for stop in self.stops:
+                if torch.all((stop == input_ids[i][-len(stop):])).item():
+                    sample_stopped = True
+                    break
+            if not sample_stopped:
+                all_stopped = False
+                break
+        return all_stopped
