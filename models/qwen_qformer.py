@@ -10,9 +10,25 @@ from transformers import Qwen3_5ForCausalLM,Qwen3_5Tokenizer, StoppingCriteriaLi
 from peft import LoraConfig, TaskType, get_peft_model
 
 from .utils import StoppingCriteriaSub
-
+from .Qformer import BertConfig, BertLMHeadModel
 
 class ALLM(nn.Module):
+    @classmethod
+    def init_speech_Qformer(cls, num_query_token, speech_width, num_hidden_layers=2):
+        encoder_config = BertConfig.from_pretrained("bert-base-uncased")
+        encoder_config.num_hidden_layers = num_hidden_layers
+        encoder_config.encoder_width = speech_width
+        # insert cross-attention layer every other block
+        encoder_config.add_cross_attention = True
+        encoder_config.cross_attention_freq = 1
+        encoder_config.query_length = num_query_token
+        Qformer = BertLMHeadModel(config=encoder_config)
+        query_tokens = nn.Parameter(
+            torch.zeros(1, num_query_token, encoder_config.hidden_size)
+        )
+        query_tokens.data.normal_(mean=0.0, std=encoder_config.initializer_range)
+        return Qformer, query_tokens
+
     @property
     def device(self):
         return list(self.parameters())[0].device
@@ -32,6 +48,15 @@ class ALLM(nn.Module):
         qwen_path="",
         wav2vec2_path="",
         freeze_wav2vec2=True,
+
+        use_speech_Qformer=True,
+        num_speech_query_token=1,
+        freeze_speech_QFormer=False,
+        window_level_Qformer=True,
+        second_per_window=0.333333,
+        second_stride=0.333333,
+
+
         
         speech_qwen_proj_model="",
         freeze_speech_qwen_proj=False,
@@ -50,7 +75,10 @@ class ALLM(nn.Module):
         device_8bit=0,  # the device of 8bit model should be set when loading and cannot be changed anymore.
     ):
         super().__init__()
-
+        self.use_speech_Qformer = use_speech_Qformer
+        self.window_level_Qformer = window_level_Qformer
+        self.second_per_window = second_per_window
+        self.second_stride = second_stride
         self.lora = lora
         self.multi_prompt = multi_prompt
         self.max_txt_len = max_txt_len
@@ -103,11 +131,43 @@ class ALLM(nn.Module):
             self.speech_encoder.eval()
             logging.info("freeze Wav2Vec2")
         
-        self.speech_qwen_proj_model = nn.Linear(self.speech_encoder.config.hidden_size, self.qwen_model.config.hidden_size)
-        if speech_qwen_proj_model:
-            logging.info("Loading speech Qwen proj from {}".format(speech_qwen_proj_model))
-            speech_qwen_proj_weight = torch.load(speech_qwen_proj_model, map_location="cpu")
-            self.load_state_dict(speech_qwen_proj_weight['model'], strict=False)
+        if self.use_speech_Qformer:
+            self.speech_Qformer, self.speech_query_tokens = self.init_speech_Qformer(
+                num_query_token=num_speech_query_token, speech_width=self.speech_encoder.config.hidden_size
+            )
+            self.speech_Qformer.bert.embeddings.word_embeddings = None
+            self.speech_Qformer.bert.embeddings.position_embeddings = None
+            for layer in self.speech_Qformer.bert.encoder.layer:
+                layer.output = None
+                layer.intermediate = None
+            self.speech_Qformer.cls = None
+            if freeze_speech_QFormer:
+                for name, param in self.speech_Qformer.named_parameters():
+                    param.requires_grad = False
+                self.speech_Qformer.eval()
+                self.speech_query_tokens.requires_grad = False
+                logging.info("freeze Speech QFormer")
+
+            logging.info('Loading speech Qwen proj')
+            self.speech_qwen_proj = nn.Linear(
+                self.speech_Qformer.config.hidden_size, self.qwen_model.config.hidden_size
+            )
+            if speech_qwen_proj_model:
+                logging.info("Loading speech Qwen proj from {}".format(speech_qwen_proj_model))
+                speech_qwen_proj_weight = torch.load(speech_qwen_proj_model, map_location="cpu")
+                self.load_state_dict(speech_qwen_proj_weight['model'], strict=False)
+            if freeze_speech_qwen_proj:
+                for name, param in self.speech_qwen_proj.named_parameters():
+                    param.requires_grad = False
+                self.speech_qwen_proj.eval()
+                logging.info("freeze speech Qwen proj")
+
+        else:
+            self.speech_qwen_proj = nn.Linear(self.speech_encoder.config.d_model, self.qwen_model.config.hidden_size)
+            if speech_qwen_proj_model:
+                logging.info("Loading speech Qwen proj from {}".format(speech_qwen_proj_model))
+                speech_qwen_proj_weight = torch.load(speech_qwen_proj_model, map_location="cpu")
+                self.load_state_dict(speech_qwen_proj_weight['model'], strict=False)
 
 
         # prepare prompts
@@ -125,9 +185,41 @@ class ALLM(nn.Module):
 
     def _encode_auditory_feature(self, speech_embeds):
         with self.maybe_autocast():
-            speech_embeds = self.ln_speech(speech_embeds)
-            speech_embeds = self.speech_qwen_proj_model(speech_embeds)
-            speech_atts = torch.ones(speech_embeds.size()[:-1], dtype=torch.long).to(speech_embeds.device)
+            if self.use_speech_Qformer:
+                speech_embeds = self.ln_speech(speech_embeds)
+                speech_atts = torch.ones(speech_embeds.size()[:-1], dtype=torch.long).to(speech_embeds.device)
+
+                if self.window_level_Qformer:
+                    B, T, C = speech_embeds.shape
+                    kernel = round(1500 * self.second_per_window / 30.0)
+                    stride = round(1500 * self.second_stride / 30.0)
+                    kernel = (1, kernel)
+                    stride = (1, stride)
+                    speech_embeds_tr = speech_embeds.transpose(1, 2).unsqueeze(2)
+                    speech_embeds_overlap = F.unfold(speech_embeds_tr, kernel_size=kernel, dilation=1, padding=0, stride=stride)
+                    _, _, L = speech_embeds_overlap.shape
+                    speech_embeds_overlap = speech_embeds_overlap.view(B, -1, kernel[1], L)
+                    speech_embeds_overlap = torch.permute(speech_embeds_overlap, [0, 3, 2, 1])
+                    speech_embeds = speech_embeds_overlap.reshape(-1, kernel[1], C)
+                    speech_atts = torch.ones(speech_embeds.size()[:-1], dtype=torch.long, device=speech_embeds.device)
+
+                query_tokens = self.speech_query_tokens.expand(speech_embeds.shape[0], -1, -1)
+                query_output = self.speech_Qformer.bert(
+                    query_embeds=query_tokens,
+                    encoder_hidden_states=speech_embeds,
+                    encoder_attention_mask=speech_atts,
+                    return_dict=True,
+                )
+                speech_embeds = self.speech_qwen_proj(query_output.last_hidden_state)
+
+                if self.window_level_Qformer:
+                    speech_embeds = speech_embeds.view(B, -1, speech_embeds.size(2)).contiguous()
+
+                speech_atts = torch.ones(speech_embeds.size()[:-1], dtype=torch.long).to(speech_embeds.device)
+            else:
+                speech_embeds = self.ln_speech(speech_embeds)
+                speech_embeds = self.speech_qwen_proj(speech_embeds)
+                speech_atts = torch.ones(speech_embeds.size()[:-1], dtype=torch.long).to(speech_embeds.device)
 
         return speech_embeds, speech_atts
 
@@ -331,15 +423,15 @@ class ALLM(nn.Module):
         embeds =  speech_embeds
         attns = speech_atts
 
-        # im_end_token_id = self.qwen_tokenizer.convert_tokens_to_ids("<|im_end|>")
+        im_end_token_id = self.qwen_tokenizer.convert_tokens_to_ids("<|im_end|>")
         
-        # stop_words_ids = [self.qwen_tokenizer.eos_token_id, im_end_token_id]
+        stop_words_ids = [self.qwen_tokenizer.eos_token_id, im_end_token_id, self.qwen_tokenizer.pad_token_id]
 
-        # stopping_criteria = StoppingCriteriaList([StoppingCriteriaSub(stops=stop_words_ids)])
+        stopping_criteria = StoppingCriteriaList([StoppingCriteriaSub(stops=stop_words_ids, tokenizer=self.qwen_tokenizer)])
         outputs = self.qwen_model.generate(
             inputs_embeds=embeds,
             max_new_tokens=generate_cfg.get("max_new_tokens", 200),
-            # stopping_criteria=stopping_criteria,
+            stopping_criteria=stopping_criteria,
             num_beams=generate_cfg.get("num_beams", 4),
             do_sample=generate_cfg.get("do_sample", False),
             min_length=generate_cfg.get("min_length", 1),
@@ -351,8 +443,8 @@ class ALLM(nn.Module):
             pad_token_id=self.qwen_tokenizer.pad_token_id,
             eos_token_id=self.qwen_tokenizer.eos_token_id,
         )
-        text = self.qwen_tokenizer.batch_decode(outputs, skip_special_tokens=True)
-        # text = [ t.replace('<|endoftext|>', '').replace('<|im_end|>','').strip() for t in text]
+        text = self.qwen_tokenizer.batch_decode(outputs, add_special_tokens=False)
+        text = [ t.replace('<|endoftext|>', '').replace('<|im_end|>','').strip() for t in text]
 
         return text
 
@@ -361,6 +453,12 @@ class ALLM(nn.Module):
         qwen_path = config.get("qwen_path")
         wav2vec2_path = config.get("wav2vec2_path")
         freeze_wav2vec2 = config.get("freeze_wav2vec2", True)
+        use_speech_Qformer = config.get("use_speech_Qformer", True)
+        num_speech_query_token = config.get("num_speech_query_token", 1)
+        freeze_speech_QFormer = config.get("freeze_speech_QFormer", False)
+        window_level_Qformer = config.get("window_level_Qformer", True)
+        second_per_window = config.get("second_per_window", 0.333333)
+        second_stride = config.get("second_stride", 0.333333)
         speech_qwen_proj_model = config.get("speech_qwen_proj_model", "")
         freeze_speech_qwen_proj = config.get("freeze_speech_qwen_proj", False)
 
@@ -381,6 +479,12 @@ class ALLM(nn.Module):
             qwen_path=qwen_path,
             wav2vec2_path=wav2vec2_path,
             freeze_wav2vec2=freeze_wav2vec2,
+            use_speech_Qformer=use_speech_Qformer,
+            num_speech_query_token=num_speech_query_token,
+            freeze_speech_QFormer=freeze_speech_QFormer,
+            window_level_Qformer=window_level_Qformer,
+            second_per_window=second_per_window,
+            second_stride=second_stride,
             speech_qwen_proj_model=speech_qwen_proj_model,
             freeze_speech_qwen_proj=freeze_speech_qwen_proj,
             lora=lora,
