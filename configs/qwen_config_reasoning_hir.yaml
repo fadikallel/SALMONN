@@ -50,10 +50,10 @@ run:
 
   log_freq: 5
   epoch_based: False
-  iters_per_epoch: 3000
+  iters_per_epoch: 10000
   accum_grad_iters: 1
-  batch_size_train: 4
-  batch_size_eval: 16
+  batch_size_train: 1
+  batch_size_eval: 8
   num_workers: 8
 
   device: "cuda"

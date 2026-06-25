@@ -320,10 +320,10 @@ class ALLM(nn.Module):
         return {"loss": loss}
 
     def generate(self, samples, generate_cfg, prompts=None):
-        raw_wav = samples.get("raw_wav", None)
-        audio_padding_mask = samples.get("padding_mask", None)
+        input_values = samples.get("input_values", None)
+        attention_mask = samples.get("attention_mask", None)
 
-        speech_embeds, speech_atts = self.encode_speech(raw_wav, audio_padding_mask=audio_padding_mask)
+        speech_embeds, speech_atts = self.encode_speech(input_values, attention_mask=attention_mask)
 
         if prompts is not None:
             speech_embeds, speech_atts = self.prompt_wrap(speech_embeds, speech_atts, prompts, multi_prompt=True)
@@ -353,7 +353,7 @@ class ALLM(nn.Module):
             eos_token_id=self.qwen_tokenizer.eos_token_id,
         )
         text = self.qwen_tokenizer.batch_decode(outputs, add_special_tokens=False)
-        text = [ t.replace('<|endoftext|>', '').strip() for t in text]
+        text = [ t.replace('<|endoftext|>', '').replace('<|im_end|>','').strip() for t in text]
 
         return text
 
