@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from .qwen_qformer import ALLM
+from .qwen_audio_wav2vec import ALLM
 
 def load_model(config):
     return ALLM.from_config(config)

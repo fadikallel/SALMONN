@@ -16,7 +16,7 @@ model:
   # paths
   qwen_path: "../Qwen3.5-9B/models--Qwen--Qwen3.5-9B/snapshots/c202236235762e1c871ad0ccb60c8ee5ba337b9a/"
   wav2vec2_path: "../wav2vec2-xls-r-300m/"
-  ckpt: "outputs/202606251207/checkpoint_0.pth" # "outputs/asv19_no_reasoning/checkpoint_best.pth" # if not "", load model from ckpt for training or evaluation
+  ckpt: "outputs/binary_part_2/checkpoint_2.pth" # "outputs/asv19_no_reasoning/checkpoint_best.pth" # if not "", load model from ckpt for training or evaluation
   
   freeze_wav2vec2: True
   speech_qwen_proj_model: ""
@@ -24,8 +24,8 @@ model:
 
   # LoRA
   lora: True
-  lora_rank: 16
-  lora_alpha: 64
+  lora_rank: 8
+  lora_alpha: 32
   lora_dropout: 0.1
 
   multi_prompt: False
@@ -38,7 +38,7 @@ model:
 datasets:
   train_ann_path: "/netscratch/fkallel/dfd_llm/datasets/asvspoof19_train.json"
   valid_ann_path: "/netscratch/fkallel/dfd_llm/datasets/asvspoof19_dev.json"
-  test_ann_path: "/netscratch/fkallel/dfd_llm/datasets/asvspoof19_eval.json"
+  test_ann_path: "data/itw.json"
 
   whisper_path: "openai/whisper-large-v2"
   wav2vec2_path: "facebook/wav2vec2-xls-r-300m"
@@ -54,7 +54,7 @@ run:
   # iters_per_epoch: 6000
   accum_grad_iters: 1
   batch_size_train: 4
-  batch_size_eval: 16
+  batch_size_eval: 8
   num_workers: 8
 
   device: "cuda"

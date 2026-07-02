@@ -242,6 +242,69 @@ class ALLM(nn.Module):
         else:
             return embeds, atts
     
+    def compute_policy_logprobs(self, samples, texts, prompts=None):
+        task = list(set(samples["task"]))
+        if len(task) > 1 or "QA" in task:
+            self.multi_prompt = True
+
+        if self.prompt_dict and prompts is None:
+            if self.multi_prompt:
+                prompt = [random.choice(self.prompt_dict[task]) for task in samples["task"]]
+                if "Q" in samples:
+                    prompt = [p.format(q) if '{}' in p else p for p, q in zip(prompt, samples["Q"]) ]
+            else:
+                prompt = random.choice(self.prompt_dict[samples["task"][0]])
+        elif prompts is not None:
+            prompt = prompts
+        else:
+            prompt = None
+
+        input_values = samples["input_values"]
+        attention_mask = samples["attention_mask"]
+
+        speech_embeds, speech_atts = self.encode_speech(input_values, attention_mask=attention_mask)
+
+        if self.prompt_dict and prompt is not None:
+            speech_embeds, speech_atts = self.prompt_wrap(speech_embeds, speech_atts, prompt, multi_prompt=True if prompts is not None else self.multi_prompt)
+
+        text = [t + self.qwen_tokenizer.eos_token for t in texts]
+        to_regress_tokens = self.qwen_tokenizer(
+            text,
+            return_tensors="pt",
+            padding="longest",
+            truncation=True,
+            max_length=self.max_txt_len,
+            add_special_tokens=False
+        ).to(speech_embeds.device)
+        to_regress_embeds = self.qwen_model.model.embed_tokens(to_regress_tokens.input_ids) if not self.lora else self.qwen_model.model.model.embed_tokens(to_regress_tokens.input_ids)
+        targets = to_regress_tokens.input_ids.masked_fill(
+            to_regress_tokens.input_ids == self.qwen_tokenizer.pad_token_id, -100
+        )
+        empty_targets = (
+            torch.ones(
+                [speech_atts.shape[0], speech_atts.shape[1] ],
+                dtype=torch.long
+            ).to(speech_embeds.device).fill_(-100)
+        )
+        targets = torch.cat([empty_targets, targets], dim=1)
+
+        inputs_embeds = torch.cat([speech_embeds, to_regress_embeds], dim=1)
+        attention_mask = torch.cat([speech_atts, to_regress_tokens.attention_mask], dim=1)
+
+        with self.maybe_autocast():
+            outputs = self.qwen_model(
+                inputs_embeds=inputs_embeds,
+                attention_mask=attention_mask,
+                return_dict=True,
+                labels=targets,
+            )
+            logits = outputs.logits[:, empty_targets.size(1) - 1: -1, :].contiguous()
+            labels = targets[:, empty_targets.size(1):].contiguous()
+            log_probs = torch.log_softmax(logits, dim=-1)
+            token_log_probs = log_probs.gather(-1, labels.unsqueeze(-1)).squeeze(-1)
+            mask = labels != -100
+            return token_log_probs.masked_fill(~mask, 0.0).sum(dim=1)
+
     def forward(self, samples, verbose=False):
         # detect whether there are multi tasks in this batch
         task = list(set(samples["task"]))
@@ -345,7 +408,7 @@ class ALLM(nn.Module):
             min_length=generate_cfg.get("min_length", 1),
             temperature=generate_cfg.get("temperature", 1.0),
             top_p=generate_cfg.get("top_p", 0.9),
-            repetition_penalty=generate_cfg.get("repetition_penalty", 1.0),
+            repetition_penalty=generate_cfg.get("repetition_penalty", 1.2),
             length_penalty=generate_cfg.get("length_penalty", 1.0),
             attention_mask=attns,
             pad_token_id=self.qwen_tokenizer.pad_token_id,

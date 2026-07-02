@@ -4,6 +4,7 @@ import os
 import json
 import time
 import datetime
+import copy
 from pathlib import Path
 import logging
 
@@ -16,6 +17,7 @@ from local_dist_utils import main_process, is_dist_avail_and_initialized, is_mai
 from logger import MetricLogger, SmoothedValue
 from utils import get_dataloader, prepare_sample
 from optims import get_optimizer, LinearWarmupCosineLRScheduler
+from grpo_utils import compute_reward
 
 
 class Runner:
@@ -57,7 +59,9 @@ class Runner:
         self._model.to(self.device)
         if self.use_distributed:
             self.model = DDP(
-                self._model, device_ids=[self.config.config.run.gpu]
+                self._model,
+                device_ids=[self.config.config.run.get("gpu", 0)],
+                find_unused_parameters=True,
             )
         else:
             self.model = self._model
@@ -73,6 +77,9 @@ class Runner:
             self.scaler = torch.cuda.amp.GradScaler()
         else:
             self.scaler = None
+
+        self.grpo_cfg = self.config.config.run.get("grpo", {})
+        self.grpo_enabled = bool(self.grpo_cfg.get("enabled", False))
 
         # optimizer & scheduler
         self.iters_per_epoch = len(self.train_loader) if self.config.config.run.epoch_based else self.config.config.run.iters_per_epoch
@@ -95,7 +102,79 @@ class Runner:
         else:
             return model
 
-    def train_epoch(self, epoch):
+    def _get_prompt_list(self, samples):
+        if self.test_prompt_dict is None:
+            return None
+
+        prompts = [self.test_prompt_dict[s] for s in samples["task"]]
+        if "Q" in samples:
+            prompts = [p.format(q) if "{}" in p else p for p, q in zip(prompts, samples["Q"])]
+        return prompts
+
+    def _grpo_train_step(self, samples, model):
+        prompts = self._get_prompt_list(samples)
+        generate_cfg = {
+            "max_new_tokens": self.grpo_cfg.get("max_new_tokens", 24),
+            "num_beams": self.grpo_cfg.get("num_beams", 1),
+            "do_sample": self.grpo_cfg.get("do_sample", True),
+            "min_length": self.grpo_cfg.get("min_length", 1),
+            "temperature": self.grpo_cfg.get("temperature", 0.8),
+            "top_p": self.grpo_cfg.get("top_p", 0.9),
+            "repetition_penalty": self.grpo_cfg.get("repetition_penalty", 1.1),
+            "length_penalty": self.grpo_cfg.get("length_penalty", 1.0),
+        }
+        num_rollouts = int(self.grpo_cfg.get("num_rollouts", 4))
+        reward_funcs = self.grpo_cfg.get("reward_funcs", ["correctness", "format"])
+        ground_truth_texts = samples["text"]
+        epsilon = self.grpo_cfg.get("clip_epsilon", 0.2)
+        beta = self.grpo_cfg.get("kl_beta", 0.0)
+        kl_penalty_type = self.grpo_cfg.get("kl_penalty_type", "none")
+
+        old_model = copy.deepcopy(model)
+        old_model.to(samples["input_values"].device)
+        old_model.eval()
+        for param in old_model.parameters():
+            param.requires_grad_(False)
+
+        rollout_rewards = []
+        rollout_logprobs = []
+        for _ in range(num_rollouts):
+            generated_texts = model.generate(samples, generate_cfg, prompts=prompts)
+            rewards = [
+                compute_reward(prediction_text=pred, ground_truth_text=gt, reward_funcs=reward_funcs)
+                for pred, gt in zip(generated_texts, ground_truth_texts)
+            ]
+            reward_tensor = torch.tensor(rewards, device=samples["input_values"].device, dtype=torch.float32)
+            rollout_rewards.append(reward_tensor)
+
+            with torch.cuda.amp.autocast(enabled=self.use_amp):
+                new_logprobs = model.compute_policy_logprobs(samples, generated_texts, prompts=prompts)
+                old_logprobs = old_model.compute_policy_logprobs(samples, generated_texts, prompts=prompts)
+            rollout_logprobs.append((new_logprobs, old_logprobs))
+
+        reward_matrix = torch.stack(rollout_rewards, dim=0)
+        reward_mean = reward_matrix.mean(dim=0, keepdim=True)
+        reward_std = reward_matrix.std(dim=0, keepdim=True).clamp_min(1e-6)
+        advantages = (reward_matrix - reward_mean) / reward_std
+
+        loss_terms = []
+        for rollout_idx in range(num_rollouts):
+            new_logprobs, old_logprobs = rollout_logprobs[rollout_idx]
+            ratio = torch.exp(new_logprobs - old_logprobs.detach())
+            clipped_ratio = torch.clamp(ratio, 1.0 - epsilon, 1.0 + epsilon)
+            advantage = advantages[rollout_idx].to(new_logprobs.device).detach()
+            loss = -torch.minimum(ratio * advantage, clipped_ratio * advantage).mean()
+            if beta > 0:
+                if kl_penalty_type == "reverse_kl":
+                    kl_term = (ratio - 1.0 - torch.log(ratio + 1e-8)).mean()
+                else:
+                    kl_term = (torch.exp(old_logprobs - new_logprobs) - 1.0 - (old_logprobs - new_logprobs)).mean()
+                loss = loss + beta * kl_term
+            loss_terms.append(loss)
+
+        return torch.stack(loss_terms).mean()
+
+    def train_epoch(self, epoch, use_grpo=False):
         self.model.train()
 
         metric_logger = MetricLogger(delimiter="  ")
@@ -119,7 +198,10 @@ class Runner:
             self.scheduler.step(cur_epoch=epoch, cur_step=i)
 
             with torch.cuda.amp.autocast(enabled=self.use_amp):
-                loss = self.model(samples)["loss"]
+                if use_grpo:
+                    loss = self._grpo_train_step(samples, self.unwrap_dist_model(self.model))
+                else:
+                    loss = self.model(samples)["loss"]
 
             if self.use_amp:
                 self.scaler.scale(loss).backward()
@@ -291,7 +373,7 @@ class Runner:
                     "total_samples": total_samples
                 }
             else:
-                ret = {"loss": total_loss / len(dataloader) if len(dataloader) > 0 else 0, "agg_metrics": 0}
+                ret = {"loss": total_loss / len(dataloader) if len(dataloader) > 0 else 0, "agg_metrics": -total_loss / len(dataloader)}
         else:
             # Token-level accuracy (when decode=False)
             if is_dist_avail_and_initialized():
@@ -311,7 +393,7 @@ class Runner:
             
             ret = {
                 "loss": total_loss / len(dataloader) if len(dataloader) > 0 else 0,
-                "agg_metrics": token_accuracy,  # Use token accuracy as agg_metrics when not decoding
+                "agg_metrics": -total_loss / len(dataloader) if len(dataloader) > 0 else 0, 
                 "token_accuracy": token_accuracy,
                 "correct": int(total_correct),
                 "total": int(total_tokens)
@@ -324,10 +406,11 @@ class Runner:
         Extract binary label from raw text output.
         Returns 1 for 'bonafide', 0 for 'spoof'.
         """
-        if '<answer>spoof</answer>' in text:
-            return 0
-        elif '<answer>bonafide</answer>' in text:
+        if '<answer>bonafide</answer>' in text:
             return 1
+        elif '<answer>spoof</answer>' in text:
+            return 0
+
         
         text_lower = text.lower().strip()
         
@@ -443,12 +526,13 @@ class Runner:
 
             # training phase
             logging.info("Training Phase")
-            train_stats = self.train_epoch(cur_epoch)
+            use_grpo = self.grpo_enabled and cur_epoch >= self.grpo_cfg.get("start_epoch", 0)
+            train_stats = self.train_epoch(cur_epoch, use_grpo=use_grpo)
             self.log_stats(train_stats, split_name="train")
 
             # validating phase
             logging.info("Validating Phase")
-            valid_log = self.valid_epoch(cur_epoch, "valid", decode=True, save_json=True)
+            valid_log = self.valid_epoch(cur_epoch, "valid", decode=False, save_json=False)
             if valid_log is not None:
                 if is_main_process():
                     agg_metrics = valid_log["agg_metrics"]

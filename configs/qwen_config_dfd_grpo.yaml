@@ -11,46 +11,37 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
 model:
   # paths
   qwen_path: "../Qwen3.5-9B/models--Qwen--Qwen3.5-9B/snapshots/c202236235762e1c871ad0ccb60c8ee5ba337b9a/"
   wav2vec2_path: "../wav2vec2-xls-r-300m/"
-  ckpt: "" # "outputs/asv19_no_reasoning/checkpoint_best.pth" # if not "", load model from ckpt for training or evaluation
+  ckpt: "outputs/binary_part_2/checkpoint_2.pth" # "outputs/asv19_no_reasoning/checkpoint_best.pth" # if not "", load model from ckpt for training or evaluation
   
   freeze_wav2vec2: True
-
-
-  # window-level Q-Former
-  use_speech_Qformer: True
-  freeze_speech_QFormer: False
-  window_level_Qformer: True
-  num_speech_query_token: 1
-  second_per_window: 0.333333
-  second_stride: 0.333333
-
   speech_qwen_proj_model: ""
   freeze_speech_qwen_proj: False
 
   # LoRA
   lora: True
-  lora_rank: 16
-  lora_alpha: 64
+  lora_rank: 8
+  lora_alpha: 32
   lora_dropout: 0.1
 
-  multi_prompt: True
+  multi_prompt: False
   prompt_template: "{}"
   prompt_path: "prompts/train_prompt.json"
   test_prompt_path: "prompts/test_prompt.json"
   max_txt_len: 4
   end_sym: ""
 
-
 datasets:
   train_ann_path: "/netscratch/fkallel/dfd_llm/datasets/asvspoof19_train.json"
   valid_ann_path: "/netscratch/fkallel/dfd_llm/datasets/asvspoof19_dev.json"
-  test_ann_path: "/netscratch/fkallel/dfd_llm/datasets/asvspoof19_eval.json"
+  test_ann_path: "data/itw.json"
 
   whisper_path: "openai/whisper-large-v2"
+  wav2vec2_path: "facebook/wav2vec2-xls-r-300m"
 
 run:
   # log & settings
@@ -63,18 +54,18 @@ run:
   # iters_per_epoch: 6000
   accum_grad_iters: 1
   batch_size_train: 4
-  batch_size_eval: 16
+  batch_size_eval: 8
   num_workers: 8
 
   device: "cuda"
+  gpu: 0
   use_distributed: True
   amp: True
-  amp_dtype: "bfloat16"
   world_size: 1
   dist_url: "env://"
 
   grpo:
-    enabled: false
+    enabled: true
     start_epoch: 0
     num_rollouts: 4
     reward_funcs: ["correctness", "format"]
