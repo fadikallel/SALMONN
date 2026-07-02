@@ -57,7 +57,7 @@ class Runner:
         self._model.to(self.device)
         if self.use_distributed:
             self.model = DDP(
-                self._model, device_ids=[self.config.config.run.gpu]
+                self._model, device_ids=[self.config.config.run.gpu], find_unused_parameters=True,
             )
         else:
             self.model = self._model
@@ -311,7 +311,7 @@ class Runner:
             
             ret = {
                 "loss": total_loss / len(dataloader) if len(dataloader) > 0 else 0,
-                "agg_metrics": token_accuracy,  # Use token accuracy as agg_metrics when not decoding
+                "agg_metrics": total_loss / len(dataloader) if len(dataloader) > 0 else 0, 
                 "token_accuracy": token_accuracy,
                 "correct": int(total_correct),
                 "total": int(total_tokens)
@@ -446,7 +446,7 @@ class Runner:
 
             # validating phase
             logging.info("Validating Phase")
-            valid_log = self.valid_epoch(cur_epoch, "valid", decode=True, save_json=True)
+            valid_log = self.valid_epoch(cur_epoch, "valid", decode=False, save_json=False)
             if valid_log is not None:
                 if is_main_process():
                     agg_metrics = valid_log["agg_metrics"]

@@ -58,4 +58,5 @@ datasets = {
 # build runner
 runner = Runner(cfg, model, datasets, job_id)
 
-runner.valid_epoch("0","test",decode=True,save_json=True)
+ret = runner.valid_epoch("0","test",decode=True,save_json=True)
+print(ret)
