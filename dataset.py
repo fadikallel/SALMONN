@@ -20,7 +20,7 @@ from torch.utils.data import Dataset
 from torch.nn.utils.rnn import pad_sequence
 import soundfile as sf
 import numpy as np
-from transformers import Wav2Vec2FeatureExtractor
+# from transformers import Wav2Vec2FeatureExtractor
 
 
 class SALMONNDataset(Dataset):
@@ -30,7 +30,7 @@ class SALMONNDataset(Dataset):
         self.annotation = json.load(open(ann_path, "r"))
         
         # Use Wav2Vec2FeatureExtractor instead of WhisperFeatureExtractor
-        self.wav_processor = Wav2Vec2FeatureExtractor.from_pretrained(wav2vec2_path)
+        # self.wav_processor = Wav2Vec2FeatureExtractor.from_pretrained(wav2vec2_path)
 
     def _normalize_audio(self, audio):
         if isinstance(audio, torch.Tensor):
@@ -58,43 +58,14 @@ class SALMONNDataset(Dataset):
 
     def collater(self, samples):
         raw_audios = [self._normalize_audio(s["raw_wav"]) for s in samples]
+        audio_tensors = [torch.from_numpy(x) for x in raw_audios]
 
-        try:
-            processed = self.wav_processor(
-                raw_audios,
-                sampling_rate=16000,
-                padding=True,
-                return_tensors="pt",
-                return_attention_mask=True,
-            )
-        except ValueError:
-            processed_items = []
-            for audio in raw_audios:
-                item = self.wav_processor(
-                    audio,
-                    sampling_rate=16000,
-                    return_tensors="pt",
-                    return_attention_mask=True,
-                )
-                processed_items.append(item)
+        input_values = pad_sequence(
+            audio_tensors,
+            batch_first=True,
+            padding_value=0.0,
+        )
 
-            max_len = max(item["input_values"].shape[-1] for item in processed_items)
-            input_values = []
-            attention_mask = []
-            for item in processed_items:
-                values = item["input_values"][0]
-                mask = item["attention_mask"][0]
-                pad = max_len - values.shape[-1]
-                if pad > 0:
-                    values = torch.nn.functional.pad(values, (0, pad), value=0.0)
-                    mask = torch.nn.functional.pad(mask, (0, pad), value=0)
-                input_values.append(values)
-                attention_mask.append(mask)
-
-            processed = {
-                "input_values": torch.stack(input_values),
-                "attention_mask": torch.stack(attention_mask),
-            }
 
         text = [s["text"] for s in samples]
         task = [s["task"] for s in samples]
@@ -102,8 +73,7 @@ class SALMONNDataset(Dataset):
         ids = [s["id"] for s in samples]
 
         return {
-            "input_values": processed["input_values"],
-            "attention_mask": processed["attention_mask"],
+            "input_values": input_values,
             "text": text,
             "task": task,
             "Q": Q,

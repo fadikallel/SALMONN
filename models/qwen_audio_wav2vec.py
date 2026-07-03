@@ -6,9 +6,9 @@ import random
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from transformers import Qwen3_5ForCausalLM,Qwen3_5Tokenizer, StoppingCriteriaList, Wav2Vec2Model
+from transformers import Qwen3_5ForCausalLM,Qwen3_5Tokenizer, StoppingCriteriaList
 from peft import LoraConfig, TaskType, get_peft_model
-
+from .wav2vec import Wav2Vec2Model
 from .utils import StoppingCriteriaSub
 
 
@@ -30,7 +30,7 @@ class ALLM(nn.Module):
     def __init__(
         self,
         qwen_path="",
-        wav2vec2_path="",
+        wav2vec2_path="/ds-slt/audio_weights/xlsr2_300m.pt",
         freeze_wav2vec2=True,
         
         speech_qwen_proj_model="",
@@ -95,15 +95,16 @@ class ALLM(nn.Module):
 
         assert wav2vec2_path
         logging.info('Loading Wav2Vec2 Model')
-        self.speech_encoder = Wav2Vec2Model.from_pretrained(wav2vec2_path)
-        self.ln_speech = nn.LayerNorm(self.speech_encoder.config.hidden_size)
+        self.speech_encoder = Wav2Vec2Model(wav2vec2_path)
+        self.speech_encoder_hidden_size = 1024
+        self.ln_speech = nn.LayerNorm(self.speech_encoder_hidden_size)
         if freeze_wav2vec2:
             for name, param in self.speech_encoder.named_parameters():
                 param.requires_grad = False
             self.speech_encoder.eval()
             logging.info("freeze Wav2Vec2")
         
-        self.speech_qwen_proj_model = nn.Linear(self.speech_encoder.config.hidden_size, self.qwen_model.config.hidden_size)
+        self.speech_qwen_proj_model = nn.Linear(self.speech_encoder_hidden_size, self.qwen_model.config.hidden_size)
         if speech_qwen_proj_model:
             logging.info("Loading speech Qwen proj from {}".format(speech_qwen_proj_model))
             speech_qwen_proj_weight = torch.load(speech_qwen_proj_model, map_location="cpu")
@@ -131,7 +132,7 @@ class ALLM(nn.Module):
 
         return speech_embeds, speech_atts
 
-    def encode_speech(self, input_values, attention_mask=None):
+    def encode_speech(self, input_values):
         """
         Encode speech using preprocessed Wav2Vec2 inputs
         
@@ -141,11 +142,7 @@ class ALLM(nn.Module):
         """
         
         with self.maybe_autocast():
-            speech_embeds = self.speech_encoder(
-                input_values,
-                attention_mask=attention_mask,
-                return_dict=True
-            ).last_hidden_state
+            speech_embeds = self.speech_encoder(input_values)
         
         return self._encode_auditory_feature(speech_embeds)
     
@@ -260,9 +257,8 @@ class ALLM(nn.Module):
             prompt = None
 
         input_values = samples["input_values"]
-        attention_mask = samples["attention_mask"]
 
-        speech_embeds, speech_atts = self.encode_speech(input_values, attention_mask=attention_mask)
+        speech_embeds, speech_atts = self.encode_speech(input_values)
 
         if self.prompt_dict and prompt is not None:
             speech_embeds, speech_atts = self.prompt_wrap(speech_embeds, speech_atts, prompt, multi_prompt=True if prompts is not None else self.multi_prompt)
@@ -322,9 +318,8 @@ class ALLM(nn.Module):
 
         # use speech/audio encoder to encode speech/audio
         input_values = samples["input_values"]
-        attention_mask = samples["attention_mask"]
 
-        speech_embeds, speech_atts = self.encode_speech(input_values, attention_mask=attention_mask)
+        speech_embeds, speech_atts = self.encode_speech(input_values)
 
         # wrap speech_embeds with prompts
         if self.prompt_dict:
@@ -383,9 +378,7 @@ class ALLM(nn.Module):
 
     def generate(self, samples, generate_cfg, prompts=None):
         input_values = samples.get("input_values", None)
-        attention_mask = samples.get("attention_mask", None)
-
-        speech_embeds, speech_atts = self.encode_speech(input_values, attention_mask=attention_mask)
+        speech_embeds, speech_atts = self.encode_speech(input_values)
 
         if prompts is not None:
             speech_embeds, speech_atts = self.prompt_wrap(speech_embeds, speech_atts, prompts, multi_prompt=True)

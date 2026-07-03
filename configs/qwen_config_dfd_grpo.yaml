@@ -15,7 +15,7 @@
 model:
   # paths
   qwen_path: "../Qwen3.5-9B/models--Qwen--Qwen3.5-9B/snapshots/c202236235762e1c871ad0ccb60c8ee5ba337b9a/"
-  wav2vec2_path: "../wav2vec2-xls-r-300m/"
+  wav2vec2_path: "/ds-slt/audio_weights/xlsr2_300m.pt"
   ckpt: "outputs/binary_part_2/checkpoint_2.pth" # "outputs/asv19_no_reasoning/checkpoint_best.pth" # if not "", load model from ckpt for training or evaluation
   
   freeze_wav2vec2: True
