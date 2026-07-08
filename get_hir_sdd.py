@@ -148,7 +148,8 @@ def transform_parquet_to_training_format(input_parquet_path, output_json_path, t
             
             # Build the text with proper formatting
             if not reasons_list or len(reasons_list) == 0:
-                formatted_text = f"<answer>{answer}</answer><explanation>{reasoning}</explanation>"
+                # formatted_text = f"<answer>{answer}</answer><explanation>{reasoning}</explanation>"
+                formatted_text = answer
             else:
                 # Process each reason: lowercase and replace underscores with spaces
                 processed_reasons = []
@@ -162,7 +163,8 @@ def transform_parquet_to_training_format(input_parquet_path, output_json_path, t
                 
                 # Join with commas
                 reasons_str = ', '.join(processed_reasons)
-                formatted_text = f"<answer>{answer}</answer><explanation>{reasoning}</explanation><reasons>{reasons_str}</reasons>"
+                # formatted_text = f"<answer>{answer}</answer><explanation>{reasoning}</explanation><reasons>{reasons_str}</reasons>"
+                formatted_text = answer
             
             # Create the training example
             example = {
@@ -218,13 +220,13 @@ def transform_parquet_to_training_format(input_parquet_path, output_json_path, t
 if __name__ == "__main__":
     # Replace these with your actual file paths
     input_parquet = "/ds-slt/audio/fkallel/HIR-SDD/annotations/data.parquet"  # Change this to your parquet file
-    output_file = "data/hir-sdd.json"
+    output_file = "data/hir-sdd-binary.json"
     
     # Transform the data
     training_data = transform_parquet_to_training_format(
         input_parquet_path=input_parquet,
         output_json_path=output_file,
-        task="deepfake_detection_with_reasoning"
+        task="deepfake_detection"
     )
     
     # Print a sample to verify

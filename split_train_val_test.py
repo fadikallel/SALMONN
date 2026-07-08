@@ -246,13 +246,13 @@ def split_json_data(input_json_path, output_dir, train_size=114000, val_size=800
     }
     
     for split_name, split_data in splits.items():
-        output_file = Path('data') / f"hir-sdd-{split_name}.json"
+        output_file = Path('data') / f"hir-sdd-binary-{split_name}.json"
         with open(output_file, 'w') as f:
             json.dump(split_data, f, indent=2)
         
         # Count bonafide vs spoof in each split
-        bonafide_count = sum(1 for item in split_data if '<answer>bonafide' in item['text'])
-        spoof_count = sum(1 for item in split_data if '<answer>spoof' in item['text'])
+        bonafide_count = sum(1 for item in split_data if 'bonafide' in item['text'])
+        spoof_count = sum(1 for item in split_data if 'spoof' in item['text'])
         
         print(f"\n📁 {split_name.upper()} split:")
         print(f"   Samples: {len(split_data)}")
@@ -272,7 +272,7 @@ def split_json_data(input_json_path, output_dir, train_size=114000, val_size=800
 # Example usage
 if __name__ == "__main__":
     # Replace these with your actual file paths
-    input_json = "data/hir-sdd.json"  # Your prepared JSON file
+    input_json = "data/hir-sdd-binary.json"  # Your prepared JSON file
     output_directory = "data/"  # Directory where splits will be saved
     
     # Split the data

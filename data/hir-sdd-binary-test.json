@@ -1,0 +1,3612 @@
+[
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/42/42daaa8488b5.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ab/abea9c20c5f4.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a8/a81d91270882.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c1/c124f478c16c.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/1d/1d3eb8066553.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/39/39eeee9cb337.flac",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/f2/f26b9ee2b7c3.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ef/efa1176cba75.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/66/66f6b90b172b.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/f4/f47cbf8d24d3.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/cf/cfceba10af8f.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/91/91a99b19e127.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/76/76b73e40d34c.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/98/98f5604a727f.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/84/84fe4244f867.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/8c/8cd2224a0df8.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/de/de8115533482.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/37/37362191e7c2.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/e0/e07d122032b8.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a1/a12c881a7fbb.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/2d/2d464eb403dd.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/b2/b25738b16f84.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/22/228288132a8e.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/46/46bd14806574.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/17/175933fdfc17.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/f9/f9afad6cee82.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/89/892b0788010d.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/2f/2f6ddaf1a2f3.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/d7/d75750c7f755.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/87/87aa633516ed.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/d3/d3133223e228.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/9e/9e9b27d23485.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/60/60aa43b2fa37.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/69/69bf5e343d8b.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a6/a6ea47694a2b.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/5f/5f3260cb8172.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/eb/eb64aa05c7e8.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/1e/1e08ce744e3f.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/d5/d57237a7caed.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/c8/c81a755502cf.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/81/814bdeee1456.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/2f/2fc836764020.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/96/969d01bb0a6a.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/55/55b2d5ff4864.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/18/1819233c8923.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/7e/7ecd6d899646.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/6e/6ec892c5b568.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/fe/fe6d72f49ea7.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/1f/1fd1d68c0176.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/24/24eba95678b2.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/48/4830c49bc226.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ee/ee25f55fea07.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/6c/6c132597adee.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/20/20a8ffa3b855.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/29/29469f331e45.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/6b/6bf003a71a4f.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a9/a9e479e1040a.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/bb/bb1478af65dd.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/2b/2b876d62e232.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c7/c7b70ab8f1d1.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/d6/d6fbe551c84a.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/9f/9f4e5a0bc7a4.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/9e/9e2af5f6423b.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/1f/1f2c59d3c404.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/3a/3a3f4a6210e6.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/77/77bc8606806d.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a4/a4cc20391843.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/68/6856f82a5cd3.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/58/58e7f46f4c1d.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a5/a5af67632acd.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/60/605bd7947651.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/23/23503e72f0a7.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/d0/d0140308cafe.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/ae/ae575582d87b.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/19/195de4875feb.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/50/5070555fd68f.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/b5/b5e0814ce3a2.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/aa/aad5006e55b0.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/f3/f3c33dbf523b.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/7d/7dd2e70d7bfb.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c9/c9d6ba8b5f4b.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a0/a0f7f1e4dbcd.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/7a/7a710ad3be0b.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/9e/9e690a25e22c.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/40/40a36906f981.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/48/4804ac4ce8b9.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/87/87bcdd427954.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/5f/5f0fd0a280db.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/f1/f157682357d4.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/75/750242fb62e4.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/21/21c7daea7952.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/83/8328033735a4.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/58/58780b13816a.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/b7/b77ba5c2fcd4.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/e8/e87be2dcf278.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c9/c9392b04c396.flac",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/44/44bc49c90870.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ce/ce404dea6bf0.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/d5/d55777993896.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/2f/2fba6d64cf9f.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/d4/d47ab04fec5a.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a7/a7e072830d17.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/75/750ef428a7cc.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/fc/fc94c912ffc1.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/5b/5bb2ef85bca8.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/21/21a5428991f9.flac",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/43/43b48dbbcac0.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/31/31cbb98c7cea.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/b4/b4cd3de7975a.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/64/6413c400d07c.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c4/c4c9eac45e13.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ac/ace989eb0b16.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/ff/ff68804c3d51.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/8e/8e365e6f108b.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/37/372d1a22d91a.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/71/714d4916b5d1.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/43/43fd2b5cae44.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/46/46eda0010e06.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/6f/6f2316d50ca1.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/50/5004f7536640.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a6/a6cb7b9b97f5.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/2e/2eecae112cc3.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/f1/f1888036497d.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/be/beb9d5e10d99.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ae/ae222efb5ce5.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/d4/d46fa5b52278.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/f2/f2361949c5a0.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/e7/e7b2968a5616.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a4/a4732ed41898.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/50/505316e80ec0.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/98/98034416ac1d.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/88/8885868197f2.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a0/a0e11f8cbb8f.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/db/dbc2ca864c8a.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ce/ce20c8a5ca68.flac",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/12/12c960beb1b6.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/19/19f3da1fd580.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/9b/9b6c1c97251d.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/3d/3d5cb39492a3.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/e6/e67a268e47e9.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/bd/bd0e6f62b24a.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a3/a39d21ea707a.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/1d/1d6212457a39.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/f6/f6eb2998111e.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/e4/e4b4dd0d8cbe.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/28/28ce3d1e915b.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/dc/dce659b11693.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c2/c21c687abe1a.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/f4/f41dd5af31f7.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/3b/3b1cd027a9ce.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/62/6242d678a01d.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/28/28ad694527bc.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/22/22498c06807c.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/61/61d59dd84a54.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/ba/baea829c4227.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/cd/cdf15a64a2b7.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/b4/b48afd5f8e0d.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/cb/cbebd1dec3b7.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/64/649353355d53.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/cb/cbbec9f5a844.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ca/ca863bce4dc1.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/aa/aa4be4a60bdc.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/cf/cf75b290841c.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/d3/d3d4d8441fc9.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/b0/b09841d4fdea.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/85/85482510bd32.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/e5/e5f4e136db98.flac",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/4d/4dafc3226dc5.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/56/561adb735021.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ad/ad326c5e9c7c.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/91/915b840fe762.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/7d/7df6e0ce6f50.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/d5/d51a754039d1.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/28/283e14cfa592.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/18/18b6dc8d87be.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/1b/1babb527f0bd.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/cd/cd6a0f6bafe2.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c7/c71fd99e5b78.flac",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/35/353de5c547eb.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/f1/f11344c83418.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/9b/9b1a8d2353b3.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/86/863c4fc301bf.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/aa/aae0055a142d.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/6e/6eb848a95339.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/7d/7deb1f58ede5.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/18/18f6d6c192d4.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/51/51860d477e4b.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/80/8008159e5f1b.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/9b/9bc11902f89a.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/fd/fd47f967eeee.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/4c/4c34f4d7fb7c.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/1d/1d50563baf56.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c7/c7e21e100c46.flac",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/17/173885a145a5.flac",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/49/49a746bbe20d.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/45/4593bf491027.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/6b/6b5ce40bfb14.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/e0/e0b35eec6bee.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/b4/b4895d78554e.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/22/22165f40c454.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/fd/fd9d2bedc307.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/12/12088ebac7cc.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/2a/2a9d01466af1.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/be/be17ffbe3c96.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/28/289fef9e6a9f.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/e6/e634d641aaa3.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c5/c504cf096c10.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/25/25f9baff1c0a.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/5e/5ebe0e5d4701.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/53/53aaa5d972ba.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/6e/6e0945063757.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/1e/1ede075f5c6d.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/52/521a3701404e.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/e6/e69cb98a8a75.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/95/955a2a0149f4.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a9/a9dac7905015.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/23/23676ec030d3.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/3f/3f9493c55a7d.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/4a/4aa9e779930d.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/76/7635afcb2f04.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c8/c8bd856c863b.flac",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/d0/d08a680914de.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/73/7340a418ff4f.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/36/364038c5ab44.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/97/97cdbb429dc4.flac",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/6c/6ca6144aec94.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ca/ca862f46f2a9.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/42/428a52cf98c5.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/2a/2a2ec212f401.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/79/7958506bb732.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/f8/f8f126c839e5.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/2d/2d1705e97d30.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/cb/cba85fcfc634.flac",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/5a/5a9fd8072e43.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/81/81b1fa58077c.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/9a/9a7fa14f2934.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/36/36be3886a46f.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c0/c04f6b82b75a.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/60/605fabce6449.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/16/1685d026dc56.flac",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c3/c3100d906ac7.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a4/a44a73468602.flac",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a2/a23823365204.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/ec/ec2a43e6e8cc.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a8/a840620979b7.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/8f/8fb2b612627e.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/7f/7f2370757a1c.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/1e/1ea2ace555bb.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c2/c2a580bb9e44.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/9f/9f195481b515.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/9a/9a0ebfb798f3.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/4c/4ceb264c3200.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/15/1546748e360f.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a6/a6c493ba9e6c.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/d1/d14cd9b970bf.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/95/95669fa2decd.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/bd/bd652eadd0b2.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/3e/3e7fdba9c5ab.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/71/714657424128.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/6d/6d3d4d1f7b28.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/9a/9aa0e8d0b7e1.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/63/63d79309f66e.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/48/48519809e626.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/1f/1f5347831b49.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/55/55778d4b5c4e.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a5/a5c4d6ce58cf.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/4b/4b28e80e7277.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/87/87359811afc7.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c8/c8ce49d9a1f0.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/e3/e340f94600a0.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/b7/b7a32a619a25.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/46/46ff14ce7613.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ba/ba34d7268db6.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/1a/1a11b2a0edca.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/58/583e2ac06136.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/61/61b749960a9b.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/7d/7d4bc6ce7568.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/36/36f711003288.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ea/eadf0c8d82e9.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/6a/6aa04d7fa609.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/8d/8d1089c8fbc8.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/71/712f46e45908.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/66/6685c0cfd6cc.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/b0/b017c7b13e6b.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/99/995688633ee9.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/7a/7a9c401da175.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/75/75b7f3b5b4b3.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/74/747e3cf610ae.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a6/a65d62aaa97a.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c8/c87e54aac2ee.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/f0/f02ef4eca529.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/62/625c70d2ec70.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/3f/3f4d59004dfa.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/b8/b821bd65e752.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c2/c23f51ef67ed.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/da/daf8c577af26.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/60/607d55180277.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/16/16c5ac17b9e9.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/15/15fce3ffcba7.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/1a/1a5a93e7784b.flac",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/9e/9e56f5c29ff0.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/f0/f024a505ee31.flac",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/84/84948ea7cccb.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/db/dbb9b39a295c.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/7d/7d7b81957640.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/47/47dd5e216d37.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/9e/9e5411147566.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/e0/e0b552219ed4.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/65/65052cceaf4e.flac",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/6a/6af2f7c37460.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/e4/e43a53a565a3.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/8e/8ee7345e1106.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/27/273a3278936d.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/5c/5cdae7f38beb.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/9f/9fc42ab31f3a.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/28/281884a0897c.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/70/70979cd236db.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/4c/4cb4a1bde14d.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/bd/bd303b0e81bc.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/36/361295e60b27.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/de/de5d3c69a331.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/8f/8f6f81c64f7a.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ef/ef105e9bfc8b.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/12/12e10c0388fe.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/52/5281acb2702e.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/47/47371c3b723d.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/90/90998c4eb317.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/d3/d382066fe4c9.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/2b/2b154c31f8d4.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/d7/d7566102129f.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/80/803fcdf3e134.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/e1/e1c14b19fed6.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a4/a4d7bed27e28.flac",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/d3/d362a78494df.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/40/40435eb1797d.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/27/277bd3facb48.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/42/4245edca1ef6.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/2b/2b7260deee49.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/49/49a6fc1e5536.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/5a/5a9b29c87592.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/cc/cca09ec33b73.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/28/28c927b34554.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a0/a08fd9d3764b.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/40/40bf8789cbfc.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ac/aca7ee48881f.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ca/ca4e8a3596f7.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/9d/9d7b9c5d05db.flac",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/6a/6a0ced01532a.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/50/5065005e4f7a.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/77/77a0a375062d.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/5f/5fa98a3dc280.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/52/52d9d0860813.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/61/619e98bbbf1b.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/39/391471b8dbb1.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/dd/dd1348b72d2e.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/6b/6bf027c7d121.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ac/acda59984b08.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/8d/8daa46b93593.flac",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/f3/f3edc2450535.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/f8/f87575e5ad7d.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ca/ca8376021ca3.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/8d/8d7c7ac43fdf.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/e0/e0b589f28c16.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/1c/1c01b8cddb3c.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/40/40ae4d0c5fe6.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/62/6205a2fe6e25.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/6a/6a89215fdf99.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/63/6376a96ce803.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/2d/2d4c953c8cbd.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/20/2051de41ed97.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/da/da708b221b21.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c7/c7c3dae27e1a.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/12/12d2e39753b7.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/63/6319d8b82067.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c8/c894e314b564.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/38/38b0f197344d.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/cc/ccca8f7f4652.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/f6/f68353992b76.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/83/83c7d7ff9cdd.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/41/417cfb7871e9.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/f2/f2300622ab67.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/4f/4f130487005a.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c9/c9c6377a4ea4.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/60/60d3d051fdbb.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/91/91019fb43f1d.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/82/821b0c8e8c14.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c4/c4b7086c7c1c.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/9a/9a936a4bc5a6.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/e4/e49093e52b9c.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/9f/9f7a2183f9e7.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/29/29060fc1323e.flac",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/93/93650df43dfc.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/65/652d04fb887a.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/e7/e7fd3787f3fe.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/6c/6ca17fca7456.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/1d/1dd54bd3bb86.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/6c/6c06d0831186.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/af/afdd2a571b56.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/1e/1e8fdaec8f10.flac",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/21/21e512a6e8ca.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/20/207430e6e74b.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/1a/1af83ddb0445.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/d2/d20fff8f68cb.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/3d/3d66de76af3c.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/03/039b93436c34.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/89/890a6ac19900.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/e2/e2a5118cdad7.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/2d/2df7a543f876.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/1a/1aaf62f3421d.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a6/a607fe60e8c7.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/63/63d89649657f.flac",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/84/84284a43cb9a.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/d4/d4474dee6332.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/cd/cd694e169379.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/29/298522b2fbdd.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/29/29d47956f844.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/12/12cd6fd9ef90.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/6e/6e2c34ed20e0.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/16/16915fde32a7.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/de/de4fd60a66df.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/e6/e63b70b7a4e6.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/e8/e80f6ea1f9df.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ed/edb17a10ec74.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/7d/7d5fe7a2e46f.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/63/63c51e0a6a84.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/78/784bf4c1e37f.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/83/839d1d9e97e0.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/97/9704c7e36e47.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/98/98ae869fc721.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c5/c52ad732c1a1.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a6/a6d1f22786cd.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/6c/6c78d57bc005.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/85/85e2a81afcff.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/b1/b1e324097281.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/66/66924195f1b0.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/5d/5d861eaf6fab.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/f3/f397913a185d.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/d6/d6e592af3224.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/9a/9a54a994f5ec.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a7/a772458dda19.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/5f/5fd72bfafc13.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c2/c2ebb54982fa.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ae/ae1fc9ea86d9.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/cd/cd51ef2e6c4a.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/3c/3c9afea8cc00.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/28/28b82123a12f.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/cf/cf7664377516.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/4e/4efe93f603d8.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/89/892bda0f52b8.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/98/9867af3c7539.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/db/db868660e0a3.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/d4/d40bf3e5bf02.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a8/a8594feb0780.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/f0/f0ee3efe021d.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c4/c405cfe6fafd.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/8d/8dec09c0ec52.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/26/263204e67e3b.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/1a/1a91830c4d44.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/7f/7f119ca63b31.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/de/de14d8e03a75.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/6e/6eaa2d78f952.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/e0/e0733b02a899.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/40/409ce202a3cb.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/f2/f2b48f6c303a.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/51/510663135123.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ad/addec990e3ab.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/71/71d4763f7f4b.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/b1/b1c4866d030a.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/2e/2e688a800ca0.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c4/c4a9f38749c1.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/1f/1fba211eba39.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/77/77c58668fa3e.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/df/df128a032f9e.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/7e/7eed7e8f5a47.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/4e/4e6c3f19cdcb.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/3a/3a96e68023a8.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/5a/5a4b7f6ab0da.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ce/cefee748dba7.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/3b/3b01232df2e6.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/6a/6acb5664e1b0.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ca/ca5aca656b12.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/59/59d23f4ad5fa.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/67/67abb82e645b.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/f2/f2a9a49d7fee.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/e5/e51713894bba.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ad/ad772ddfcd52.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/4a/4af79ad69f6a.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/50/503f57ac2693.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c3/c33c3091b74d.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/33/3337211fa2e0.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/d7/d7375463b86b.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/57/57399dd18736.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/16/1653bf78dd8f.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/9b/9bc5008f2837.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/dc/dc542e0ec033.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/89/89d343e0c7ab.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/77/776938a11995.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/bc/bcd9b3da65f4.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/5b/5b41dba8ce7e.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/82/8268e2f12b60.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/19/196c3023be36.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/86/8698d287776e.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/9c/9c12e8935860.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/59/59bc9654781f.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/f0/f0e36f83aeef.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/90/90e9b1766c69.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/da/da8cc0b3b473.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/22/22089496f62f.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/be/bec3abad2f4f.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c5/c5d3974e04ba.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/bf/bfd25310c1e1.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/98/988dfb4bb138.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/93/93f51bc2c96f.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/65/65b57e66330f.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/cd/cd645cda81cd.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/f5/f53de48c5adb.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/b0/b04c0f333852.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/2e/2e4ea572e2c4.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ad/ad43b24075f8.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/60/60c2aeec435f.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/d6/d60e174e72d7.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ed/edba073489b2.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/be/be10205c4831.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/64/64775d10d1fb.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/98/98d4235466eb.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/d8/d83a63aa047b.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/4a/4af82934dcce.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/81/812015f9b237.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/f3/f327da04ca8e.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/3b/3bbd03e5e3b4.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/8e/8e0ba743b148.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/f6/f6eef244b1a9.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/29/29a3a107d2a5.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/73/73e7bb3ad4bc.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/35/35ab96e53758.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/57/576ad647dc81.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/7a/7a08d50d7d42.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/81/812b18d19b72.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/8c/8cfc69b0290b.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/58/5837b5f238e1.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/53/5376e4157850.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c4/c44c1a5ef7e9.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/44/4475debb7b3b.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/cd/cde9e7cfee6c.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/af/afa22de836eb.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/6d/6d00f59df3b1.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/f2/f25336aa2e47.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/95/95476f16d134.flac",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/99/99b36eaafafa.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a4/a471d881ec2b.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/b9/b93d11d4d9fd.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/a2/a296b8c85cf4.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/e0/e0ad49f2a1fe.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/47/47d845c55143.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/7d/7d3defdafdd1.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/62/62671ffbb2b4.flac",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/bb/bbee9d3f70cf.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/73/732350342083.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/27/27610fb18747.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/3a/3a6cd6b36731.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/99/99c2765a8a88.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/82/8276d1b4e83f.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/71/7164a5632aa7.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/63/633e13d6a3d9.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/1f/1f452864f85e.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/4d/4d6ea46c437a.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/b6/b670a63be17c.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/b9/b97554240013.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/89/899a74768cb7.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/5d/5dd921161d96.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/d8/d8c6bf704770.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/78/783056e41231.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/7c/7cad496cd883.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a4/a46d03f27843.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c1/c14836e754e0.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/b7/b7285dc1d06b.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/1f/1fa8602b6355.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/9e/9e8a4ab46ae9.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/d5/d549be0565d9.flac",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/6e/6e899239edf7.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/b1/b118d42e513e.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a6/a64d0c06ee45.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/79/7965ca3800d0.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/26/268a1eca0ce9.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/cc/cc3a2c680688.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a6/a6d099ec82ea.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ac/ac500d8e12a6.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/9f/9f45591d5e1a.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/cc/ccf1d073cc0a.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/bc/bc0091060f1f.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/77/7760ddfc81a8.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/7e/7e6a67cd4527.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c8/c841d1129fcb.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/f4/f4a4e2c1fce5.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/77/772f94359c1c.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/f1/f1082a6d66ad.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/bb/bb4f376ced92.flac",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/44/4402ff08283e.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a2/a2f5342e085e.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/6f/6fadd7863989.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/91/9147d24d2660.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/55/550b792a94db.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/97/97b7b3e55919.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/d7/d715036ba3c1.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/b2/b2a074652738.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/2a/2ab6b6ff5eb5.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/31/319b587cb5e1.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/e7/e79dc964b2bb.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/2f/2f2c123c1fd5.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/7c/7c198d422a98.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/d1/d15f911b5ecb.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/45/45f06fc7e208.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/52/521823512547.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/7a/7a1e4dcb9785.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/b4/b4be48b736cc.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/8a/8af8c22a5583.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/77/774401d5dbbe.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c9/c94d96119ad3.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/20/20e454c0f3b7.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/5c/5c19df5a2db0.flac",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/5e/5e1d517c9a47.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/b4/b408fdead987.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/33/33694e85e4c5.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/56/565a628cbded.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c3/c3a591bc6ddc.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/67/676e3ec9d74f.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/66/66afda1250dc.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/65/65b0b9af1ab6.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/3e/3e32d9174f00.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/4e/4e3035168b9f.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/55/557498d115ee.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ca/cada825c16a8.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/d9/d93ed477d0bb.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/e0/e07f9e131b30.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/5b/5b8ec641ec21.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/56/5632bceb7533.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/88/88a31763625f.flac",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/13/1347788db20a.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/84/841613e65ef1.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a3/a3dbb888fc44.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/2a/2a1ba6fbb1e8.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/bc/bce9eabea2a4.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/5d/5d303a259e6b.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/3d/3d9b397428b1.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/41/4186de790ce9.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/b5/b5a650980373.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/bd/bd95121ae682.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/86/86e462413f9b.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ce/ce22bde50c96.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/79/796ad300070a.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/76/76448f250f33.flac",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/e2/e2b0c4a9897f.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/29/29016225e12d.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/28/281311ca98b1.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/e0/e0d00a721f9f.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/6e/6e602b6f51e7.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/9d/9da0ba390747.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c5/c5ff82f389d2.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/d6/d6ccd11e9576.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/bb/bb870b90b8ee.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/53/531f641e918a.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/94/94dc18232a31.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/b1/b1d6b7620922.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/a9/a9080ff31e62.flac",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/5f/5f3018cd8c1e.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/1c/1c6a0355b4ab.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ed/ed6120c19171.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/dc/dc522819f89e.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/87/870aa69d64d8.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/17/177679a7d12f.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/8c/8c90cfd6ebb2.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ae/aec0c3b9b680.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/6a/6a74e1a1296a.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/42/429f03ee4c65.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/8b/8be0e0db4ca3.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/1e/1e377d73e94c.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/e0/e0b1f8ba4a63.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/d0/d0df1fb0c809.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/ea/eae37b20a1da.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/1e/1e505cb75f0c.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/cd/cd58f1abbe81.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/87/877ea7346a3f.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/6a/6a1a0cc3faca.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/e9/e93905eb1bce.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/9c/9cbc16320639.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/cd/cd14f8a36ee0.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/c9/c9131bc32a89.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/bb/bbe2f4b01694.flac",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/38/38b81df6210a.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/99/999f78bfcfa4.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/bf/bfe7bb763036.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/6a/6aa4678175ea.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/25/2509f7e7d3bf.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/be/be1b6114bd80.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/5b/5bfcab40183f.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/9c/9cc34e653d7a.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/68/68522e2f71ca.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/d4/d4a567462b5e.flac",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/71/71448bc21835.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/e6/e62b6cf5439a.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/97/979cfa7ca1a5.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/20/2079123aedf8.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/17/17ecb46de0d6.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/46/469d0170078c.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/eb/eb2fa69388df.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/88/88fdb97c875c.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/1b/1bf836f85049.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/5c/5cafb55ecc91.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/72/72f320576268.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/50/5004529fe956.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/ff/ffe215eba351.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/61/6122a569c302.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_sa/96/96cadecb07e5.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/43/43ec4c83f895.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/75/751109cbe23c.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/f4/f45dc0fe88f5.flac",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/13/134f12048ac1.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/4e/4eb8a6d6a194.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/75/7587493494b6.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/72/724c70ac8a59.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/cc/cc881b98186f.wav",
+    "text": "spoof",
+    "task": "deepfake_detection"
+  },
+  {
+    "path": "/ds-slt/audio/fkallel/HIR-SDD/audio/by_nc_sa/b0/b01055855af0.wav",
+    "text": "bonafide",
+    "task": "deepfake_detection"
+  }
+]

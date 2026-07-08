@@ -140,10 +140,8 @@ class ALLM(nn.Module):
             input_values: Preprocessed Wav2Vec2 input (already on correct device)
             attention_mask: Preprocessed Wav2Vec2 attention mask
         """
-        
-        with self.maybe_autocast():
-            speech_embeds = self.speech_encoder(input_values)
-        
+
+        speech_embeds = self.speech_encoder(input_values.float())
         return self._encode_auditory_feature(speech_embeds)
     
     def prompt_wrap(self, embeds, atts, prompt, multi_prompt=False):
@@ -297,10 +295,21 @@ class ALLM(nn.Module):
             logits = outputs.logits[:, empty_targets.size(1) - 1: -1, :].contiguous()
             labels = targets[:, empty_targets.size(1):].contiguous()
             log_probs = torch.log_softmax(logits, dim=-1)
-            token_log_probs = log_probs.gather(-1, labels.unsqueeze(-1)).squeeze(-1)
-            mask = labels != -100
-            return token_log_probs.masked_fill(~mask, 0.0).sum(dim=1)
 
+            mask = labels != -100
+
+            safe_labels = labels.clone()
+            safe_labels[~mask] = 0      # any valid token id
+
+            token_log_probs = (
+                log_probs.gather(-1, safe_labels.unsqueeze(-1))
+                .squeeze(-1)
+            )
+
+            token_log_probs = token_log_probs.masked_fill(~mask, 0.0)
+
+            return token_log_probs.sum(dim=1)
+        
     def forward(self, samples, verbose=False):
         # detect whether there are multi tasks in this batch
         task = list(set(samples["task"]))

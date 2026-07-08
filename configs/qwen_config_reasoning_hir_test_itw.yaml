@@ -38,7 +38,7 @@ model:
 datasets:
   train_ann_path: "data/hir-sdd-train.json"
   valid_ann_path: "data/hir-sdd-val.json"
-  test_ann_path: "data/hir-sdd-test.json"
+  test_ann_path: "data/itw_reasoning.json"
 
   whisper_path: "openai/whisper-large-v2"
   wav2vec2_path: "facebook/wav2vec2-xls-r-300m"

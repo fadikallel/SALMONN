@@ -30,15 +30,15 @@ model:
 
   multi_prompt: False
   prompt_template: "{}"
-  prompt_path: "prompts/train_prompt_2.json"
-  test_prompt_path: "prompts/test_prompt_2.json"
-  max_txt_len: 300
+  prompt_path: "prompts/train_prompt.json"
+  test_prompt_path: "prompts/test_prompt.json"
+  max_txt_len: 4
   end_sym: ""
 
 datasets:
-  train_ann_path: "data/hir-sdd-train.json"
-  valid_ann_path: "data/hir-sdd-val.json"
-  test_ann_path: "data/hir-sdd-test.json"
+  train_ann_path: "/netscratch/fkallel/dfd_llm/datasets/asvspoof19_train.json"
+  valid_ann_path: "/netscratch/fkallel/dfd_llm/datasets/asvspoof19_dev.json"
+  test_ann_path: "/netscratch/fkallel/dfd_llm/datasets/asvspoof19_eval.json"
 
   whisper_path: "openai/whisper-large-v2"
   wav2vec2_path: "facebook/wav2vec2-xls-r-300m"
@@ -51,9 +51,9 @@ run:
 
   log_freq: 5
   epoch_based: True
-  iters_per_epoch: 10000
+  # iters_per_epoch: 6000
   accum_grad_iters: 1
-  batch_size_train: 4
+  batch_size_train: 2
   batch_size_eval: 8
   num_workers: 8
 
@@ -72,3 +72,13 @@ run:
     min_lr: 1e-6
     weight_decay: 0.05
     beta2: 0.999
+    
+generate:
+  max_new_tokens: 4
+  num_beams: 4
+  do_sample: False
+  min_length: 1
+  temperature: 1.0
+  top_p: 0.9
+  repetition_penalty: 1.2
+  length_penalty: 1.0
