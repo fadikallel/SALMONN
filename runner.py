@@ -12,7 +12,7 @@ import torch
 import torch.distributed as dist
 from torch.nn.parallel import DistributedDataParallel as DDP
 from tensorboardX import SummaryWriter
-
+from models import load_model
 from local_dist_utils import main_process, is_dist_avail_and_initialized, is_main_process, get_rank, get_world_size
 from logger import MetricLogger, SmoothedValue
 from utils import get_dataloader, prepare_sample
@@ -80,6 +80,15 @@ class Runner:
 
         self.grpo_cfg = self.config.config.run.get("grpo", {})
         self.grpo_enabled = bool(self.grpo_cfg.get("enabled", False))
+        if self.grpo_enabled:
+            # Frozen reference policy for the KL anchor only.
+            # Built the same way as `model`, loaded once, never updated again.
+            self.ref_model = load_model(cfg.config.model)   # reuse whatever constructs `model`
+            self.ref_model.load_state_dict(copy.deepcopy(model.state_dict()))
+            self.ref_model.to(self.device)
+            self.ref_model.eval()
+            for p in self.ref_model.parameters():
+                p.requires_grad_(False)
 
         # optimizer & scheduler
         self.iters_per_epoch = len(self.train_loader) if self.config.config.run.epoch_based else self.config.config.run.iters_per_epoch
@@ -128,52 +137,67 @@ class Runner:
         ground_truth_texts = samples["text"]
         epsilon = self.grpo_cfg.get("clip_epsilon", 0.2)
         beta = self.grpo_cfg.get("kl_beta", 0.0)
-        kl_penalty_type = self.grpo_cfg.get("kl_penalty_type", "none")
 
-        old_model = copy.deepcopy(model)
-        old_model.to(samples["input_values"].device)
-        old_model.eval()
-        for param in old_model.parameters():
-            param.requires_grad_(False)
+        was_training = model.training
 
-        rollout_rewards = []
-        rollout_logprobs = []
-        for _ in range(num_rollouts):
-            generated_texts = model.generate(samples, generate_cfg, prompts=prompts)
-            rewards = [
-                compute_reward(prediction_text=pred, ground_truth_text=gt, reward_funcs=reward_funcs)
-                for pred, gt in zip(generated_texts, ground_truth_texts)
-            ]
-            reward_tensor = torch.tensor(rewards, device=samples["input_values"].device, dtype=torch.float32)
-            rollout_rewards.append(reward_tensor)
+        # --- Step 1: rollouts + "old" (behavior) logprobs, dropout off, no grad ---
+        model.eval()
+        rollout_rewards, rollout_texts, old_logprobs_list = [], [], []
+        with torch.no_grad():
+            for _ in range(num_rollouts):
+                generated_texts = model.generate(samples, generate_cfg, prompts=prompts)
+                rollout_texts.append(generated_texts)
 
-            with torch.cuda.amp.autocast(enabled=self.use_amp):
-                new_logprobs = model.compute_policy_logprobs(samples, generated_texts, prompts=prompts)
-                old_logprobs = old_model.compute_policy_logprobs(samples, generated_texts, prompts=prompts)
-            rollout_logprobs.append((new_logprobs, old_logprobs))
+                rewards = [
+                    compute_reward(prediction_text=pred, ground_truth_text=gt, reward_funcs=reward_funcs)
+                    for pred, gt in zip(generated_texts, ground_truth_texts)
+                ]
+                rollout_rewards.append(
+                    torch.tensor(rewards, device=samples["input_values"].device, dtype=torch.float32)
+                )
+                old_logprobs_list.append(
+                    model.compute_policy_logprobs(samples, generated_texts, prompts=prompts).detach()
+                )
+        # --- Step 2: reference logprobs, from the permanently frozen ref_model ---
+        ref_logprobs_list = []
+        with torch.no_grad():
+            for generated_texts in rollout_texts:
+                ref_logprobs_list.append(
+                    self.ref_model.compute_policy_logprobs(samples, generated_texts, prompts=prompts).detach()
+                )
 
+        if was_training:
+            model.train()
+
+        # --- Step 3: group-relative advantages (unchanged) ---
         reward_matrix = torch.stack(rollout_rewards, dim=0)
         reward_mean = reward_matrix.mean(dim=0, keepdim=True)
         reward_std = reward_matrix.std(dim=0, keepdim=True).clamp_min(1e-6)
         advantages = (reward_matrix - reward_mean) / reward_std
 
+        # --- Step 4: current-policy logprobs (grad-tracked) + clipped loss + real KL ---
         loss_terms = []
         for rollout_idx in range(num_rollouts):
-            new_logprobs, old_logprobs = rollout_logprobs[rollout_idx]
-            ratio = torch.exp(new_logprobs - old_logprobs.detach())
-            clipped_ratio = torch.clamp(ratio, 1.0 - epsilon, 1.0 + epsilon)
+            with torch.cuda.amp.autocast(enabled=self.use_amp):
+                new_logprobs = model.compute_policy_logprobs(samples, rollout_texts[rollout_idx], prompts=prompts)
+
+            old_logprobs = old_logprobs_list[rollout_idx]
+            ref_logprobs = ref_logprobs_list[rollout_idx]
             advantage = advantages[rollout_idx].to(new_logprobs.device).detach()
-            loss = -torch.minimum(ratio * advantage, clipped_ratio * advantage).mean()
+
+            ratio = torch.exp(new_logprobs - old_logprobs)
+            clipped_ratio = torch.clamp(ratio, 1.0 - epsilon, 1.0 + epsilon)
+            policy_loss = -torch.minimum(ratio * advantage, clipped_ratio * advantage)
+
             if beta > 0:
-                if kl_penalty_type == "reverse_kl":
-                    kl_term = (ratio - 1.0 - torch.log(ratio + 1e-8)).mean()
-                else:
-                    kl_term = (torch.exp(old_logprobs - new_logprobs) - 1.0 - (old_logprobs - new_logprobs)).mean()
-                loss = loss + beta * kl_term
+                # k3 KL estimator, same form as the reference implementation
+                kl_term = torch.exp(ref_logprobs - new_logprobs) - (ref_logprobs - new_logprobs) - 1.0
+                loss = (policy_loss + beta * kl_term).mean()
+            else:
+                loss = policy_loss.mean()
             loss_terms.append(loss)
 
         return torch.stack(loss_terms).mean()
-
     def train_epoch(self, epoch, use_grpo=False):
         self.model.train()
 
@@ -406,7 +430,7 @@ class Runner:
         Extract binary label from raw text output.
         Returns 1 for 'bonafide', 0 for 'spoof'.
         """
-        if '<answer>bonafide</answer>' in text:
+        if '<answer>bonafide</answer>' in text or '<answer>bona fide</answer>' in text:
             return 1
         elif '<answer>spoof</answer>' in text:
             return 0

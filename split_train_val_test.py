@@ -186,16 +186,16 @@ import json
 from pathlib import Path
 from sklearn.model_selection import train_test_split
 
-def split_json_data(input_json_path, output_dir, train_size=114000, val_size=8000, test_size=1000):
+def split_json_data(input_json_path, output_dir, train_size=53580, val_size=5954, test_size=0):
     """
     Split JSON data into train, validation, and test sets
     
     Args:
         input_json_path: Path to the input JSON file
         output_dir: Directory to save the splits
-        train_size: Number of training samples (default: 114000)
-        val_size: Number of validation samples (default: 8000)
-        test_size: Number of test samples (default: 1000)
+        train_size: Number of training samples (default: 53580)
+        val_size: Number of validation samples (default: 5954)
+        test_size: Number of test samples (default: 0)
     """
     
     # Create output directory if it doesn't exist
@@ -223,12 +223,13 @@ def split_json_data(input_json_path, output_dir, train_size=114000, val_size=800
     
     # Split the data
     # First split: separate test set
-    train_val_data, test_data = train_test_split(
-        data, 
-        test_size=test_size, 
-        random_state=42,
-        shuffle=True
-    )
+    # train_val_data, test_data = train_test_split(
+    #     data, 
+    #     test_size=test_size, 
+    #     random_state=42,
+    #     shuffle=True
+    # )
+    train_val_data = data  # Since test_size is 0, we keep all data for train/val
     
     # Second split: separate train and validation
     train_data, val_data = train_test_split(
@@ -242,17 +243,17 @@ def split_json_data(input_json_path, output_dir, train_size=114000, val_size=800
     splits = {
         'train': train_data,
         'val': val_data,
-        'test': test_data
+        # 'test': test_data
     }
     
     for split_name, split_data in splits.items():
-        output_file = Path('data') / f"hir-sdd-{split_name}.json"
+        output_file = Path('data') / f"my_hir_sdd_binary_{split_name}.json"
         with open(output_file, 'w') as f:
             json.dump(split_data, f, indent=2)
         
         # Count bonafide vs spoof in each split
-        bonafide_count = sum(1 for item in split_data if '<answer>bonafide' in item['text'])
-        spoof_count = sum(1 for item in split_data if '<answer>spoof' in item['text'])
+        bonafide_count = sum(1 for item in split_data if 'bonafide' in item['text'])
+        spoof_count = sum(1 for item in split_data if 'spoof' in item['text'])
         
         print(f"\n📁 {split_name.upper()} split:")
         print(f"   Samples: {len(split_data)}")
@@ -272,14 +273,14 @@ def split_json_data(input_json_path, output_dir, train_size=114000, val_size=800
 # Example usage
 if __name__ == "__main__":
     # Replace these with your actual file paths
-    input_json = "data/hir-sdd.json"  # Your prepared JSON file
+    input_json = "data/my_hir_sdd_binary.json"  # Your prepared JSON file
     output_directory = "data/"  # Directory where splits will be saved
     
     # Split the data
     splits = split_json_data(
         input_json_path=input_json,
         output_dir=output_directory,
-        train_size=114000,
-        val_size=8000,
-        test_size=1000
+        train_size=53580,
+        val_size=5954,
+        test_size=0
     )

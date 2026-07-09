@@ -14,13 +14,11 @@
 
 model:
   # paths
-  qwen_path: "../Qwen3.5-9B/models--Qwen--Qwen3.5-9B/snapshots/c202236235762e1c871ad0ccb60c8ee5ba337b9a/"
+  qwen_path: "../models/Qwen2.5-0.5B-Instruct/"
   wav2vec2_path: "/ds-slt/audio_weights/xlsr2_300m.pt"
-
-  ckpt: "" # if not "", load model from ckpt for training or evaluation
-
-  freeze_wav2vec2: True
-
+  ckpt: ""
+  
+  freeze_wav2vec2: False
   speech_qwen_proj_model: ""
   freeze_speech_qwen_proj: False
 
@@ -30,18 +28,19 @@ model:
   lora_alpha: 64
   lora_dropout: 0.1
 
-  multi_prompt: True
+  multi_prompt: False
   prompt_template: "{}"
-  prompt_path: "prompts/train_prompt.json"
-  test_prompt_path: "prompts/test_prompt.json"
+  prompt_path: "prompts/train_prompt_2.json"
+  test_prompt_path: "prompts/test_prompt_2.json"
   max_txt_len: 300
   end_sym: ""
 
 datasets:
-  train_ann_path: "/ds-slt/audio/fkallel/LibriSpeech/train-clean-100.json"
-  valid_ann_path: "/ds-slt/audio/fkallel/LibriSpeech/dev-clean.json"
-  test_ann_path: "/ds-slt/audio/fkallel/LibriSpeech/test-clean.json"
+  train_ann_path: "data/hir-sdd-train.json"
+  valid_ann_path: "data/hir-sdd-val.json"
+  test_ann_path: "data/itw_reasoning.json"
 
+  whisper_path: "openai/whisper-large-v2"
   wav2vec2_path: "facebook/wav2vec2-xls-r-300m"
 
 run:
@@ -52,11 +51,11 @@ run:
 
   log_freq: 5
   epoch_based: True
-  # iters_per_epoch: 3000
+  iters_per_epoch: 10000
   accum_grad_iters: 1
-  batch_size_train: 1
-  batch_size_eval: 1
-  num_workers: 1
+  batch_size_train: 4
+  batch_size_eval: 8
+  num_workers: 8
 
   device: "cuda"
   use_distributed: True
@@ -65,7 +64,6 @@ run:
   dist_url: "env://"
 
   # optimizer & scheduler
-  optims:
   optims:
     max_epoch: 5
     warmup_steps: 0  # Very long warmup
