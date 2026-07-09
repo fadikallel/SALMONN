@@ -403,7 +403,7 @@ class ALLM(nn.Module):
         # stopping_criteria = StoppingCriteriaList([StoppingCriteriaSub(stops=stop_words_ids)])
         outputs = self.qwen_model.generate(
             inputs_embeds=embeds,
-            max_new_tokens=generate_cfg.get("max_new_tokens", 200),
+            max_new_tokens=generate_cfg.get("max_new_tokens", 4),
             # stopping_criteria=stopping_criteria,
             num_beams=generate_cfg.get("num_beams", 4),
             do_sample=generate_cfg.get("do_sample", False),
