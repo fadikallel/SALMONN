@@ -102,7 +102,6 @@ class Runner:
             warmup_steps=self.config.config.run.optims.warmup_steps,
             warmup_start_lr=self.config.config.run.optims.get("warmup_start_lr", -1),
         )
-
         self.log_config()
 
     def unwrap_dist_model(self, model):

@@ -6,9 +6,8 @@ import random
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from transformers import Qwen3_5ForCausalLM,Qwen3_5Tokenizer, StoppingCriteriaList
+from transformers import Qwen3_5ForCausalLM,Qwen3_5Tokenizer, WhisperModel, StoppingCriteriaList
 from peft import LoraConfig, TaskType, get_peft_model
-from .wav2vec import Wav2Vec2Model
 from .utils import StoppingCriteriaSub
 
 
@@ -30,9 +29,9 @@ class ALLM(nn.Module):
     def __init__(
         self,
         qwen_path="",
-        wav2vec2_path="/ds-slt/audio_weights/xlsr2_300m.pt",
-        freeze_wav2vec2=True,
-        
+        whisper_path="",
+        freeze_whisper=True,
+
         speech_qwen_proj_model="",
         freeze_speech_qwen_proj=False,
 
@@ -93,18 +92,18 @@ class ALLM(nn.Module):
             self.qwen_model.print_trainable_parameters()
             logging.info('LoRA Training')
 
-        assert wav2vec2_path
-        logging.info('Loading Wav2Vec2 Model')
-        self.speech_encoder = Wav2Vec2Model(wav2vec2_path)
-        self.speech_encoder_hidden_size = 1024
-        self.ln_speech = nn.LayerNorm(self.speech_encoder_hidden_size)
-        if freeze_wav2vec2:
+        assert whisper_path
+        logging.info('Loading Whisper Model')
+        self.speech_encoder = WhisperModel.from_pretrained(whisper_path).encoder
+        self.speech_encoder.float()
+        self.ln_speech = nn.LayerNorm(self.speech_encoder.config.d_model)
+        if freeze_whisper:
             for name, param in self.speech_encoder.named_parameters():
                 param.requires_grad = False
             self.speech_encoder.eval()
-            logging.info("freeze Wav2Vec2")
+            logging.info("freeze Whisper")
         
-        self.speech_qwen_proj_model = nn.Linear(self.speech_encoder_hidden_size, self.qwen_model.config.hidden_size)
+        self.speech_qwen_proj_model = nn.Linear(self.speech_encoder.config.d_model, self.qwen_model.config.hidden_size)
         if speech_qwen_proj_model:
             logging.info("Loading speech Qwen proj from {}".format(speech_qwen_proj_model))
             speech_qwen_proj_weight = torch.load(speech_qwen_proj_model, map_location="cpu")
@@ -125,25 +124,24 @@ class ALLM(nn.Module):
             print("Loading training prompts done!")
 
     def _encode_auditory_feature(self, speech_embeds):
-        with self.maybe_autocast():
-            speech_embeds = self.ln_speech(speech_embeds)
-            speech_embeds = self.speech_qwen_proj_model(speech_embeds)
-            speech_atts = torch.ones(speech_embeds.size()[:-1], dtype=torch.long).to(speech_embeds.device)
+        speech_embeds = self.speech_qwen_proj_model(speech_embeds)
+        speech_atts = torch.ones(
+            speech_embeds.size()[:-1],
+            dtype=torch.long,
+            device=speech_embeds.device,
+        )
 
         return speech_embeds, speech_atts
 
-    def encode_speech(self, input_values):
-        """
-        Encode speech using preprocessed Wav2Vec2 inputs
-        
-        Args:
-            input_values: Preprocessed Wav2Vec2 input (already on correct device)
-            attention_mask: Preprocessed Wav2Vec2 attention mask
-        """
+    def encode_speech(self, spectrogram):
+        with self.maybe_autocast():
+            outputs = self.speech_encoder(
+                spectrogram,
+                return_dict=True,
+            )
 
-        speech_embeds = self.speech_encoder(input_values.float())
-        return self._encode_auditory_feature(speech_embeds)
-    
+        speech_embeds = outputs.last_hidden_state
+        return self._encode_auditory_feature(speech_embeds)    
     def prompt_wrap(self, embeds, atts, prompt, multi_prompt=False):
         if prompt:
             if multi_prompt:
@@ -254,9 +252,8 @@ class ALLM(nn.Module):
         else:
             prompt = None
 
-        input_values = samples["input_values"]
-
-        speech_embeds, speech_atts = self.encode_speech(input_values)
+        spectrogram = samples["spectrogram"]
+        speech_embeds, speech_atts = self.encode_speech(spectrogram)
 
         if self.prompt_dict and prompt is not None:
             speech_embeds, speech_atts = self.prompt_wrap(speech_embeds, speech_atts, prompt, multi_prompt=True if prompts is not None else self.multi_prompt)
@@ -326,9 +323,8 @@ class ALLM(nn.Module):
                 prompt = random.choice(self.prompt_dict[samples["task"][0]])
 
         # use speech/audio encoder to encode speech/audio
-        input_values = samples["input_values"]
-
-        speech_embeds, speech_atts = self.encode_speech(input_values)
+        spectrogram = samples["spectrogram"]
+        speech_embeds, speech_atts = self.encode_speech(spectrogram)
 
         # wrap speech_embeds with prompts
         if self.prompt_dict:
@@ -386,8 +382,8 @@ class ALLM(nn.Module):
         return {"loss": loss}
 
     def generate(self, samples, generate_cfg, prompts=None):
-        input_values = samples.get("input_values", None)
-        speech_embeds, speech_atts = self.encode_speech(input_values)
+        spectrogram = samples.get("spectrogram", None)
+        speech_embeds, speech_atts = self.encode_speech(spectrogram)
 
         if prompts is not None:
             speech_embeds, speech_atts = self.prompt_wrap(speech_embeds, speech_atts, prompts, multi_prompt=True)
@@ -424,8 +420,8 @@ class ALLM(nn.Module):
     @classmethod
     def from_config(cls, config):
         qwen_path = config.get("qwen_path")
-        wav2vec2_path = config.get("wav2vec2_path")
-        freeze_wav2vec2 = config.get("freeze_wav2vec2", True)
+        whisper_path = config.get("whisper_path")
+        freeze_whisper = config.get("freeze_whisper", True)
         speech_qwen_proj_model = config.get("speech_qwen_proj_model", "")
         freeze_speech_qwen_proj = config.get("freeze_speech_qwen_proj", False)
 
@@ -444,8 +440,8 @@ class ALLM(nn.Module):
 
         model = cls(
             qwen_path=qwen_path,
-            wav2vec2_path=wav2vec2_path,
-            freeze_wav2vec2=freeze_wav2vec2,
+            whisper_path=whisper_path,
+            freeze_whisper=freeze_whisper,
             speech_qwen_proj_model=speech_qwen_proj_model,
             freeze_speech_qwen_proj=freeze_speech_qwen_proj,
             lora=lora,

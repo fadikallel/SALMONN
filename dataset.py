@@ -12,68 +12,39 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from email.mime import audio
+# from email.mime import audio
 import json
 
 import torch
 from torch.utils.data import Dataset
-from torch.nn.utils.rnn import pad_sequence
-import soundfile as sf
+# from torch.nn.utils.rnn import pad_sequence
+# import soundfile as sf
 import numpy as np
-# from transformers import Wav2Vec2FeatureExtractor
-
+from transformers import WhisperFeatureExtractor
+import librosa
 
 class SALMONNDataset(Dataset):
-    def __init__(self, ann_path, wav2vec2_path):
+    def __init__(self, ann_path, whisper_path):
         super().__init__()
 
         self.annotation = json.load(open(ann_path, "r"))
         
-        # Use Wav2Vec2FeatureExtractor instead of WhisperFeatureExtractor
-        # self.wav_processor = Wav2Vec2FeatureExtractor.from_pretrained(wav2vec2_path)
+        self.wav_processor = WhisperFeatureExtractor.from_pretrained(whisper_path)
 
-    def _normalize_audio(self, audio):
-        if isinstance(audio, torch.Tensor):
-            audio = audio.detach().cpu().numpy()
-
-        audio = np.asarray(audio)
-
-        if audio.ndim == 0:
-            audio = audio.reshape(1)
-        elif audio.ndim > 1:
-            # Collapse common 2D layouts to a single waveform.
-            if audio.ndim == 2 and audio.shape[0] != 1 and audio.shape[1] != 1:
-                audio = audio[:, 0]
-            else:
-                audio = audio.reshape(-1)
-
-        audio = audio.astype(np.float32, copy=False)
-        if audio.size == 0:
-            audio = np.zeros(16000, dtype=np.float32)
-
-        return audio.reshape(-1)
 
     def __len__(self):
         return len(self.annotation)
 
     def collater(self, samples):
-        raw_audios = [self._normalize_audio(s["raw_wav"]) for s in samples]
-        audio_tensors = [torch.from_numpy(x) for x in raw_audios]
-
-        input_values = pad_sequence(
-            audio_tensors,
-            batch_first=True,
-            padding_value=0.0,
-        )
-
-
+        samples_spectrogram = [s["spectrogram"] for s in samples]
+        cat_spectrogram = torch.stack(samples_spectrogram, dim=0)
         text = [s["text"] for s in samples]
         task = [s["task"] for s in samples]
         Q = [s["Q"] for s in samples]
         ids = [s["id"] for s in samples]
 
         return {
-            "input_values": input_values,
+            "spectrogram": cat_spectrogram,
             "text": text,
             "task": task,
             "Q": Q,
@@ -84,14 +55,15 @@ class SALMONNDataset(Dataset):
         ann = self.annotation[index]
 
         # Load audio
-        audio, sr = sf.read(ann["path"])
-        audio = self._normalize_audio(audio)
-        
+        audio, sr = librosa.load(ann["path"], sr=16000)
+        if len(audio.shape) == 2: # stereo to mono
+            audio = audio[:, 0]        
         # Expand audio if needed
         if "expand_wav" in ann:
             for p in ann["expand_wav"]:
-                expand_audio, _ = sf.read(p)
-                expand_audio = self._normalize_audio(expand_audio)
+                expand_audio, _ = librosa.load(p, sr=16000)
+                if len(expand_audio.shape) == 2: # stereo to mono
+                    expand_audio = expand_audio[:, 0]
                 sil = np.zeros(1600, dtype=np.float32)
                 audio = np.concatenate((audio, sil, expand_audio), axis=0)
         
@@ -102,15 +74,15 @@ class SALMONNDataset(Dataset):
         
         # Truncate audio to at most 30s
         audio = audio[:sr * 30]
-
+        spectrogram = self.wav_processor(audio, sampling_rate=sr, return_tensors="pt")["input_features"].squeeze()
         text = ann["text"]
         task = ann.get("task", "asr")
         Q = ann.get("Q", "")
 
         return {
-            "raw_wav": audio,  # Keep raw audio for potential use
             "text": text,
             "task": task,
             "Q": Q,
+            "spectrogram": spectrogram,
             "id": ann["path"],
         }

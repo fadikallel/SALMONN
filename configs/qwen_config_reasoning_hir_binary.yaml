@@ -15,10 +15,10 @@
 model:
   # paths
   qwen_path: "../models/Qwen3.5-0.8B/"
-  wav2vec2_path: "/ds-slt/audio_weights/xlsr2_300m.pt"
+  whisper_path: "../models/whisper-large-v3/"
   ckpt: ""
   
-  freeze_wav2vec2: False
+  freeze_whisper: False
   speech_qwen_proj_model: ""
   freeze_speech_qwen_proj: False
 
@@ -40,8 +40,7 @@ datasets:
   valid_ann_path: "data/my_hir_sdd_binary_val.json"
   test_ann_path: "data/my_hir_sdd_binary_test.json"
 
-  whisper_path: "openai/whisper-large-v2"
-  wav2vec2_path: "facebook/wav2vec2-xls-r-300m"
+  whisper_path: "../models/whisper-large-v3/"
 
 run:
   # log & settings
@@ -53,13 +52,12 @@ run:
   epoch_based: True
   iters_per_epoch: 10000
   accum_grad_iters: 1
-  batch_size_train: 4
+  batch_size_train: 1
   batch_size_eval: 8
   num_workers: 8
 
   device: "cuda"
   use_distributed: True
-  amp: True
   world_size: 1
   dist_url: "env://"
 

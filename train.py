@@ -76,9 +76,9 @@ def main():
 
     # build datasets
     datasets = {
-        "train": SALMONNDataset(data_config.train_ann_path, model_config.wav2vec2_path),
-        "valid": SALMONNDataset(data_config.valid_ann_path, model_config.wav2vec2_path),
-        "test": SALMONNDataset(data_config.test_ann_path, model_config.wav2vec2_path),
+        "train": SALMONNDataset(data_config.train_ann_path, model_config.whisper_path),
+        "valid": SALMONNDataset(data_config.valid_ann_path, model_config.whisper_path),
+        "test": SALMONNDataset(data_config.test_ann_path, model_config.whisper_path),
     }
 
     # build runner

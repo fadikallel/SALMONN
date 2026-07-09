@@ -14,11 +14,11 @@
 
 model:
   # paths
-  qwen_path: "../models/Qwen3.5-0.8B/"
-  whisper_path: "/ds-slt/audio_weights/xlsr2_300m.pt"
+  qwen_path: "../models/Qwen3.5-4B/"
+  whisper_path: "../models/whisper-large-v3/"
   ckpt: ""
   
-  freeze_wav2vec2: False
+  freeze_whisper: False
   speech_qwen_proj_model: ""
   freeze_speech_qwen_proj: False
 
@@ -36,16 +36,15 @@ model:
   end_sym: ""
 
 datasets:
-  train_ann_path: "data/my_hir_sdd_train.json"
-  valid_ann_path: "data/my_hir_sdd_val.json"
-  test_ann_path: "data/my_hir_sdd_test.json"
+  train_ann_path: "data/my_hir_sdd_binary_train.json"
+  valid_ann_path: "data/my_hir_sdd_binary_val.json"
+  test_ann_path: "data/my_hir_sdd_binary_test.json"
 
-  whisper_path: "openai/whisper-large-v2"
-  wav2vec2_path: "facebook/wav2vec2-xls-r-300m"
+  whisper_path: "../models/whisper-large-v3/"
 
 run:
   # log & settings
-  seed: 42
+  seed: 240
   output_dir: "outputs"
   evaluate: False # if True, only evaluate model on test data
 
