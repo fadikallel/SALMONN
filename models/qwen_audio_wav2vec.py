@@ -6,7 +6,7 @@ import random
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from transformers import Qwen2ForCausalLM,Qwen2Tokenizer, StoppingCriteriaList
+from transformers import Qwen3_5ForCausalLM,Qwen3_5Tokenizer, StoppingCriteriaList
 from peft import LoraConfig, TaskType, get_peft_model
 from .wav2vec import Wav2Vec2Model
 from .utils import StoppingCriteriaSub
@@ -58,19 +58,19 @@ class ALLM(nn.Module):
         self.low_resource = low_resource
 
         logging.info('Loading Qwen Tokenizer')
-        self.qwen_tokenizer = Qwen2Tokenizer.from_pretrained(qwen_path, use_fast=False)
+        self.qwen_tokenizer = Qwen3_5Tokenizer.from_pretrained(qwen_path, use_fast=False)
         self.qwen_tokenizer.add_special_tokens({'pad_token': '[PAD]'})
         self.qwen_tokenizer.padding_side = "right"
         logging.info('Loading Qwen Model')
         if self.low_resource:
-            self.qwen_model = Qwen2ForCausalLM.from_pretrained(
+            self.qwen_model = Qwen3_5ForCausalLM.from_pretrained(
                 qwen_path,
                 torch_dtype=torch.float16,
                 load_in_8bit=True,
                 device_map={"": device_8bit},
             )
         else:
-            self.qwen_model = Qwen2ForCausalLM.from_pretrained(
+            self.qwen_model = Qwen3_5ForCausalLM.from_pretrained(
                 qwen_path,
                 torch_dtype=torch.float16,
             )

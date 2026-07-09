@@ -14,7 +14,7 @@
 
 model:
   # paths
-  qwen_path: "../models/Qwen2.5-0.5B-Instruct/"
+  qwen_path: "../models/Qwen3.5-0.8B/"
   wav2vec2_path: "/ds-slt/audio_weights/xlsr2_300m.pt"
   ckpt: ""
   
@@ -36,9 +36,9 @@ model:
   end_sym: ""
 
 datasets:
-  train_ann_path: "data/hir-sdd-binary-train.json"
-  valid_ann_path: "data/hir-sdd-binary-val.json"
-  test_ann_path: "data/hir-sdd-binary-test.json"
+  train_ann_path: "data/my_hir_sdd_binary_train.json"
+  valid_ann_path: "data/my_hir_sdd_binary_val.json"
+  test_ann_path: "data/my_hir_sdd_binary_test.json"
 
   whisper_path: "openai/whisper-large-v2"
   wav2vec2_path: "facebook/wav2vec2-xls-r-300m"
