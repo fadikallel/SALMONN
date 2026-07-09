@@ -16,10 +16,7 @@ def extract_tag(text, tag):
         flags=re.IGNORECASE | re.DOTALL,
     )
 
-    if m:
-        return m.group(1).strip()
-
-    return ""
+    return m.group(1).strip() if m else ""
 
 
 def extract_label(text):
@@ -44,19 +41,17 @@ def extract_reasons(text):
     if reasons == "":
         return set()
 
-    reasons = reasons.lower()
-
-    parts = re.split(r"[,\n;]", reasons)
+    parts = re.split(r"[,\n;]", reasons.lower())
 
     return {
         p.strip()
         for p in parts
-        if len(p.strip()) > 0
+        if p.strip()
     }
 
 
 # ============================================================
-# Text Similarity
+# Explanation Reward
 # ============================================================
 
 def token_f1(pred_tokens, gt_tokens):
@@ -80,6 +75,9 @@ def explanation_reward(prediction, ground_truth):
     pred = extract_explanation(prediction)
     gt = extract_explanation(ground_truth)
 
+    if pred == "" or gt == "":
+        return 0.0
+
     pred_tokens = re.findall(r"\w+", pred)
     gt_tokens = re.findall(r"\w+", gt)
 
@@ -101,7 +99,6 @@ def reason_f1(pred_set, gt_set):
     tp = len(pred_set & gt_set)
 
     precision = tp / len(pred_set)
-
     recall = tp / len(gt_set)
 
     if precision + recall == 0:
@@ -117,134 +114,43 @@ def reason_reward(prediction, ground_truth):
     pred_reasons = extract_reasons(prediction)
     gt_reasons = extract_reasons(ground_truth)
 
-    # -------------------------
-    # Bonafide samples
-    # -------------------------
-
+    # Bonafide should not contain reasons
     if gt_label == "bonafide":
+        return 1.0 if len(pred_reasons) == 0 else 0.0
 
-        # Bonafide should NOT have reasons.
-        if len(pred_reasons) == 0:
-            return 1.0
+    reward = reason_f1(pred_reasons, gt_reasons)
 
-        return 0.0
+    # Penalize predicting too many reasons
+    if len(gt_reasons) > 0 and len(pred_reasons) > len(gt_reasons):
+        reward *= len(gt_reasons) / len(pred_reasons)
 
-    # -------------------------
-    # Spoof samples
-    # -------------------------
-
-    return reason_f1(pred_reasons, gt_reasons)
+    return reward
 
 
 # ============================================================
-# XML Formatting
+# XML Formatting Reward
 # ============================================================
 
 def format_reward(prediction):
 
     pred = str(prediction).lower()
 
-    reward = 0.0
-
-    if "<answer>" in pred and "</answer>" in pred:
-        reward += 0.25
-
-    if "<explanation>" in pred and "</explanation>" in pred:
-        reward += 0.25
-
     label = extract_label(prediction)
 
-    # Reasons are required only for spoof.
+    has_answer = "<answer>" in pred and "</answer>" in pred
+    has_explanation = "<explanation>" in pred and "</explanation>" in pred
+
     if label == "spoof":
-
-        if "<reasons>" in pred and "</reasons>" in pred:
-            reward += 0.5
-
+        has_reasons = "<reasons>" in pred and "</reasons>" in pred
     else:
-        # Reward not hallucinating a reasons section.
-        if "<reasons>" not in pred:
-            reward += 0.5
+        has_reasons = "<reasons>" not in pred
 
-    return reward
+    return float(
+        has_answer and
+        has_explanation and
+        has_reasons
+    )
 
-
-# ============================================================
-# Explanation Length
-# ============================================================
-
-def length_reward(prediction):
-
-    explanation = extract_explanation(prediction)
-
-    n_words = len(explanation.split())
-
-    if n_words < 5:
-        return 0.0
-
-    if n_words <= 20:
-        return 0.5
-
-    if n_words <= 60:
-        return 1.0
-
-    if n_words <= 100:
-        return 0.8
-
-    return 0.5
-
-
-# ============================================================
-# Consistency Reward
-# ============================================================
-
-def consistency_reward(prediction):
-
-    label = extract_label(prediction)
-
-    explanation = extract_explanation(prediction)
-
-    reasons = extract_reasons(prediction)
-
-    text = explanation + " " + " ".join(reasons)
-
-    spoof_keywords = [
-        "robotic",
-        "metallic",
-        "electronic",
-        "synthetic",
-        "artifact",
-        "artifacts",
-        "unnatural",
-        "monotony",
-        "monotonous",
-        "strange voice",
-        "strange intonation",
-    ]
-
-    score = 0
-
-    for keyword in spoof_keywords:
-        if keyword in text:
-            score += 1
-
-    if label == "spoof":
-
-        if score > 0:
-            return 1.0
-
-        return 0.5
-
-    # bonafide
-
-    if len(reasons) > 0:
-        return 0.0
-
-    return 1.0
-
-
-# ============================================================
-# Final Reward
-# ============================================================
 
 def compute_reward(
     prediction_text,
@@ -258,52 +164,35 @@ def compute_reward(
     pred_label = extract_label(prediction_text)
     gt_label = extract_label(ground_truth_text)
 
-    # --------------------------------------------------
-    # 1. Correct answer (most important)
-    # --------------------------------------------------
-
-    if pred_label == gt_label:
-        reward += 3.0
+    label_correct = (pred_label == gt_label)
 
     # --------------------------------------------------
-    # 2. Explanation similarity
+    # Correct prediction (highest priority)
     # --------------------------------------------------
 
-    reward += 1.0 * explanation_reward(
-        prediction_text,
-        ground_truth_text,
-    )
+    if label_correct:
+
+        reward += 4.0
+
+        reward += 2.5 * reason_reward(
+            prediction_text,
+            ground_truth_text,
+        )
+
+        reward += 1.0 * explanation_reward(
+            prediction_text,
+            ground_truth_text,
+        )
+
+    else:
+
+        reward -= 1.0
 
     # --------------------------------------------------
-    # 3. Artifact reason matching
-    # --------------------------------------------------
-
-    reward += 3.0 * reason_reward(
-        prediction_text,
-        ground_truth_text,
-    )
-
-    # --------------------------------------------------
-    # 4. Output formatting
+    # Always encourage valid XML
     # --------------------------------------------------
 
     reward += 0.5 * format_reward(
-        prediction_text,
-    )
-
-    # --------------------------------------------------
-    # 5. Explanation quality
-    # --------------------------------------------------
-
-    reward += 0.5 * length_reward(
-        prediction_text,
-    )
-
-    # --------------------------------------------------
-    # 6. Logical consistency
-    # --------------------------------------------------
-
-    reward += 1.0 * consistency_reward(
         prediction_text,
     )
 

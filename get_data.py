@@ -39,15 +39,6 @@ def transform_jsonl_to_training_format(input_jsonl_path, output_json_path, task=
                 
                 audio_path = audios[0]  # Take the first audio path
                 
-                if 1 <= line_num <= 100:
-                    label = "real"  # MLAAD real
-                elif 101 <= line_num <= 200:
-                    label = "fake"  # MLAAD fake
-                elif 201 <= line_num <= 300:
-                    label = "real"  # ASVspoof real
-                elif 301 <= line_num <= 400:
-                    label = "fake"  # ASVspoof fake
-
                 # Create the training example
                 example = {
                     "path": audio_path,
@@ -75,8 +66,8 @@ def transform_jsonl_to_training_format(input_jsonl_path, output_json_path, task=
 # Example usage
 if __name__ == "__main__":
     # Replace these with your actual file paths
-    input_file = "/netscratch/fkallel/reasoning_annotation/result/Qwen3-Omni-30B-A3B-Instruct/infer_result/reasoning_3.jsonl"
-    output_file = "data/asv_mlaad_400.json"
+    input_file = "/netscratch/fkallel/reasoning_annotation/result/Qwen3-Omni-30B-A3B-Instruct/infer_result/reasoning_asv19train.jsonl"
+    output_file = "data/asv_train_reasoning.json"
     
     # Transform the data
     training_data = transform_jsonl_to_training_format(

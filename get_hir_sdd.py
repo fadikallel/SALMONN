@@ -219,8 +219,8 @@ def transform_parquet_to_training_format(input_parquet_path, output_json_path, t
 # Example usage
 if __name__ == "__main__":
     # Replace these with your actual file paths
-    input_parquet = "/ds-slt/audio/fkallel/HIR-SDD/annotations/data.parquet"  # Change this to your parquet file
-    output_file = "data/hir-sdd-binary.json"
+    input_parquet = "/ds-slt/audio/fkallel/HIR-SDD/annotations/test.parquet"  # Change this to your parquet file
+    output_file = "data/my_hir_sdd_binary_test.json"
     
     # Transform the data
     training_data = transform_parquet_to_training_format(
