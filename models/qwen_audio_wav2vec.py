@@ -16,7 +16,7 @@ class ALLM(nn.Module):
     def device(self):
         return list(self.parameters())[0].device
 
-    def maybe_autocast(self, dtype=torch.float16):
+    def maybe_autocast(self, dtype=torch.bfloat16):
         # if on cpu, don't use autocast
         # if on gpu, use autocast with dtype if provided, otherwise use torch.float16
         enable_autocast = self.device != torch.device("cpu")
@@ -94,8 +94,7 @@ class ALLM(nn.Module):
 
         assert whisper_path
         logging.info('Loading Whisper Model')
-        self.speech_encoder = WhisperModel.from_pretrained(whisper_path).encoder
-        self.speech_encoder.float()
+        self.speech_encoder = WhisperModel.from_pretrained(whisper_path, dtype=torch.bfloat16).encoder
         self.ln_speech = nn.LayerNorm(self.speech_encoder.config.d_model)
         if freeze_whisper:
             for name, param in self.speech_encoder.named_parameters():

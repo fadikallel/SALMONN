@@ -58,7 +58,6 @@ run:
 
   device: "cuda"
   use_distributed: True
-  amp: True
   world_size: 1
   dist_url: "env://"
 

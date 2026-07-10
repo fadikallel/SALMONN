@@ -52,13 +52,12 @@ run:
   epoch_based: True
   iters_per_epoch: 10000
   accum_grad_iters: 1
-  batch_size_train: 4
+  batch_size_train: 1
   batch_size_eval: 8
   num_workers: 8
 
   device: "cuda"
   use_distributed: True
-  amp: True
   world_size: 1
   dist_url: "env://"
 

@@ -16,7 +16,7 @@ model:
   # paths
   qwen_path: "../models/Qwen3.5-0.8B/"
   whisper_path: "../models/whisper-large-v3/"
-  ckpt: ""
+  ckpt: "outputs/202607100309/checkpoint_0.pth"
   
   freeze_whisper: False
   speech_qwen_proj_model: ""
@@ -58,7 +58,6 @@ run:
 
   device: "cuda"
   use_distributed: True
-  amp: True
   world_size: 1
   dist_url: "env://"
 
