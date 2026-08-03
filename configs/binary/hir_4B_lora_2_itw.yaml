@@ -14,7 +14,7 @@
 
 model:
   # paths
-  qwen_path: "/netscratch/fkallel/Qwen3.5-9B/models--Qwen--Qwen3.5-9B/snapshots/c202236235762e1c871ad0ccb60c8ee5ba337b9a/"
+  qwen_path: "/netscratch/fkallel/models/Qwen3.5-4B/"
   wav2vec2_path: "/ds-slt/audio_weights/xlsr2_300m.pt"
   ckpt: ""
   
@@ -30,36 +30,34 @@ model:
 
   multi_prompt: False
   prompt_template: "{}"
-  prompt_path: "prompts/train_prompt.json"
-  test_prompt_path: "prompts/test_prompt.json"
+  prompt_path: "prompts/train_prompt_2.json"
+  test_prompt_path: "prompts/test_prompt_2.json"
   max_txt_len: 4
   end_sym: ""
 
 datasets:
-  train_ann_path: "/netscratch/fkallel/dfd_llm/datasets/asvspoof19_train.json"
-  valid_ann_path: "/netscratch/fkallel/dfd_llm/datasets/asvspoof19_dev.json"
-  test_ann_path: "/netscratch/fkallel/SALMONN/data/itw.json"
+  train_ann_path: "data/my_hir_sdd_binary_train.json"
+  valid_ann_path: "data/my_hir_sdd_binary_val.json"
+  test_ann_path: "data/itw.json"
 
-  whisper_path: "openai/whisper-large-v2"
-  wav2vec2_path: "facebook/wav2vec2-xls-r-300m"
+  whisper_path: "../models/whisper-large-v3/"
 
 run:
   # log & settings
-  seed: 42
+  seed: 2
   output_dir: "outputs"
   evaluate: False # if True, only evaluate model on test data
 
   log_freq: 5
   epoch_based: True
-  # iters_per_epoch: 6000
+  iters_per_epoch: 10000
   accum_grad_iters: 1
-  batch_size_train: 2
+  batch_size_train: 1
   batch_size_eval: 8
   num_workers: 8
 
   device: "cuda"
   use_distributed: True
-  amp: True
   world_size: 1
   dist_url: "env://"
 
