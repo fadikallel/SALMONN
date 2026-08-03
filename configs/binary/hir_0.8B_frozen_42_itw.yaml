@@ -1,0 +1,72 @@
+# Copyright (2024) Tsinghua University, Bytedance Ltd. and/or its affiliates
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+model:
+  # paths
+  qwen_path: "../models/Qwen3.5-0.8B/"
+  whisper_path: "../models/whisper-large-v3/"
+  ckpt: ""
+  
+  freeze_whisper: False
+  speech_qwen_proj_model: ""
+  freeze_speech_qwen_proj: False
+
+  # LoRA
+  lora: False
+  lora_rank: 16
+  lora_alpha: 64
+  lora_dropout: 0.1
+
+  multi_prompt: False
+  prompt_template: "{}"
+  prompt_path: "prompts/train_prompt_2.json"
+  test_prompt_path: "prompts/test_prompt_2.json"
+  max_txt_len: 300
+  end_sym: ""
+
+datasets:
+  train_ann_path: "data/my_hir_sdd_binary_train.json"
+  valid_ann_path: "data/my_hir_sdd_binary_val.json"
+  test_ann_path: "data/itw.json"
+
+  whisper_path: "../models/whisper-large-v3/"
+
+run:
+  # log & settings
+  seed: 42
+  output_dir: "outputs"
+  evaluate: False # if True, only evaluate model on test data
+
+  log_freq: 5
+  epoch_based: True
+  iters_per_epoch: 10000
+  accum_grad_iters: 1
+  batch_size_train: 4
+  batch_size_eval: 8
+  num_workers: 8
+
+  device: "cuda"
+  use_distributed: True
+  world_size: 1
+  dist_url: "env://"
+
+  # optimizer & scheduler
+  optims:
+    max_epoch: 5
+    warmup_steps: 0  # Very long warmup
+    warmup_start_lr: 1e-6
+    init_lr: 1e-6  # Reduced from 3e-5
+    min_lr: 1e-6
+    weight_decay: 0.05
+    beta2: 0.999

@@ -64,14 +64,14 @@ class ALLM(nn.Module):
         if self.low_resource:
             self.qwen_model = Qwen3_5ForCausalLM.from_pretrained(
                 qwen_path,
-                torch_dtype=torch.float16,
+                torch_dtype=torch.bfloat16,
                 load_in_8bit=True,
                 device_map={"": device_8bit},
             )
         else:
             self.qwen_model = Qwen3_5ForCausalLM.from_pretrained(
                 qwen_path,
-                torch_dtype=torch.float16,
+                torch_dtype=torch.bfloat16,
             )
 
         self.qwen_model.resize_token_embeddings(len(self.qwen_tokenizer))
@@ -94,7 +94,7 @@ class ALLM(nn.Module):
 
         assert whisper_path
         logging.info('Loading Whisper Model')
-        self.speech_encoder = WhisperModel.from_pretrained(whisper_path, dtype=torch.bfloat16).encoder
+        self.speech_encoder = WhisperModel.from_pretrained(whisper_path, torch_dtype=torch.bfloat16).encoder
         self.ln_speech = nn.LayerNorm(self.speech_encoder.config.d_model)
         if freeze_whisper:
             for name, param in self.speech_encoder.named_parameters():
@@ -123,12 +123,13 @@ class ALLM(nn.Module):
             print("Loading training prompts done!")
 
     def _encode_auditory_feature(self, speech_embeds):
-        speech_embeds = self.speech_qwen_proj_model(speech_embeds)
-        speech_atts = torch.ones(
-            speech_embeds.size()[:-1],
-            dtype=torch.long,
-            device=speech_embeds.device,
-        )
+        with self.maybe_autocast():
+            speech_embeds = self.speech_qwen_proj_model(speech_embeds)
+            speech_atts = torch.ones(
+                speech_embeds.size()[:-1],
+                dtype=torch.long,
+                device=speech_embeds.device,
+            )
 
         return speech_embeds, speech_atts
 

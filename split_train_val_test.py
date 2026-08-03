@@ -186,15 +186,15 @@ import json
 from pathlib import Path
 from sklearn.model_selection import train_test_split
 
-def split_json_data(input_json_path, output_dir, train_size=53580, val_size=5954, test_size=0):
+def split_json_data(input_json_path, output_dir, train_size=90000, val_size=10000, test_size=0):
     """
     Split JSON data into train, validation, and test sets
     
     Args:
         input_json_path: Path to the input JSON file
         output_dir: Directory to save the splits
-        train_size: Number of training samples (default: 53580)
-        val_size: Number of validation samples (default: 5954)
+        train_size: Number of training samples (default: 61632)
+        val_size: Number of validation samples (default: 6848)
         test_size: Number of test samples (default: 0)
     """
     
@@ -216,8 +216,9 @@ def split_json_data(input_json_path, output_dir, train_size=53580, val_size=5954
         print(f"   Adjusting split sizes proportionally...")
         
         train_size = int(total_samples * (train_size / total_requested))
-        val_size = int(total_samples * (val_size / total_requested))
-        test_size = total_samples - train_size - val_size
+        val_size = total_samples - train_size 
+        # val_size = int(total_samples * (val_size / total_requested))
+        # test_size = total_samples - train_size - val_size
         
         print(f"   New sizes - Train: {train_size}, Val: {val_size}, Test: {test_size}")
     
@@ -247,7 +248,7 @@ def split_json_data(input_json_path, output_dir, train_size=53580, val_size=5954
     }
     
     for split_name, split_data in splits.items():
-        output_file = Path('data') / f"my_hir_sdd_binary_{split_name}.json"
+        output_file = Path('data') / f"my_hir_sdd_binary_{split_name}_unique_2.json"
         with open(output_file, 'w') as f:
             json.dump(split_data, f, indent=2)
         
@@ -273,14 +274,14 @@ def split_json_data(input_json_path, output_dir, train_size=53580, val_size=5954
 # Example usage
 if __name__ == "__main__":
     # Replace these with your actual file paths
-    input_json = "data/my_hir_sdd_binary.json"  # Your prepared JSON file
+    input_json = "data/my_hir_sdd_binary_unique_2.json"  # Your prepared JSON file
     output_directory = "data/"  # Directory where splits will be saved
     
     # Split the data
     splits = split_json_data(
         input_json_path=input_json,
         output_dir=output_directory,
-        train_size=53580,
-        val_size=5954,
+        train_size=90000,
+        val_size=10000,
         test_size=0
     )

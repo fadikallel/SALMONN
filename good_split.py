@@ -46,21 +46,21 @@ INPUT_PARQUET = "/ds-slt/audio/fkallel/HIR-SDD/annotations/data.parquet"
 
 TRAIN_DATASETS = {
     "asvspoof5",
-    "xtts",
-    "Espeech_spoofs",
-    "golos",
+    "MLAAD",
+    "M-AILABS",
     "sova",
-    "ruLS",
     "SpeechLLM",
     "LibriSeVoc",
-    "dfadd",
+    "final_dataset",
+    "xtts",
 
 }
 
 TEST_DATASETS = {
-    "MLAAD",
-    "M-AILABS",
-    "final_dataset",
+        "ruLS",
+            "golos",
+        "dfadd",
+    "Espeech_spoofs",
 }
 
 
@@ -75,9 +75,13 @@ print("TOTAL DATASET")
 print("=" * 80)
 print(f"Rows: {len(df):,}")
 
-if "audio" in df.columns:
-    print(f"Unique audio clips: {df['audio'].nunique():,}")
+if "path" in df.columns:
+    print(f"Unique audio clips: {df['path'].nunique():,}")
 
+before = len(df)
+df = df.drop_duplicates(subset="path", keep="first").reset_index(drop=True)
+
+print(f"Deduplicated dataset: {before:,} -> {len(df):,}")
 print()
 source_col = "source_corpus"
 
@@ -125,10 +129,10 @@ print()
 print(f"Train % : {100*len(train)/len(df):.2f}%")
 print(f"Test %  : {100*len(test)/len(df):.2f}%")
 
-if "audio" in df.columns:
+if "path" in df.columns:
     print()
-    print(f"Train unique audio: {train['audio'].nunique():,}")
-    print(f"Test unique audio : {test['audio'].nunique():,}")
+    print(f"Train unique paths: {train['path'].nunique():,}")
+    print(f"Test unique paths : {test['path'].nunique():,}")
 
 
 # ---------------------------------------------------------------------
@@ -276,9 +280,9 @@ else:
 # Save
 # ---------------------------------------------------------------------
 
-train.to_parquet("/ds-slt/audio/fkallel/HIR-SDD/annotations/train.parquet", index=False)
-test.to_parquet("/ds-slt/audio/fkallel/HIR-SDD/annotations/test.parquet", index=False)
+train.to_parquet("/ds-slt/audio/fkallel/HIR-SDD/annotations/train_unique_2.parquet", index=False)
+test.to_parquet("/ds-slt/audio/fkallel/HIR-SDD/annotations/test_unique_2.parquet", index=False)
 
 print("\nSaved:")
-print("  train.parquet")
-print("  test.parquet")
+print("  train_unique_2.parquet")
+print("  test_unique_2.parquet")

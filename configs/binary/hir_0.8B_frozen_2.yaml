@@ -36,9 +36,9 @@ model:
   end_sym: ""
 
 datasets:
-  train_ann_path: "data/my_hir_sdd_binary_train.json"
-  valid_ann_path: "data/my_hir_sdd_binary_val.json"
-  test_ann_path: "data/my_hir_sdd_binary_test.json"
+  train_ann_path: "data/hir_sdd_train_3.json"
+  valid_ann_path: "data/hir_sdd_val_3.json"
+  test_ann_path: "data/itw.json"
 
   whisper_path: "../models/whisper-large-v3/"
 

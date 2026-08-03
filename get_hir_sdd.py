@@ -148,7 +148,7 @@ def transform_parquet_to_training_format(input_parquet_path, output_json_path, t
             
             # Build the text with proper formatting
             if not reasons_list or len(reasons_list) == 0:
-                # formatted_text = f"<answer>{answer}</answer><explanation>{reasoning}</explanation>"
+                # formatted_text = f"<think>{reasoning}</think><answer>{answer}</answer>"
                 formatted_text = answer
             else:
                 # Process each reason: lowercase and replace underscores with spaces
@@ -163,7 +163,7 @@ def transform_parquet_to_training_format(input_parquet_path, output_json_path, t
                 
                 # Join with commas
                 reasons_str = ', '.join(processed_reasons)
-                # formatted_text = f"<answer>{answer}</answer><explanation>{reasoning}</explanation><reasons>{reasons_str}</reasons>"
+                # formatted_text = f"<think>{reasoning}</think><reasons>{reasons_str}</reasons><answer>{answer}</answer>"
                 formatted_text = answer
             
             # Create the training example
@@ -219,9 +219,9 @@ def transform_parquet_to_training_format(input_parquet_path, output_json_path, t
 # Example usage
 if __name__ == "__main__":
     # Replace these with your actual file paths
-    input_parquet = "/ds-slt/audio/fkallel/HIR-SDD/annotations/test.parquet"  # Change this to your parquet file
-    output_file = "data/my_hir_sdd_binary_test.json"
-    
+    input_parquet = "/ds-slt/audio/fkallel/HIR-SDD/annotations/test_unique_2.parquet"  # Change this to your parquet file
+    output_file = "data/my_hir_sdd_binary_test_unique_2.json"
+
     # Transform the data
     training_data = transform_parquet_to_training_format(
         input_parquet_path=input_parquet,
