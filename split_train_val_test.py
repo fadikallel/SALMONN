@@ -248,7 +248,7 @@ def split_json_data(input_json_path, output_dir, train_size=90000, val_size=1000
     }
     
     for split_name, split_data in splits.items():
-        output_file = Path('data') / f"my_hir_sdd_binary_{split_name}_unique_2.json"
+        output_file = Path('data') / f"my_hir_sdd_{split_name}_2.json"
         with open(output_file, 'w') as f:
             json.dump(split_data, f, indent=2)
         
@@ -274,7 +274,7 @@ def split_json_data(input_json_path, output_dir, train_size=90000, val_size=1000
 # Example usage
 if __name__ == "__main__":
     # Replace these with your actual file paths
-    input_json = "data/my_hir_sdd_binary_unique_2.json"  # Your prepared JSON file
+    input_json = "data/my_hir_sdd_2.json"  # Your prepared JSON file
     output_directory = "data/"  # Directory where splits will be saved
     
     # Split the data

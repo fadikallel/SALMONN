@@ -128,7 +128,7 @@ def transform_parquet_to_training_format(input_parquet_path, output_json_path, t
                 continue
             
             # Convert bonafide to answer text
-            answer = "bonafide" if is_bonafide else "spoof"
+            answer = "Real" if is_bonafide else "Fake"
             
             # Get reasoning
             reasoning = row.get('reasoning', '')
@@ -148,8 +148,8 @@ def transform_parquet_to_training_format(input_parquet_path, output_json_path, t
             
             # Build the text with proper formatting
             if not reasons_list or len(reasons_list) == 0:
-                # formatted_text = f"<think>{reasoning}</think><answer>{answer}</answer>"
-                formatted_text = answer
+                formatted_text = f"<think>{reasoning}</think><answer>{answer}</answer>"
+                # formatted_text = answer
             else:
                 # Process each reason: lowercase and replace underscores with spaces
                 processed_reasons = []
@@ -163,8 +163,8 @@ def transform_parquet_to_training_format(input_parquet_path, output_json_path, t
                 
                 # Join with commas
                 reasons_str = ', '.join(processed_reasons)
-                # formatted_text = f"<think>{reasoning}</think><reasons>{reasons_str}</reasons><answer>{answer}</answer>"
-                formatted_text = answer
+                formatted_text = f"<think>{reasoning}</think><reasons>{reasons_str}</reasons><answer>{answer}</answer>"
+                # formatted_text = answer
             
             # Create the training example
             example = {
@@ -196,11 +196,11 @@ def transform_parquet_to_training_format(input_parquet_path, output_json_path, t
     
     # Print some statistics
     if training_data:
-        bonafide_count = sum(1 for item in training_data if '<answer>bonafide' in item['text'])
-        spoof_count = sum(1 for item in training_data if '<answer>spoof' in item['text'])
+        bonafide_count = sum(1 for item in training_data if '<answer>Real' in item['text'])
+        spoof_count = sum(1 for item in training_data if '<answer>Fake' in item['text'])
         print(f"\n📊 Statistics:")
-        print(f"   Bonafide samples: {bonafide_count}")
-        print(f"   Spoof samples: {spoof_count}")
+        print(f"   Real samples: {bonafide_count}")
+        print(f"   Fake samples: {spoof_count}")
         
         # Print first few paths as examples
         print(f"\n📁 Sample absolute paths:")
@@ -219,14 +219,14 @@ def transform_parquet_to_training_format(input_parquet_path, output_json_path, t
 # Example usage
 if __name__ == "__main__":
     # Replace these with your actual file paths
-    input_parquet = "/ds-slt/audio/fkallel/HIR-SDD/annotations/test_unique_2.parquet"  # Change this to your parquet file
-    output_file = "data/my_hir_sdd_binary_test_unique_2.json"
+    input_parquet = "/ds-slt/audio/fkallel/HIR-SDD/annotations/test_2.parquet"  # Change this to your parquet file
+    output_file = "data/my_hir_sdd_test_2.json"
 
     # Transform the data
     training_data = transform_parquet_to_training_format(
         input_parquet_path=input_parquet,
         output_json_path=output_file,
-        task="deepfake_detection"
+        task="deepfake_detection_with_reasoning"
     )
     
     # Print a sample to verify

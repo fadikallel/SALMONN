@@ -1,11 +1,6 @@
 import re
 from collections import Counter
 
-
-# ============================================================
-# XML Parsing
-# ============================================================
-
 def extract_tag(text, tag):
     if text is None:
         return ""
@@ -20,38 +15,22 @@ def extract_tag(text, tag):
 
 
 def extract_label(text):
-    answer = extract_tag(text, "answer").lower()
+    answer = extract_tag(text, "answer")
 
-    if "bonafide" in answer:
+    if "bonafide" in answer or "Real" in answer:
         return "bonafide"
 
-    if "spoof" in answer:
+    if "spoof" in answer or "Fake" in answer:
         return "spoof"
 
     return None
 
 
-def extract_explanation(text):
-    return extract_tag(text, "explanation").strip().lower()
-
-
-def extract_reasons(text):
-    reasons = extract_tag(text, "reasons")
-
-    if reasons == "":
-        return set()
-
-    parts = re.split(r"[,\n;]", reasons.lower())
-
-    return {
-        p.strip()
-        for p in parts
-        if p.strip()
-    }
-
+def extract_reasoning(text):
+    return extract_tag(text, "reasoning").strip().lower()
 
 # ============================================================
-# Explanation Reward
+# Reasoning Reward
 # ============================================================
 
 def token_f1(pred_tokens, gt_tokens):
@@ -70,10 +49,10 @@ def token_f1(pred_tokens, gt_tokens):
     return 2 * precision * recall / (precision + recall)
 
 
-def explanation_reward(prediction, ground_truth):
+def reasoning_reward(prediction, ground_truth):
 
-    pred = extract_explanation(prediction)
-    gt = extract_explanation(ground_truth)
+    pred = extract_reasoning(prediction)
+    gt = extract_reasoning(ground_truth)
 
     if pred == "" or gt == "":
         return 0.0
@@ -83,80 +62,47 @@ def explanation_reward(prediction, ground_truth):
 
     return token_f1(pred_tokens, gt_tokens)
 
-
-# ============================================================
-# Reason Reward
-# ============================================================
-
-def reason_f1(pred_set, gt_set):
-
-    if len(pred_set) == 0 and len(gt_set) == 0:
-        return 1.0
-
-    if len(pred_set) == 0:
-        return 0.0
-
-    tp = len(pred_set & gt_set)
-
-    precision = tp / len(pred_set)
-    recall = tp / len(gt_set)
-
-    if precision + recall == 0:
-        return 0.0
-
-    return 2 * precision * recall / (precision + recall)
-
-
-def reason_reward(prediction, ground_truth):
-
-    gt_label = extract_label(ground_truth)
-
-    pred_reasons = extract_reasons(prediction)
-    gt_reasons = extract_reasons(ground_truth)
-
-    # Bonafide should not contain reasons
-    if gt_label == "bonafide":
-        return 1.0 if len(pred_reasons) == 0 else 0.0
-
-    reward = reason_f1(pred_reasons, gt_reasons)
-
-    # Penalize predicting too many reasons
-    if len(gt_reasons) > 0 and len(pred_reasons) > len(gt_reasons):
-        reward *= len(gt_reasons) / len(pred_reasons)
-
-    return reward
-
-
 # ============================================================
 # XML Formatting Reward
 # ============================================================
+import re
 
-def format_reward(prediction):
+# Each tag must appear exactly once, in order, non-empty, non-nested.
+_REASONING_RE = re.compile(r"<reasoning>(.*?)</reasoning>", re.DOTALL)
+_ANSWER_RE = re.compile(r"<answer>(.*?)</answer>", re.DOTALL)
 
-    pred = str(prediction).lower()
+# Full structure: optional leading whitespace, reasoning block, optional whitespace,
+# answer block, optional trailing whitespace. Anchored so nothing extra sneaks in.
+_STRUCTURE_RE = re.compile(
+    r"^\s*<reasoning>(?P<reasoning>.+?)</reasoning>\s*"
+    r"<answer>(?P<answer>.+?)</answer>\s*$",
+    re.DOTALL,
+)
 
-    label = extract_label(prediction)
 
-    has_answer = "<answer>" in pred and "</answer>" in pred
-    has_explanation = "<explanation>" in pred and "</explanation>" in pred
+def format_reward(prediction) -> float:
+    pred = str(prediction).strip().lower()
 
-    if label == "spoof":
-        has_reasons = "<reasons>" in pred and "</reasons>" in pred
-    else:
-        has_reasons = "<reasons>" not in pred
+    # 1. Each tag must occur exactly once (catches duplicates / missing closers)
+    if len(_REASONING_RE.findall(pred)) != 1:
+        return 0.0
+    if len(_ANSWER_RE.findall(pred)) != 1:
+        return 0.0
 
-    return float(
-        has_answer and
-        has_explanation and
-        has_reasons
-    )
+    # 2. Overall structure must match: reasoning block, then answer block, nothing else around them
+    match = _STRUCTURE_RE.match(pred)
+    if not match:
+        return 0.0
 
+    # 3. Both blocks must have non-empty content (not just whitespace)
+    if not match.group("reasoning").strip() or not match.group("answer").strip():
+        return 0.0
+
+    return 1.0
 
 def compute_reward(
     prediction_text,
     ground_truth_text,
-    reward_funcs=None,
-    reward_weights=None,
 ):
 
     reward = 0.0
@@ -173,13 +119,7 @@ def compute_reward(
     if label_correct:
 
         reward += 4.0
-
-        reward += 2.5 * reason_reward(
-            prediction_text,
-            ground_truth_text,
-        )
-
-        reward += 1.0 * explanation_reward(
+        reward += 1.0 * reasoning_reward(
             prediction_text,
             ground_truth_text,
         )
